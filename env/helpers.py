@@ -358,7 +358,8 @@ def dfsins_innate_deps(dep:tuple, aid:dict)->tuple:
 """gathers the action dependency with information needed (constraints) in mind"""
 
 # given the constraint and the constr_str_seen, the function gives the proper function call (parameters previously found or brand new)
-def get_cl_param_mapping(constr:tuple, constr_links:dict, action_parameters:dict[str:set], constr_str_seen:dict[str:dict[tuple:dict]]={}):
+def get_cl_param_mapping(constr:tuple, constr_links:dict, action_parameters:dict[str:set], constr_str_seen:dict[str:dict[tuple:dict]]=None):
+    if constr_str_seen is None: constr_str_seen = {}
     constr_str, constr_param_mapping = constr
     # parse the contraint link action and parameter mapping
     cl_action, cl_param_mapping = copy.deepcopy(constr_links[constr_str]) if isinstance(constr_links[constr_str], tuple) else\
@@ -391,7 +392,8 @@ def get_cl_param_mapping(constr:tuple, constr_links:dict, action_parameters:dict
 # dfs insert the constraint links: replaces the original constraint with the constraints of the linked action
 # constr_str_seen key constr_str and value dict, dict key params tuple and value dict of param mappings to new params from the dep
 def dfsins_constr_links(dep:tuple, constraint_links:dict, default_deps:dict, action_parameters:dict,
-    constr_str_seen:dict[str:dict[tuple:dict]]={})->tuple:
+    constr_str_seen:dict[str:dict[tuple:dict]]=None)->tuple:
+    if constr_str_seen is None: constr_str_seen = {}
     if not dep: return None
     dep_new = dep
     match dep[0]:
@@ -416,7 +418,8 @@ def dfsins_constr_links(dep:tuple, constraint_links:dict, default_deps:dict, act
 # recursively inserts constraint links, constraint dependencies, and action innate dependencies
 # default deps already has constraint dependencies, inversing a chain is only inverting the last element
 def dfsins_cl_cd_aid(dep:tuple, constr_links:dict, act_innate_deps:dict, act_def_deps:dict, constr_deps:dict, action_parameters:dict,
-    constr_str_seen:dict[str:dict[tuple:dict]]={})->tuple:
+    constr_str_seen:dict[str:dict[tuple:dict]]=None)->tuple:
+    if constr_str_seen is None: constr_str_seen = {}
     if not dep: return None
     dep_new = None
     cl, aid, ad, cd = constr_links, act_innate_deps, act_def_deps, constr_deps
@@ -586,7 +589,8 @@ def update_inv_func_graph(inv_func_graph:dict, inv_func_graph_part:dict)->dict:
 
 # gathers the inverse function call graph represented by the process, constraint processes, and default dependency
 def dfsgather_inv_func_graph_process(pro:tuple, constr_links:dict, constr_pros:dict, act_def_deps:dict, action_parameters:dict,
-    constr_str_seen:dict[str:dict[tuple:dict]]={}, prev_func_call:tuple=None):
+    constr_str_seen:dict[str:dict[tuple:dict]]=None, prev_func_call:tuple=None):
+    if constr_str_seen is None: constr_str_seen = {}
     inv_func_graph = {"nodes": [], "connections": [], "inv_nodes":{}, "root_ind": -1}
     if not pro: return inv_func_graph
     # singular action
@@ -615,7 +619,8 @@ def dfsgather_inv_func_graph_process(pro:tuple, constr_links:dict, constr_pros:d
 # connecting nodes backwards and forwards
 def dfsgather_inv_func_graph_dependency(dep_orig:tuple,
     constr_links:dict, constr_pros:dict, action_default_deps_orig:dict, action_parameters:dict,
-    constr_str_seen:dict[str:dict[tuple:dict]]={})->dict:
+    constr_str_seen:dict[str:dict[tuple:dict]]=None)->dict:
+    if constr_str_seen is None: constr_str_seen = {}
     inv_func_graph = {"nodes": [], "connections": [], "inv_nodes":{}, "root_ind": -1}
     # single case, constraints are guaranteed to be in constraint links or constraint processes
     if not dep_orig: return inv_func_graph
