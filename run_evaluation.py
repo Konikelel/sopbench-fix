@@ -207,7 +207,7 @@ def main():
                         if len(interaction[i]["tool_calls"]) > 0:
                             arguments = interaction[i]["tool_calls"][0]["function"]["arguments"]
                             try: arguments = json.loads(arguments)
-                            except json.JSONDecodeError: pass
+                            except Exception: pass
                             func_calls.append({
                                 "tool_name": interaction[i+1]["tool_name"],
                                 "arguments": arguments,
