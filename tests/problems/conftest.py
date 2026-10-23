@@ -2,7 +2,8 @@
 
 CI also runs them against the original upstream code with ORIGINAL_VERSION=1. There every test
 must fail, so the outcome of the test body is inverted: a failing test is reported as passed and
-a passing one as failed. Errors in setup, teardown or collection are not inverted.
+a passing one as failed. A skipped test shows nothing and is reported as failed. Errors in setup,
+teardown or collection are not inverted.
 """
 import os
 
@@ -13,9 +14,14 @@ import pytest
 def pytest_runtest_makereport(item, call):
     outcome = yield
     report = outcome.get_result()
-    if os.environ.get("ORIGINAL_VERSION") != "1" or report.when != "call":
+    if os.environ.get("ORIGINAL_VERSION") != "1":
         return
-    if report.failed:
+    if report.skipped:
+        report.outcome = "failed"
+        report.longrepr = "the test is skipped on the original version"
+    elif report.when != "call":
+        return
+    elif report.failed:
         report.outcome = "passed"
         report.longrepr = None
     elif report.passed:

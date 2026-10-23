@@ -96,15 +96,9 @@ def load_tasks(domain):
     return tasks
 
 
-_DEP_FULL = {}
-
-
 def _dep_full(args):
-    key = (args.domain, args.default_constraint_option, args.constraint_descr_format)
-    if key not in _DEP_FULL:
-        _DEP_FULL[key] = RS.task_default_dep_full(args.domain, args.default_constraint_option,
-                                                  args.constraint_descr_format, dependency_verb_dep_orig=True)
-    return _DEP_FULL[key]
+    return RS.task_default_dep_full(args.domain, args.default_constraint_option, args.constraint_descr_format,
+                                    dependency_verb_dep_orig=True)
 
 
 def offered_tools(domain, task, *flags):

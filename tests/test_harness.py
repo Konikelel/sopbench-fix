@@ -77,9 +77,12 @@ def test_problem_tests_are_inverted_on_the_original_version(pytester, monkeypatc
     conftest = os.path.join(os.path.dirname(__file__), "problems", "conftest.py")
     with open(conftest, encoding="utf-8") as f:
         pytester.makeconftest(f.read())
-    pytester.makepyfile("def test_fixed():\n    assert True\n\ndef test_still_broken():\n    assert False\n")
-    pytester.runpytest().assert_outcomes(passed=1, failed=1)
+    pytester.makepyfile("import pytest\n\n"
+                        "def test_fixed():\n    assert True\n\n"
+                        "def test_still_broken():\n    assert False\n\n"
+                        "@pytest.mark.skip\ndef test_skipped():\n    pass\n")
+    pytester.runpytest().assert_outcomes(passed=1, failed=1, skipped=1)
     monkeypatch.setenv("ORIGINAL_VERSION", "1")
     result = pytester.runpytest()
-    result.assert_outcomes(passed=1, failed=1)
-    result.stdout.fnmatch_lines(["FAILED test_*::test_fixed*"])
+    result.assert_outcomes(passed=1, failed=1, errors=1)
+    result.stdout.fnmatch_lines(["FAILED test_*::test_fixed*", "ERROR test_*::test_skipped*"])
