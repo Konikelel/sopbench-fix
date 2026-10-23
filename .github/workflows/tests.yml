@@ -6,9 +6,7 @@ on:
     branches: [main]
 
 env:
-  # hash() seeds new driving licence and credit card numbers; fixed until those use a stable hash
   PYTHONHASHSEED: "0"
-  # upstream commit the fork starts from
   ORIGINAL_SHA: 8790ed7406acbd22270f90bd1c4038de3fc5db8f
 
 jobs:
@@ -63,7 +61,6 @@ jobs:
         run: |
           status=0
           pytest tests/problems || status=$?
-          # 5: no problem tests yet
           if [ "$status" -ne 0 ] && [ "$status" -ne 5 ]; then exit "$status"; fi
 
   stats:

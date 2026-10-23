@@ -1,10 +1,3 @@
-"""Problem tests: each one reproduces a single SOPBench problem and passes once the problem is fixed.
-
-CI also runs them against the original upstream code with ORIGINAL_VERSION=1. There every test
-must fail, so the outcome of the test body is inverted: a failing test is reported as passed and
-a passing one as failed. A skipped test shows nothing and is reported as failed. Errors in setup,
-teardown or collection are not inverted.
-"""
 import os
 
 import pytest

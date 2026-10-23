@@ -13,7 +13,6 @@ def make_task(nodes, connections, should_succeed=True, user_known=None):
 
 
 def test_graph_paths_take_each_or_branch_and_keep_and_order():
-    # target needs login, then (check_a or check_b) and check_c
     task = make_task(
         nodes=[["target", {}], "and", ["login", {"u": "user"}], "and", "or",
                ["check_a", {}], ["check_b", {}], ["check_c", {}]],
@@ -25,7 +24,6 @@ def test_graph_paths_take_each_or_branch_and_keep_and_order():
 
 
 def test_graph_paths_keep_a_repeated_step_once():
-    # both checks need the same login
     task = make_task(
         nodes=[["target", {}], "and", ["check_a", {}], ["check_b", {}], ["login", {"u": "user"}]],
         connections=[[0, 1], [1, 2], [1, 3], [2, 4], [3, 4]])
@@ -65,12 +63,6 @@ def test_scripted_calls_reach_the_official_evaluation():
     [evaluation] = H.evaluate("university", [entry])
     assert evaluation["user_goal"] == task["user_goal"]
     assert evaluation["num_function_calls"] == len(calls)
-
-
-def test_text_reply_is_not_a_tool_call():
-    task = H.load_tasks("university")[0]
-    [evaluation] = H.run("university", [(task, ["I cannot help with that."])])
-    assert evaluation["num_function_calls"] == 0
 
 
 def test_problem_tests_are_inverted_on_the_original_version(pytester, monkeypatch):

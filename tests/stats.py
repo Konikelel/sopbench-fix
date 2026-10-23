@@ -1,27 +1,20 @@
-"""Benchmark statistics of the current code, per domain, as a Markdown table.
-
-    PYTHONHASHSEED=0 python -m tests.stats [domain ...]
-
-CI fixes PYTHONHASHSEED because hash() seeds new driving licence and credit card numbers.
-
-Ideal agent: tasks passed, and paths passed / executable paths (see tests/agents.py).
-Idle agent: tasks passed. Label mismatches: tasks whose label disagrees with Strict (see tests/labels.py).
-"""
 import sys
 
 from tests import harness as H
 from tests.agents import ideal_agent, idle_agent
 from tests.labels import label_mismatches
 
+KEYS = ["tasks", "ideal_tasks", "ideal_paths", "executable_paths", "idle", "label_mismatches"]
+
 
 def domain_stats(domain):
     tasks = H.load_tasks(domain)
-    ideal = ideal_agent(domain, tasks)
+    ideal = ideal_agent(domain, tasks).values()
     return {
         "tasks": len(tasks),
-        "ideal_tasks": sum(r.task_passed for r in ideal),
-        "ideal_paths": sum(r.passed for r in ideal),
-        "executable_paths": sum(r.executable for r in ideal),
+        "ideal_tasks": sum(0 < passed == executable for passed, executable in ideal),
+        "ideal_paths": sum(passed for passed, _ in ideal),
+        "executable_paths": sum(executable for _, executable in ideal),
         "idle": sum(idle_agent(domain, tasks).values()),
         "label_mismatches": len(label_mismatches(domain, tasks)),
     }
@@ -32,18 +25,16 @@ def row(name, s):
             f"| {s['idle']}/{s['tasks']} | {s['label_mismatches']} |")
 
 
-def main(argv):
-    names = argv or H.domains()
-    stats = {d: domain_stats(d) for d in names}
-    total = {k: sum(s[k] for s in stats.values()) for k in next(iter(stats.values()))}
-    lines = ["| Domain | Ideal agent: tasks | Ideal agent: paths passed / executable | Idle agent | Label mismatches |",
-             "|---|---|---|---|---|"]
-    lines += [row(d, s) for d, s in stats.items()]
-    lines.append(row("**all**", total))
-    lines += ["", f"Ideal agent {total['ideal_tasks']}/{total['tasks']} tasks "
-                  f"({total['ideal_paths']}/{total['executable_paths']} paths), "
-                  f"idle agent {total['idle']}/{total['tasks']}, label mismatches {total['label_mismatches']}."]
-    print("\n".join(lines))
+def main(names):
+    stats = {d: domain_stats(d) for d in names or H.domains()}
+    total = {k: sum(s[k] for s in stats.values()) for k in KEYS}
+    print("| Domain | Ideal agent: tasks | Ideal agent: paths passed / executable | Idle agent | Label mismatches |")
+    print("|---|---|---|---|---|")
+    for d, s in stats.items():
+        print(row(d, s))
+    print(row("**all**", total))
+    print(f"\nIdeal agent {total['ideal_tasks']}/{total['tasks']} tasks ({total['ideal_paths']}/{total['executable_paths']} paths), "
+          f"idle agent {total['idle']}/{total['tasks']}, label mismatches {total['label_mismatches']}.")
 
 
 if __name__ == "__main__":
