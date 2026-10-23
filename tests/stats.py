@@ -1,6 +1,8 @@
 """Benchmark statistics of the current code, per domain, as a Markdown table.
 
-    python -m tests.stats [domain ...]
+    PYTHONHASHSEED=0 python -m tests.stats [domain ...]
+
+CI fixes PYTHONHASHSEED because hash() seeds new driving licence and credit card numbers.
 
 Ideal agent: tasks passed, and paths passed / executable paths (see tests/agents.py).
 Idle agent: tasks passed. Label mismatches: tasks whose label disagrees with Strict (see tests/labels.py).

@@ -3,8 +3,10 @@
 A scripted model stands in for the LLM inside run_simulation.run_task_simulation (the official
 loop, user agent and limits as built by run_simulation.main), the results are written with
 run_simulation.save_results, and they are scored by the unmodified run_evaluation.main reading
-those files. Nothing here re-implements simulation or evaluation logic, so a change in SOPBench
-code shows up in every test and statistic that uses the harness.
+those files, so a change in SOPBench code shows up in every test and statistic that uses the harness.
+
+run_simulation.main itself needs a model API, so three parts of it are mirrored here and must
+follow it if it changes: loading the tasks file, the result entry it saves, and the output file name.
 """
 import contextlib
 import copy
@@ -17,21 +19,16 @@ import uuid
 from dataclasses import dataclass, field
 from unittest import mock
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if ROOT not in sys.path:
-    sys.path.insert(0, ROOT)
+import run_evaluation as RE
+import run_simulation as RS
+from openai.types.chat.chat_completion_message_tool_call import ChatCompletionMessageToolCall, Function
+from env.task import task_initializer
+from env.variables import domain_keys
+from swarm.llm_handler import OpenAIHandler
+from swarm.types import Agent
+from swarm.util import construct_chatcompletion
 
-import run_evaluation as RE  # noqa: E402
-import run_simulation as RS  # noqa: E402
-from openai.types.chat.chat_completion_message_tool_call import (  # noqa: E402
-    ChatCompletionMessageToolCall,
-    Function,
-)
-from env.task import task_initializer  # noqa: E402
-from env.variables import domain_keys  # noqa: E402
-from swarm.llm_handler import OpenAIHandler  # noqa: E402
-from swarm.types import Agent  # noqa: E402
-from swarm.util import construct_chatcompletion  # noqa: E402
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MODEL_NAME = "scripted"
 
@@ -53,7 +50,7 @@ class ScriptedModel(OpenAIHandler):
 
     A step is a Call, a list of Calls (parallel calls in one message) or a string (text reply).
     After the last step the model calls exit_conversation. The tool names offered in each request
-    are recorded in `offered`.
+    are recorded in `offered`. It subclasses OpenAIHandler only because Agent.client requires one.
     """
 
     def __init__(self, steps):
@@ -85,9 +82,9 @@ def simulation_args(domain, *flags):
         return RS.parse_args()
 
 
-def load_tasks(domain, args=None):
+def load_tasks(domain):
     """Tasks as run_simulation.main loads them, each with an `id` of the form goal#index."""
-    args = args or simulation_args(domain)
+    args = simulation_args(domain)
     with open(os.path.join(ROOT, args.data_dir, f"{domain}_tasks.json"), encoding="utf-8") as f:
         tasks_dict = json.load(f)
     tasks = []
@@ -131,10 +128,11 @@ def simulate(domain, task, steps, *flags):
                             top_p=args.assistant_top_p, max_tokens=args.assistant_max_tokens,
                             tool_call_mode=args.tool_call_mode, instructions="", functions=[])
     user_agent = Agent(name="user", client=None, default_response="", response_repeat=True)
+    dep_innate_full, default_dep_full, default_dep_full_descr = _dep_full(args)
     with contextlib.redirect_stdout(io.StringIO()):
-        result = RS.run_task_simulation(args=args, task=task, dep_innate_full=_dep_full(args)[0],
-                                        default_dep_full=_dep_full(args)[1],
-                                        default_dep_full_descr=_dep_full(args)[2],
+        result = RS.run_task_simulation(args=args, task=task, dep_innate_full=dep_innate_full,
+                                        default_dep_full=default_dep_full,
+                                        default_dep_full_descr=default_dep_full_descr,
                                         assistant_agent=assistant_agent, user_agent=user_agent)
     task["assistant_prompt"] = result["prompt"]
     for message in result["interaction"]:

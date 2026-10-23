@@ -1,4 +1,4 @@
-"""Scripted reference agents run through the harness.
+"""The ideal agent and the idle agent, run through the harness.
 
 Ideal agent: in every task it walks each path through the task's directed action graph that uses
 only tools the simulation offers the agent, with arguments taken from user_known. On a task that
@@ -90,13 +90,16 @@ class IdealResult:
 def ideal_agent(domain, tasks=None):
     """IdealResult per task of the domain."""
     tasks = H.load_tasks(domain) if tasks is None else tasks
-    runs, owner = [], []
+    entries, owner = [], []
     for task in tasks:
         for path in executable_paths(domain, task):
-            runs.append((task, ideal_calls(task, path)))
+            calls = ideal_calls(task, path)
+            entry, offered = H.simulate(domain, task, calls)
+            assert {c.name for c in calls} <= set(offered), f"{task['id']}: a call goes to a tool the model was not offered"
+            entries.append(entry)
             owner.append(task["id"])
     executable, passed = collections.Counter(owner), collections.Counter()
-    for task_id, evaluation in zip(owner, H.run(domain, runs)):
+    for task_id, evaluation in zip(owner, H.evaluate(domain, entries) if entries else []):
         passed[task_id] += bool(evaluation["success"])
     return [IdealResult(task["id"], executable[task["id"]], passed[task["id"]]) for task in tasks]
 
