@@ -1,0 +1,84 @@
+name: tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+env:
+  # hash() seeds new driving licence and credit card numbers; fixed until those use a stable hash
+  PYTHONHASHSEED: "0"
+  # upstream commit the fork starts from
+  ORIGINAL_SHA: 8790ed7406acbd22270f90bd1c4038de3fc5db8f
+
+jobs:
+  tests:
+    name: tests on this commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !/output/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt pytest
+      - run: pytest
+
+  problem-tests-original:
+    name: problem tests fail on the original version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: current
+          sparse-checkout: |
+            /tests/
+            /pytest.ini
+          sparse-checkout-cone-mode: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.ORIGINAL_SHA }}
+          path: original
+          sparse-checkout: |
+            /*
+            !/output/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: original/requirements.txt
+      - run: pip install -r original/requirements.txt pytest
+      - name: original code with the tests of this commit
+        run: cp -r current/tests current/pytest.ini original/
+      - name: every problem test fails
+        working-directory: original
+        env:
+          ORIGINAL_VERSION: "1"
+        run: |
+          status=0
+          pytest tests/problems || status=$?
+          # 5: no problem tests yet
+          if [ "$status" -ne 0 ] && [ "$status" -ne 5 ]; then exit "$status"; fi
+
+  stats:
+    name: statistics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /*
+            !/output/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m tests.stats >> "$GITHUB_STEP_SUMMARY"
