@@ -31,3 +31,11 @@ def test_boolean_arguments_are_read_as_json(domain, task_id):
 
 def test_date_responses_are_compared_as_text():
     assert ideal_run("dmv", "renew_vehicle#2")["constraint_not_violated"]
+
+
+@pytest.mark.parametrize("domain, task_id", [("bank", "get_account_owed_balance#0"), ("dmv", "renew_vehicle#0"),
+                                             ("healthcare", "get_policy_details#0"), ("library", "check_return_date#0"),
+                                             ("online_market", "get_order_details#0"),
+                                             ("hotel", "process_guest_checkin#0")])
+def test_target_action_returning_a_value_counts_as_called(domain, task_id):
+    assert ideal_run(domain, task_id)["success"]

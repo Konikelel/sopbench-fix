@@ -250,9 +250,11 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
             nodes, connections, inv_nodes = dfsgather_ifg_func(domain_system, domain_assistant_keys[domain_str], func_name, default_constraint_option)
         elif func_name not in action_parameters: continue
         # detecting when the target action has been successfully called
+        gt_response = gt_responses[i][1]
         if (not evaluation_result["action_successfully_called"]
             and func_name == task["user_goal"]
-            and func_resp == "True"):
+            and (func_resp == "True"
+                or (isinstance(gt_response, tuple) and gt_response[0] is True and func_resp == str(gt_response[1])))):
             evaluation_result["action_successfully_called"] = True
         # traversing the graph to see if the assistant has called the necessary functions before this function call
         node_ind = inv_nodes[func_name]
