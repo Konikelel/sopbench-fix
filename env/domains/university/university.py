@@ -514,8 +514,10 @@ class University_Strict:
     def login_user(self, username: str, password: str) -> bool:
         if not self.domain_dep.process(method_str="login_user", username=username, password=password):
             return False
+        if not self.domain_system.login_user(username, password):
+            return False
         self.state_tracker.set_login_user(username)
-        return self.domain_system.login_user(username, password)
+        return True
     
     def logout_user(self, username: str) -> bool:
         dep_res = self.domain_dep.process(method_str="logout_user", username=username)
