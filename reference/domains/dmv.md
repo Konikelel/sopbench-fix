@@ -10,13 +10,13 @@
 | `cancel_test` | Cancels a knowledge or driving test for the user. Returns true or false for successfully canceling the specified test | `logged_in_user AND test_scheduled` |
 | `change_dl_address` | Updates the address associated with the user's driver's license. Returns true or false for successful change of the address associated with the driver's license. | `internal_has_dl` |
 | `change_vehicle_address` | Changes the address associated with the specified vehicle. Returns true or false for successful change of the address asspciated with the specified vehicle. | `internal_has_vehicle` |
-| `get_dl_status` | Retrieves the status of the user's driver's license. Returns the expiration date of the user's driver's license or None if retrieval conditions are not met. | `internal_has_dl` |
-| `get_reg_status` | Gets the registration status of a specific vehicle. Returns the registration renewal date for the specified vehicle or None if retrieval conditions are not met. | `internal_has_vehicle` |
+| `get_dl_status` | Retrieves the status of the user's driver's license. Returns the expiration date of the user's driver's license or false if retrieval conditions are not met. | `internal_has_dl` |
+| `get_reg_status` | Gets the registration status of a specific vehicle. Returns the registration renewal date for the specified vehicle or false if retrieval conditions are not met. | `internal_has_vehicle` |
 | `login_user` | Logs in the user to authenticate the user to access their account. Returns true or false for login success or failure. | `None` |
 | `logout_user` | Logs out the user if the user was previously logged in. Returns true always because of successful logout. | `logged_in_user` |
 | `register_vehicle` | Registers the vehicle with the specfied plate number to the user. Returns true or false for successful vehicle registration. | `logged_in_user AND not internal_vehicle_registered` |
-| `renew_dl` | Renews the user's driver's license. Returns the new expiration date of the driver's license or None if the renewal condtions are not met. | `internal_has_dl` |
-| `renew_vehicle` | Renews the registration of the specified vehicle. Returns the vehicles's new renewal date or None if renewal conditions are not met. | `internal_has_vehicle` |
+| `renew_dl` | Renews the user's driver's license. Returns the new expiration date of the driver's license or false if the renewal condtions are not met. | `internal_has_dl` |
+| `renew_vehicle` | Renews the registration of the specified vehicle. Returns the vehicles's new renewal date or false if renewal conditions are not met. | `internal_has_vehicle` |
 | `schedule_test` | Schedules a knowledge or driving test for the user at the expected date and time. Returns true or false for successfully scheduling the specified test at the expected date and time. | `logged_in_user AND internal_check_test_slot_available` |
 | `set_admin_password` | Sets the admin password for their account. Returns true or false for successful admin password reset. | `authenticated_admin_password` |
 | `show_available_test_slots` | Shows available test slots for the specified test_type. Returns the available test slots for the specified test_type. | `None` |

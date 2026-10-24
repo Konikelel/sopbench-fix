@@ -144,7 +144,7 @@
   {
     "function": {
       "name": "get_claim_details",
-      "description": "Retrieves the details of a specific claim based on the claim ID. This includes the status, amount, description, and date. Returns true or false for successful retrieval of claim details.",
+      "description": "Retrieves the details of a specific claim based on the claim ID. This includes the status, amount, description, and date. Returns a dictionary of the claim details, an empty dictionary if the claim does not exist, or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",

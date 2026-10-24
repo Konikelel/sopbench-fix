@@ -137,7 +137,7 @@
   {
     "function": {
       "name": "get_reg_status",
-      "description": "Gets the registration status of a specific vehicle. Returns the registration renewal date for the specified vehicle or None if retrieval conditions are not met.",
+      "description": "Gets the registration status of a specific vehicle. Returns the registration renewal date for the specified vehicle or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -220,7 +220,7 @@
   {
     "function": {
       "name": "renew_vehicle",
-      "description": "Renews the registration of the specified vehicle. Returns the vehicles's new renewal date or None if renewal conditions are not met.",
+      "description": "Renews the registration of the specified vehicle. Returns the vehicles's new renewal date or false if renewal conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -246,7 +246,7 @@
   {
     "function": {
       "name": "get_dl_status",
-      "description": "Retrieves the status of the user's driver's license. Returns the expiration date of the user's driver's license or None if retrieval conditions are not met.",
+      "description": "Retrieves the status of the user's driver's license. Returns the expiration date of the user's driver's license or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -319,7 +319,7 @@
   {
     "function": {
       "name": "renew_dl",
-      "description": "Renews the user's driver's license. Returns the new expiration date of the driver's license or None if the renewal condtions are not met.",
+      "description": "Renews the user's driver's license. Returns the new expiration date of the driver's license or false if the renewal condtions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",

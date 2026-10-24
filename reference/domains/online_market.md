@@ -18,7 +18,7 @@
 | `logout_user` | Logs out the user by clearing their session information. Returns true always because logout is successful. | `None` |
 | `place_order` | Places an order for all items in the user's cart. Returns true for successful order placement or false for failure. | `has_items_in_cart AND has_shipping_address AND logged_in_user` |
 | `return_order` | Processes a return for a delivered order. Returns a true or false indicating whether the return was successfully initiated. | `logged_in_user AND internal_check_order_exist` |
-| `use_coupon` | Applies a valid coupon to the user's current cart, adjusting the total price. Returns a true or false indicating whether the coupon was successfully applied to the cart. | `logged_in_user AND internal_check_order_exist` |
+| `use_coupon` | Applies a valid coupon to an order in the user's order history, adjusting the order's total amount. Returns a true or false indicating whether the coupon was successfully applied to the order. | `logged_in_user AND internal_check_order_exist` |
 | `view_cart` | Displays the current contents of the user's cart, including product details and total cost. Returns a list containing the cart's contents. | `logged_in_user` |
 | `view_order_history` | Retrieves the user's complete order history, including order details and statuses. Returns a list containing the user's order history. | `logged_in_user` |
 | `view_shipping_addresses` | Lists all shipping addresses associated with the user's account, indicating the default address. Returns a list containing all the user's shipping addresses. | `logged_in_user` |

@@ -70,7 +70,7 @@ action_returns = {
     
     # Domain functions
     "submit_claim":     "Returns true or false for successful claim submission.",
-    "get_claim_details": "Returns true or false for successful retrieval of claim details.",
+    "get_claim_details": "Returns a dictionary of the claim details, an empty dictionary if the claim does not exist, or false if retrieval conditions are not met.",
     "add_authorized_provider": "Returns true or false for successful addition of a provider.",
     "get_claim_history": "Returns a list of all claims under the user's policy.",
     "deactivate_policy": "Returns true or false for successful policy deactivation.",

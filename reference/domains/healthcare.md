@@ -9,7 +9,7 @@
 | `add_authorized_provider` | Adds a new authorized provider to the user's policy. Returns true or false for successful addition of a provider. | `logged_in_user AND policy_active` |
 | `appeal_claim` | Appeals a previously denied claim for the user Returns true if the claim appeal is successfully submitted, otherwise false. | `logged_in_user AND policy_active` |
 | `deactivate_policy` | Deactivates the user's policy by setting it to inactive with zero coverage. Returns true or false for successful policy deactivation. | `logged_in_user AND policy_active` |
-| `get_claim_details` | Retrieves the details of a specific claim based on the claim ID. This includes the status, amount, description, and date. Returns true or false for successful retrieval of claim details. | `logged_in_user` |
+| `get_claim_details` | Retrieves the details of a specific claim based on the claim ID. This includes the status, amount, description, and date. Returns a dictionary of the claim details, an empty dictionary if the claim does not exist, or false if retrieval conditions are not met. | `logged_in_user` |
 | `get_claim_history` | Retrieves a history of all claims submitted under the user's policy. Returns a list of all claims under the user's policy. | `logged_in_user` |
 | `get_policy_details` | Retrieves the user's healthcare policy details, including coverage, authorized providers, and enrollment date. Returns a dictionary of the policy details. | `logged_in_user` |
 | `get_provider_details` | Retrieves a provider's details, including service_type, name, and status. Returns a dictionary of a provider's details. | `None` |

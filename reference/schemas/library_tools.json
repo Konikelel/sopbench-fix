@@ -148,7 +148,7 @@
   {
     "function": {
       "name": "get_account_balance",
-      "description": "Retrieves the current balance of the user's account. Returns the float account balance or None if retrieval conditions are not met.",
+      "description": "Retrieves the current balance of the user's account. Returns the float account balance or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -216,7 +216,7 @@
   {
     "function": {
       "name": "update_membership",
-      "description": "Updates the user's restricted access status and deducts the monthly fee from their balance. Returns the new expiration date of the restricted access or None if the update condition is not met.",
+      "description": "Updates the user's restricted access status and deducts the monthly fee from their balance. Returns the new expiration date of the restricted access or false if the update condition is not met.",
       "strict": false,
       "parameters": {
         "type": "object",

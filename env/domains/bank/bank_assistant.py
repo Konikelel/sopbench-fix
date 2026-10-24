@@ -45,9 +45,9 @@ action_descriptions = {
     "apply_credit_card":            "The user applies for a credit card based on some information. ",
     "exchange_foreign_currency":    "Exchanges some USD for some specified foreign currency.",
     "get_account_owed_balance":     "Retrieves the bank account owed balance of the user's account.",
-    "get_loan":                     "The user applies for a loan. Returns the amount owed to the bank.",
+    "get_loan":                     "The user applies for a loan.",
     "pay_loan":                     "The user pays off a portion or the entire loan off with their account balance."\
-        + " The amount of money the user actually pays towards their loan is dependant on the constraints.",
+        + " The user pays exactly the requested amount.",
     "get_safety_box":               "Gets the contents of the safety box.",
     "set_safety_box":               "Sets the contents of the safety box.",
     "get_credit_cards":             "Gets a list of the credit cards a user has along with the information.",
@@ -55,9 +55,8 @@ action_descriptions = {
         + "This includes credit limit and credit balance on the card.",
     "cancel_credit_card":           "Cancels a credit card that a user has.",
     "get_bank_maximum_loan_amount": "Shows the maximum amount of money the bank can loan to any individual at this moment."\
-        + " The total amount the bank can loan is based on the total amount of cash at the bank."\
-        + " Total amount of cash is calculated by summing the balances of all user accounts in the full database."\
-        + " If the total amount of cash currently stored at the bank is not available, assume this amount is 0.", # uses get_data method
+        + " The maximum is half of the total amount of cash at the bank given in bank_total_cash."\
+        + " If bank_total_cash is not given, it is 0.",
     # internal functions
     "internal_get_database":        "Shows the full database of the entire bank, every profile and every detail."\
         + " This is an internal action, only the assistant should see the information from these function calls.",
@@ -86,7 +85,7 @@ action_returns = {
     "set_account_information":      "Returns true or false for successful account information reset.",
     "close_account":                "Returns true or false for successful account closing.",
     # domain functions
-    "get_account_balance":          "Returns the float account balance or None if retrieval conditions are not met.",
+    "get_account_balance":          "Returns the float account balance or false if retrieval conditions are not met.",
     "transfer_funds":               "Returns true or false for the successful transfer of funds",
     "deposit_funds":                "Returns true or false on if the funds were successfully deposited.",
     "pay_bill":                     "Returns true or false on if payment was successful.",
@@ -94,10 +93,10 @@ action_returns = {
     "apply_credit_card":            "Returns  true or false for successful application of a credit card.",
     "cancel_credit_card":           "Returns true or false based on successful deletion of a credit card",
     "exchange_foreign_currency":    "Returns the float account of foreign currency exchanged.",
-    "get_account_owed_balance":     "Returns the float account owed balance or None if retrieval conditions are not met.",
+    "get_account_owed_balance":     "Returns the float account owed balance or false if retrieval conditions are not met.",
     "get_loan":                     "Returns true or false for the successful application of a loan amount.",
-    "pay_loan":                     "Returns true or false for the successful payment of the loan at the amount specified or less.",
-    "get_safety_box":               "Returns the contents of the safety box or None if retrieval conditions are not met.",
+    "pay_loan":                     "Returns true or false for the successful payment of the loan at the amount specified.",
+    "get_safety_box":               "Returns the contents of the safety box or false if retrieval conditions are not met.",
     "set_safety_box":               "Returns true or false for successful safety box reset.",
     "get_credit_cards":             "Returns a list of credit cards the user has.",
     "get_credit_card_info":         "Returns a dictionary of information of a credit card, including credit limit and credit balance.",

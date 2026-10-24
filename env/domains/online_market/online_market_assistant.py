@@ -45,7 +45,7 @@ action_descriptions = {
     "cancel_order":                 "Cancels a specific order placed by the user, marking its status as canceled.",
     "return_order":                 "Processes a return for a delivered order.",
     "exchange_product":             "Initiates a product exchange for an order, updating the order details accordingly.",
-    "use_coupon":                   "Applies a valid coupon to the user's current cart, adjusting the total price.",
+    "use_coupon":                   "Applies a valid coupon to an order in the user's order history, adjusting the order's total amount.",
     "get_coupons_used":             "Retrieves all used coupons by a user.",
 
    
@@ -92,7 +92,7 @@ action_returns = {
     "cancel_order": "Returns a true or false indicating whether the order cancellation was successful.",
     "return_order": "Returns a true or false indicating whether the return was successfully initiated.",
     "exchange_product": "Returns a true or false indicating whether the product exchange was successfully initiated.",
-    "use_coupon": "Returns a true or false indicating whether the coupon was successfully applied to the cart.",
+    "use_coupon": "Returns a true or false indicating whether the coupon was successfully applied to the order.",
     "get_order_details": "Returns a dictionary containing detailed information about the order, including the order items, status, cost, address, placed date, coupons used, and number of exchanges. The order status can include 'Processing', 'Shipped', 'Delivered', 'Refunding', 'Refunded', or 'Canceled'.",
     "get_coupons_used": "Returns a list of all coupons used.",
 

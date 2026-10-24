@@ -10,7 +10,7 @@
 | `borrow_book` | Allows a user to borrow a book and sets its return date. Returns true or false for successful book borrowing. | `logged_in_user AND internal_check_book_available` |
 | `check_return_date` | Retrieves the return date for the user's specified borrowed book. Returns the return date for the user's specified borrowed book. | `logged_in_user AND user_book_borrowed` |
 | `credit_balance` | Adds a specified amount to the user's account balance. Returns true or false for successful addition of funds to the user's account balance. | `logged_in_user` |
-| `get_account_balance` | Retrieves the current balance of the user's account. Returns the float account balance or None if retrieval conditions are not met. | `logged_in_user` |
+| `get_account_balance` | Retrieves the current balance of the user's account. Returns the float account balance or false if retrieval conditions are not met. | `logged_in_user` |
 | `login_user` | Logs in the user to authenticate the user to access their account. Returns true or false for login success or failure. | `None` |
 | `logout_user` | Logs out the user if the user was previously logged in. Returns true always because of successful logout. | `logged_in_user` |
 | `pay_late_fee` | Deducts the total late fee from the user's account balance. Returns true or false for successful deduction of late fees from the user's account balance. | `logged_in_user` |
@@ -19,7 +19,7 @@
 | `return_book` | Allows a user to return a borrowed book and updates their late count if the book is overdue. Returns true or false for successful book return. | `logged_in_user AND user_book_borrowed` |
 | `show_available_book` | Retrieves a list of books available for borrowing. Returns a list of books available for borrowing. | `None` |
 | `show_available_rooms` | Retrieves a dictionary of rooms with their available slots to reserve. Returns a dictionary of a dictionary of rooms with their available slots to reserve. | `None` |
-| `update_membership` | Updates the user's restricted access status and deducts the monthly fee from their balance. Returns the new expiration date of the restricted access or None if the update condition is not met. | `logged_in_user` |
+| `update_membership` | Updates the user's restricted access status and deducts the monthly fee from their balance. Returns the new expiration date of the restricted access or false if the update condition is not met. | `logged_in_user` |
 
 ## Helper functions
 
