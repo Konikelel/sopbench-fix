@@ -340,7 +340,7 @@
   {
     "function": {
       "name": "use_coupon",
-      "description": "Applies a valid coupon to the user's current cart, adjusting the total price. Returns a true or false indicating whether the coupon was successfully applied to the cart.",
+      "description": "Applies a valid coupon to an order in the user's order history, adjusting the order's total amount. Returns a true or false indicating whether the coupon was successfully applied to the order.",
       "strict": true,
       "parameters": {
         "type": "object",

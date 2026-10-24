@@ -193,6 +193,7 @@ class Library:
     def pay_late_fee(self, username:str)->bool:
         if not self.domain_dep.process(method_str="pay_late_fee", username=username): return False
         self.accounts[username]["balance"] -= self.accounts[username]["late_book_count"] * self.late_fee_per_book
+        self.accounts[username]["late_book_count"] = 0
         return True
     def update_membership(self, username:str)->bool|tuple[bool,str]:
         if not self.domain_dep.process(method_str="update_membership", username=username): return False

@@ -253,7 +253,7 @@
   {
     "function": {
       "name": "get_account_balance",
-      "description": "Retrieves the bank account balance of the user's account. Returns the float account balance or None if retrieval conditions are not met.",
+      "description": "Retrieves the bank account balance of the user's account. Returns the float account balance or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -521,7 +521,7 @@
   {
     "function": {
       "name": "get_account_owed_balance",
-      "description": "Retrieves the bank account owed balance of the user's account. Returns the float account owed balance or None if retrieval conditions are not met.",
+      "description": "Retrieves the bank account owed balance of the user's account. Returns the float account owed balance or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -542,7 +542,7 @@
   {
     "function": {
       "name": "get_loan",
-      "description": "The user applies for a loan. Returns the amount owed to the bank. Returns true or false for the successful application of a loan amount.",
+      "description": "The user applies for a loan. Returns true or false for the successful application of a loan amount.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -568,7 +568,7 @@
   {
     "function": {
       "name": "pay_loan",
-      "description": "The user pays off a portion or the entire loan off with their account balance. The amount of money the user actually pays towards their loan is dependant on the constraints. Returns true or false for the successful payment of the loan at the amount specified or less.",
+      "description": "The user pays off a portion or the entire loan off with their account balance. The user pays exactly the requested amount. Returns true or false for the successful payment of the loan at the amount specified.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -594,7 +594,7 @@
   {
     "function": {
       "name": "get_safety_box",
-      "description": "Gets the contents of the safety box. Returns the contents of the safety box or None if retrieval conditions are not met.",
+      "description": "Gets the contents of the safety box. Returns the contents of the safety box or false if retrieval conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -714,7 +714,7 @@
   {
     "function": {
       "name": "get_bank_maximum_loan_amount",
-      "description": "Shows the maximum amount of money the bank can loan to any individual at this moment. The total amount the bank can loan is based on the total amount of cash at the bank. Total amount of cash is calculated by summing the balances of all user accounts in the full database. If the total amount of cash currently stored at the bank is not available, assume this amount is 0. Returns the maximum amount of money the bank can loan at this moment.",
+      "description": "Shows the maximum amount of money the bank can loan to any individual at this moment. The maximum is half of the total amount of cash at the bank given in bank_total_cash. If bank_total_cash is not given, it is 0. Returns the maximum amount of money the bank can loan at this moment.",
       "strict": false,
       "parameters": {
         "type": "object",
