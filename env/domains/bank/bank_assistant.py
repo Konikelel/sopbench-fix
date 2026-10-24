@@ -178,7 +178,7 @@ action_required_dependencies = {
     "get_credit_card_info":         ("single", "internal_check_username_exist", {"username": "username"}),
     "get_credit_cards":             ("single", "internal_check_username_exist", {"username": "username"}),
     "set_safety_box":               ("single", "internal_check_username_exist", {"username": "username"}),
-    "get_bank_maximum_loan_amount": ("single", "call_get_database", None),
+    "get_bank_maximum_loan_amount": None,
     # internal functions
     "internal_get_database":        None,
     "internal_check_username_exist":None,

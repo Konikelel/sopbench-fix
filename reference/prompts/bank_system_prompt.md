@@ -150,7 +150,7 @@ ALL of these conditions must be met:
 • The user "username" **must have** a credit score higher than the 600 credit score in order to proceed.
 
 * get_bank_maximum_loan_amount:
-You must base your considerations on the database as a whole.
+None
 
 ### Internal Verification Functions:
 
