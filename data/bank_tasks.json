@@ -7024,7 +7024,11 @@
             },
             "user_known": {
                 "loan_amount": 1000.0,
-                "username": "jane_doe"
+                "username": "jane_doe",
+                "identification": {
+                    "drivers_license_id": "D1234567",
+                    "drivers_license_state": "CA"
+                }
             },
             "constraints": [
                 "and",
@@ -7989,7 +7993,8 @@
             },
             "user_known": {
                 "loan_amount": 300.0,
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -10516,7 +10521,8 @@
                 "bill_description": "Electricity Bill",
                 "amount": 150.0,
                 "unit": "dollars",
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -12732,7 +12738,8 @@
             },
             "user_known": {
                 "pay_owed_amount_request": 100.0,
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -12991,7 +12998,8 @@
             },
             "user_known": {
                 "pay_owed_amount_request": 450.0,
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -15166,7 +15174,8 @@
             },
             "user_known": {
                 "safety_box_new": "New secure documents",
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -17809,7 +17818,8 @@
             },
             "user_known": {
                 "safety_box_new": "New safety box content",
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -24884,7 +24894,8 @@
                 "destination_username": "jane_doe",
                 "amount": 100.0,
                 "unit": "dollars",
-                "username": "john_doe"
+                "username": "john_doe",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
