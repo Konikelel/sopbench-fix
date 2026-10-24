@@ -140,7 +140,7 @@ class Library:
         self.domain_dep = Dependency_Evaluator(self, self.innate_state_tracker, dep_innate_full) # no state tracker constraints yet
         self.data_descriptions = data_descriptions
     # root functions, base functions of this domain
-    def login_user(self, username:str, password:str)->bool:
+    def login_user(self, username:str, password:str=None)->bool:
         if not self.domain_dep.process(method_str="login_user", username=username, password=password): return False
         return self.accounts[username]["password"] == password
     def logout_user(self, username:str)->bool: 

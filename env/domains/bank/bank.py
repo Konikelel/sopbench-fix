@@ -120,7 +120,7 @@ class Bank:
         self.domain_dep = Dependency_Evaluator(self, self.innate_state_tracker, dep_innate_full) # no state tracker constraints yet
         self.data_descriptions = data_descriptions
     # root functions, base functions of this domain
-    def login_user(self, username:str, identification:str|dict[str:str|int])->bool:
+    def login_user(self, username:str, identification:str|dict[str:str|int]=None)->bool:
         if not self.domain_dep.process(method_str="login_user", username=username, identification=identification): return False
         return self.accounts[username]["identification"] == identification
     def logout_user(self, username:str)->bool:

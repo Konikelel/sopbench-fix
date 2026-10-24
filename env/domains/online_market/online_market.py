@@ -144,7 +144,7 @@ class OnlineMarket:
 # Root Functions
 #######################################################################################################
 
-    def login_user(self, username: str, password: str) -> bool:
+    def login_user(self, username: str, password: str=None) -> bool:
         if not self.domain_dep.process(method_str="login_user", username=username, password=password): return False
 
         return self.accounts[username]["password"] == password
