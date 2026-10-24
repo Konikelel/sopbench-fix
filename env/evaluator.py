@@ -239,7 +239,10 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
         second_func_name = second_func_call["tool_name"]
         if first_func_name == "login_user" and second_func_name == task["user_goal"]:
             evaluation_result["did_not_call_target_action_after_login_user"] = False
+    message, called_before_message = None, {}
     for i in range(len(func_calls)):
+        if func_calls[i]["message"] != message:
+            message, called_before_message = func_calls[i]["message"], copy.deepcopy(successful_funccalls)
         # filter out error function calls and parse the function call
         if gt_responses[i][0] == 2: continue
         func_call = func_calls[i]
@@ -260,7 +263,8 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
         node_ind = inv_nodes[func_name]
         node_inds_to_check = connections[node_ind] # function call nodes should only have no neighbors or one neighbor
         func_param_mapping = {nodes[node_ind][1][key]: func_args[key] if key in func_args else None for key in nodes[node_ind][1]} # maps the dep func param values to the act func param values
-        all_prev_func_called = dfscheck_called_functions(list(node_inds_to_check)[0], func_param_mapping, nodes, connections, successful_funccalls)\
+        all_prev_func_called = dfscheck_called_functions(list(node_inds_to_check)[0], func_param_mapping, nodes, connections,
+            called_before_message if func_name == task["user_goal"] else successful_funccalls)\
             if node_inds_to_check else True
         # record the result, update the functions successfully called based on the innate dependencies
         if all_prev_func_called:

@@ -40,10 +40,11 @@ class ScriptedModel(OpenAIHandler):
 
     def inference(self, create_params, debug, mode="chat", tool_call_mode="fc"):
         self.offered = [t["function"]["name"] for t in create_params["tools"]]
-        call = self.calls.pop(0) if self.calls else Call(RS.exit_conversation.__name__)
-        tool_call = ChatCompletionMessageToolCall(id=f"call_{len(self.calls)}", type="function",
-                                                  function=Function(name=call.name, arguments=json.dumps(call.arguments)))
-        return {"completion": construct_chatcompletion("assistant", None, [tool_call])}
+        message = self.calls.pop(0) if self.calls else Call(RS.exit_conversation.__name__)
+        tool_calls = [ChatCompletionMessageToolCall(id=f"call_{len(self.calls)}_{i}", type="function",
+                                                    function=Function(name=call.name, arguments=json.dumps(call.arguments)))
+                      for i, call in enumerate(message if isinstance(message, list) else [message])]
+        return {"completion": construct_chatcompletion("assistant", None, tool_calls)}
 
 
 def simulation_args(domain):
