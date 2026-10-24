@@ -996,6 +996,17 @@ actions = [
     }
 },
 {
+    "name": "internal_get_interaction_date",
+    "description": get_action_full_description(action_descriptions, action_returns, "internal_get_interaction_date"),
+    "strict": True,
+    "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": False,
+        "required": []
+    }
+},
+{
     "name": "internal_convert_human_date_to_iso",
     "description": get_action_full_description(action_descriptions, action_returns, "internal_convert_human_date_to_iso"),
     "strict": True,

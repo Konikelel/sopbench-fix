@@ -684,6 +684,20 @@
   },
   {
     "function": {
+      "name": "internal_get_interaction_date",
+      "description": "Retrieves the current interaction date from the database. Returns the current interaction date recorded in the database.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false,
+        "required": []
+      }
+    },
+    "type": "function"
+  },
+  {
+    "function": {
       "name": "internal_convert_human_date_to_iso",
       "description": "Converts a verbalized date string to an ISO 8601 formatted date string ('YYYY-MM-DD'). Returns an ISO 8601 formatted date string ('YYYY-MM-DD').",
       "strict": true,
