@@ -256,7 +256,8 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
         gt_response = gt_responses[i][1]
         if (not evaluation_result["action_successfully_called"]
             and func_name == task["user_goal"]
-            and (func_resp == "True"
+            and (not task["action_should_succeed"]
+                or func_resp == "True"
                 or (isinstance(gt_response, tuple) and gt_response[0] is True and func_resp == str(gt_response[1])))):
             evaluation_result["action_successfully_called"] = True
         # traversing the graph to see if the assistant has called the necessary functions before this function call
