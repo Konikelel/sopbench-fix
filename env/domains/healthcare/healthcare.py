@@ -149,7 +149,7 @@ class Healthcare:
 #Root Functions
 #######################################################################################################
 
-    def login_user(self, username: str, identification: str) -> bool:
+    def login_user(self, username: str, identification: str=None) -> bool:
         if username not in self.accounts: return False
         return self.accounts[username]["identification"] == identification
 
