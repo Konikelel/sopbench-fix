@@ -8,6 +8,7 @@ from env.dep_eval import Dependency_Evaluator
 from env.helpers import get_domain_dependency_none
 
 import copy
+import hashlib
 from datetime import datetime, timedelta
 
 # default correct database values
@@ -260,7 +261,7 @@ class DMV:
             current_year_birthday = bday.replace(year=current_time.year)
             # exp_date is set to five years from the birthday this year
             exp_date = current_year_birthday.replace(year=current_time.year + 5)
-            unique_hash = abs(hash(username)) % (10**10)
+            unique_hash = int(hashlib.sha256(username.encode()).hexdigest(), 16) % (10**10)
             dl_number = f"D{unique_hash:10d}"
             self.accounts[username]["driver_license"] = {
                 "dl_number": dl_number,
