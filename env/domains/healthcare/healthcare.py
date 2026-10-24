@@ -427,8 +427,9 @@ class Healthcare_Strict:
     # Root functions
     def login_user(self, username:str, identification:str|dict[str:str|int]=None)->bool:
         if not self.domain_dep.process(method_str="login_user", username=username, identification=identification): return False
+        if not self.domain_system.login_user(username, identification): return False
         self.state_tracker.set_login_user(username)
-        return self.domain_system.login_user(username, identification)
+        return True
 
     def logout_user(self, username: str) -> bool:
         dep_res = self.domain_dep.process(method_str="logout_user", username=username)

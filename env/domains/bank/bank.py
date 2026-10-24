@@ -363,8 +363,9 @@ class Bank_Strict:
         # check dependencies
         if not self.domain_dep.process(method_str="login_user", username=username, identification=identification): return False
         # perform action
-        self.state_tracker.set_login_user(username) # update state if necessary
-        return self.domain_system.login_user(username, identification)
+        if not self.domain_system.login_user(username, identification): return False
+        self.state_tracker.set_login_user(username)
+        return True
     def logout_user(self, username:str)->bool:
         if not self.domain_dep.process(method_str="logout_user", username=username): return False
         self.state_tracker.set_logout_user()
@@ -374,8 +375,9 @@ class Bank_Strict:
         return self._check_dep_and_do("open_account", **kwargs)
     def authenticate_admin_password(self, username:str, admin_password:str)->bool:
         if not self.domain_dep.process(method_str="authenticate_admin_password", username=username, admin_password=admin_password): return False
+        if not self.domain_system.authenticate_admin_password(username, admin_password): return False
         self.state_tracker.set_authenticate_admin_password()
-        return self.domain_system.authenticate_admin_password(username, admin_password)
+        return True
     def set_admin_password(self, **kwargs)->bool:
         return self._check_dep_and_do("set_admin_password", **kwargs)
     def set_account_information(self, **kwargs)->bool:
