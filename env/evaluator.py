@@ -82,17 +82,6 @@ AVG_PARAMS = ["num_messages", "num_function_calls", "num_constraints", "num_cons
 
 """Evaluation"""
 
-# account for the json tuple to list aspect by dfs converting every function response to a tuple
-def dfsconvert_tuple_to_list(fr):
-    fr = copy.deepcopy(fr)
-    if not isinstance(fr, Iterable) or isinstance(fr, str) or isinstance(fr, set): return fr
-    elif isinstance(fr, dict):
-        for key in fr: fr[key] = dfsconvert_tuple_to_list(fr[key])
-        return fr
-    elif isinstance(fr, tuple): fr = list(fr)
-    for i in range(len(fr)): fr[i] = dfsconvert_tuple_to_list(fr[i])
-    return fr
-
 # dfs convert to hash with a tuple
 def dfsconvert_list_to_tuple(fr):
     if not isinstance(fr, Iterable) or isinstance(fr, str): return fr
@@ -141,12 +130,8 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
     for i in range(len(func_calls)):
         func_response = func_calls[i]["content"]
         status_id, gt_response = gt_responses[i]
-        # convert the response to a list
-        func_resp_list = dfsconvert_tuple_to_list(func_response)
-        gt_resp_list = dfsconvert_tuple_to_list(gt_response)
-        # the func response sometimes contains a boolean first element which indicates the success of the function call
-        resp_match = (func_resp_list == gt_resp_list) or ([True, func_resp_list] == gt_resp_list)
-        func_resp_equal = resp_match if status_id == 0 else True
+        gt_content = str(gt_response[1] if isinstance(gt_response, tuple) else gt_response)
+        func_resp_equal = func_response == gt_content if status_id == 0 else True
         if evaluation_result["constraint_not_violated"] and not func_resp_equal:
             evaluation_result["constraint_not_violated"] = False
     evaluation_result["database_match"] = results["final_database"] == gt_final_database
@@ -267,7 +252,7 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
         # detecting when the target action has been successfully called
         if (not evaluation_result["action_successfully_called"]
             and func_name == task["user_goal"]
-            and (func_resp if isinstance(func_resp, bool) else func_resp[0] if isinstance(func_resp, tuple) or isinstance(func_resp, list) else False)):
+            and func_resp == "True"):
             evaluation_result["action_successfully_called"] = True
         # traversing the graph to see if the assistant has called the necessary functions before this function call
         node_ind = inv_nodes[func_name]

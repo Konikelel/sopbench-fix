@@ -1,5 +1,7 @@
 import os
 
+import pytest
+
 from tests import harness as H
 from tests.agents import executable_paths, graph_paths, ideal_calls
 
@@ -63,6 +65,17 @@ def test_scripted_calls_reach_the_official_evaluation():
     [evaluation] = H.evaluate("university", [entry])
     assert evaluation["user_goal"] == task["user_goal"]
     assert evaluation["num_function_calls"] == len(calls)
+
+
+@pytest.mark.parametrize("arguments", ["{not json", None, "[" * 1100, "9" * 5000])
+def test_unparsable_arguments_of_an_unknown_tool_are_a_tool_call_error(arguments):
+    task = H.load_tasks("university")[0]
+    entry, _ = H.simulate("university", task, [H.Call("no_such_tool")])
+    [call] = [c for m in entry["interactions"][0]["interaction"] for c in m.get("tool_calls") or []
+              if c["function"]["name"] == "no_such_tool"]
+    call["function"]["arguments"] = arguments
+    [evaluation] = H.evaluate("university", [entry])
+    assert not evaluation["no_tool_call_error"]
 
 
 def test_problem_tests_are_inverted_on_the_original_version(pytester, monkeypatch):

@@ -1,0 +1,33 @@
+import pytest
+
+from tests import harness as H
+from tests.agents import executable_paths, ideal_calls
+
+
+def task(domain, task_id):
+    return next(t for t in H.load_tasks(domain) if t["id"] == task_id)
+
+
+def ideal_run(domain, task_id):
+    ideal_task = task(domain, task_id)
+    [evaluation] = H.run(domain, [(ideal_task, ideal_calls(ideal_task, executable_paths(domain, ideal_task)[0]))])
+    return evaluation
+
+
+def test_evaluation_does_not_execute_tool_responses(tmp_path):
+    marker = tmp_path / "marker"
+    payload = f"__import__('pathlib').Path(r'{marker}').touch()"
+    H.run("bank", [(task("bank", "set_safety_box#0"),
+                    [H.Call("set_safety_box", {"username": "john_doe", "safety_box_new": payload}),
+                     H.Call("get_safety_box", {"username": "john_doe"})])])
+    assert not marker.exists()
+
+
+@pytest.mark.parametrize("domain, task_id", [("dmv", "update_test_status#0"), ("library", "add_book#0"),
+                                             ("hotel", "process_guest_checkout#0")])
+def test_boolean_arguments_are_read_as_json(domain, task_id):
+    assert ideal_run(domain, task_id)["success"]
+
+
+def test_date_responses_are_compared_as_text():
+    assert ideal_run("dmv", "renew_vehicle#2")["constraint_not_violated"]

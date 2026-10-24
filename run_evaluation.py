@@ -17,10 +17,6 @@ def constraint_group_sort_key(item):
     if key == "6+": return 6  # Make "6+" sort after 5
     return int(key) # Convert other keys to integers
 
-def try_eval(x):
-    try: return eval(x)
-    except: return x
-
 def save_results(output_file, results, verbose=False):
     """
     Save results to a JSON file.
@@ -209,10 +205,13 @@ def main():
                             if tool_call["function"]["name"].lower() in ["n/a", "na", "none", "null"]:
                                 interaction[i]["tool_calls"].remove(tool_call)
                         if len(interaction[i]["tool_calls"]) > 0:
+                            arguments = interaction[i]["tool_calls"][0]["function"]["arguments"]
+                            try: arguments = json.loads(arguments)
+                            except Exception: pass
                             func_calls.append({
                                 "tool_name": interaction[i+1]["tool_name"],
-                                "arguments": try_eval(interaction[i]["tool_calls"][0]["function"]["arguments"]),
-                                "content": try_eval(interaction[i+1]["content"])
+                                "arguments": arguments,
+                                "content": interaction[i+1]["content"]
                             })
                 # Use directed graph evaluator instead of gorilla
                 evaluation_result = evaluator_function_directed_graph(
