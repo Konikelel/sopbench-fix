@@ -124,7 +124,11 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
             evaluation_result["no_tool_call_error"] = False
             gt_response = (2, None)
         gt_responses.append(gt_response)
-    gt_final_database = domain_system_strict.evaluation_get_database()
+    expected_system = domain_keys[domain_str](copy.deepcopy(task["initial_database"]), dep_innate_full, task["constraint_parameters"])
+    if task["action_should_succeed"]:
+        target_params = task["directed_action_graph"]["nodes"][0][1]
+        getattr(expected_system, task["user_goal"])(**{param: task["user_known"][key] for param, key in target_params.items()})
+    gt_final_database = expected_system.evaluation_get_database()
     # comparing against final database
     evaluation_result["constraint_not_violated"] = True
     for i in range(len(func_calls)):
