@@ -24,13 +24,12 @@ default_data1 = {
             "owed_balance": 200.0,
             "credit_score": 750,
             "safety_box": "John important documents",
-            "credit_cards": [
-                {
-                    "card_number": "2357 1113 1719 2329",
+            "credit_cards": {
+                "2357 1113 1719 2329": {
                     "credit_limit": 250.0, 
                     "credit_balance": 0.0,
                 }
-            ]
+            }
             },
         "jane_doe": {
             "identification": {"drivers_license_id": "D1234567", "drivers_license_state": "CA"},
@@ -39,7 +38,7 @@ default_data1 = {
             "owed_balance": 1000.0,
             "credit_score": 300,
             "safety_box": "Jane important documents",
-            "credit_cards": []
+            "credit_cards": {}
         }
     },
     "foreign_exchange": {
@@ -200,7 +199,7 @@ class Bank:
         }
         account = self.accounts.get(username, {})
         new_card_exists_already:bool = new_card_number in account["credit_cards"]
-        if new_card_exists_already: account.setdefault("credit_cards", {})[new_card_number] = new_card_details
+        if not new_card_exists_already: account.setdefault("credit_cards", {})[new_card_number] = new_card_details
         return True
     def cancel_credit_card(self, username: str, card_number: str) -> bool:
         if not self.domain_dep.process(method_str="cancel_credit_card", username=username, card_number=card_number):

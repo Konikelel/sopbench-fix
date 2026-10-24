@@ -421,6 +421,37 @@
   },
   {
     "function": {
+      "name": "pay_bill_with_credit_card",
+      "description": "Pays a bill from an account. This amount of money will be added to the credit card balance of the credit card used. Returns true or false on if payment was successful.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "a string of letters, numbers, and symbols to represent their username"
+          },
+          "amount": {
+            "type": "number",
+            "description": "the amount of funds specified by the function description"
+          },
+          "card_number": {
+            "type": "string",
+            "description": "the card number of a specific card in the database"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "amount",
+          "card_number"
+        ]
+      }
+    },
+    "type": "function"
+  },
+  {
+    "function": {
       "name": "apply_credit_card",
       "description": "The user applies for a credit card based on some information.  Returns  true or false for successful application of a credit card.",
       "strict": true,
@@ -632,6 +663,32 @@
     "function": {
       "name": "get_credit_card_info",
       "description": "Gets the information of a specific credit card.This includes credit limit and credit balance on the card. Returns a dictionary of information of a credit card, including credit limit and credit balance.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "a string of letters, numbers, and symbols to represent their username"
+          },
+          "card_number": {
+            "type": "string",
+            "description": "the card number of a specific card in the database"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "username",
+          "card_number"
+        ]
+      }
+    },
+    "type": "function"
+  },
+  {
+    "function": {
+      "name": "cancel_credit_card",
+      "description": "Cancels a credit card that a user has. Returns true or false based on successful deletion of a credit card",
       "strict": true,
       "parameters": {
         "type": "object",

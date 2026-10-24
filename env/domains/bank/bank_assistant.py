@@ -816,6 +816,30 @@ actions = [
     }
 },
 {
+    "name": "pay_bill_with_credit_card",
+    "description": get_action_full_description(action_descriptions, action_returns, "pay_bill_with_credit_card"),
+    "strict": True,
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "username": {
+                "type": "string",
+                "description": action_param_descriptions["username"]
+            },
+            "amount": {
+                "type": "number",
+                "description": action_param_descriptions["amount"]
+            },
+            "card_number": {
+                "type": "string",
+                "description": action_param_descriptions["card_number"]
+            }
+        },
+        "additionalProperties": False,
+        "required": ["username", "amount", "card_number"]
+    }
+},
+{
     "name": "apply_credit_card",
     "description": get_action_full_description(action_descriptions, action_returns, "apply_credit_card"),
     "strict": True,
@@ -975,6 +999,26 @@ actions = [
 {
     "name": "get_credit_card_info",
     "description": get_action_full_description(action_descriptions, action_returns, "get_credit_card_info"),
+    "strict": True,
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "username": {
+                "type": "string",
+                "description": action_param_descriptions["username"]
+            },
+            "card_number": {
+                "type": "string",
+                "description": action_param_descriptions["card_number"]
+            }
+        },
+        "additionalProperties": False,
+        "required": ["username", "card_number"]
+    }
+},
+{
+    "name": "cancel_credit_card",
+    "description": get_action_full_description(action_descriptions, action_returns, "cancel_credit_card"),
     "strict": True,
     "parameters": {
         "type": "object",

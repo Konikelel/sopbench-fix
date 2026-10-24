@@ -10,13 +10,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -28,7 +27,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -117,13 +116,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -135,7 +133,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -224,13 +222,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -242,7 +239,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 650,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -391,13 +388,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -409,7 +405,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -558,13 +554,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -576,7 +571,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -706,13 +701,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -724,7 +718,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -854,13 +848,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -872,7 +865,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 650,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -1050,13 +1043,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1068,7 +1060,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -1243,13 +1235,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1261,7 +1252,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 620,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -1438,13 +1429,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1456,7 +1446,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -1596,13 +1586,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1614,13 +1603,12 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9101 1121",
+                        "credit_cards": {
+                            "1234 5678 9101 1121": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 150.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -1759,13 +1747,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1777,7 +1764,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -1917,13 +1904,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -1935,7 +1921,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -2144,13 +2130,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 50.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -2162,7 +2147,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -2371,13 +2356,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -2389,7 +2373,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -2547,13 +2531,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -2565,7 +2548,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -2723,13 +2706,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -2741,7 +2723,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -2965,13 +2947,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -2983,7 +2964,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -3207,13 +3188,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 200.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -3225,7 +3205,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -3449,13 +3429,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -3467,7 +3446,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -3696,13 +3675,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -3714,7 +3692,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -3942,13 +3920,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -3960,7 +3937,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -4189,13 +4166,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 50.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -4207,7 +4183,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -4436,13 +4412,12 @@
                         "owed_balance": 0.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -4454,7 +4429,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -4693,13 +4668,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -4711,7 +4685,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -4950,13 +4924,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 50.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -4968,7 +4941,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5209,13 +5182,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5227,7 +5199,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5346,13 +5318,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5364,7 +5335,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5485,13 +5456,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5503,7 +5473,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5620,13 +5590,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5638,7 +5607,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5755,13 +5724,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5773,7 +5741,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -5921,13 +5889,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -5939,7 +5906,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6087,13 +6054,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6105,7 +6071,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6255,13 +6221,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6273,7 +6238,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6362,13 +6327,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6380,7 +6344,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6469,13 +6433,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6487,7 +6450,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6602,13 +6565,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6620,7 +6582,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6737,13 +6699,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6755,7 +6716,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -6881,13 +6842,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -6899,7 +6859,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7027,13 +6987,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -7045,7 +7004,7 @@
                         "owed_balance": 400.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7212,13 +7171,12 @@
                         "owed_balance": 600.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -7230,7 +7188,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7397,13 +7355,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -7415,7 +7372,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7597,13 +7554,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -7615,7 +7571,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7797,13 +7753,12 @@
                         "owed_balance": 600.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -7815,7 +7770,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -7997,13 +7952,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -8015,7 +7969,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -8227,13 +8181,12 @@
                         "owed_balance": 600.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -8245,7 +8198,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -8457,13 +8410,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -8475,7 +8427,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -8687,13 +8639,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -8705,7 +8656,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -8932,13 +8883,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -8950,7 +8900,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -9177,13 +9127,12 @@
                         "owed_balance": 600.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -9195,7 +9144,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -9422,13 +9371,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 550,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -9440,7 +9388,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -9669,13 +9617,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -9687,7 +9634,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -9776,13 +9723,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -9794,7 +9740,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -9883,13 +9829,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -9901,7 +9846,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -10070,13 +10015,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -10088,7 +10032,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -10272,13 +10216,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -10290,7 +10233,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -10534,13 +10477,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -10552,7 +10494,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -10725,13 +10667,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -10743,7 +10684,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -10916,13 +10857,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -10934,7 +10874,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -11126,13 +11066,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -11144,7 +11083,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -11336,13 +11275,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -11354,7 +11292,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -11548,13 +11486,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -11566,13 +11503,12 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9012 3456",
+                        "credit_cards": {
+                            "1234 5678 9012 3456": {
                                 "credit_limit": 1500.0,
                                 "credit_balance": 500.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -11784,13 +11720,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 150.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -11802,7 +11737,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -12014,13 +11949,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -12032,7 +11966,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -12263,13 +12197,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 200.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -12281,7 +12214,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -12512,13 +12445,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 100.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -12530,7 +12462,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -12763,13 +12695,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -12781,7 +12712,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -13023,13 +12954,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -13041,7 +12971,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -13283,13 +13213,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -13301,7 +13230,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -13543,13 +13472,12 @@
                         "owed_balance": 2000.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -13561,7 +13489,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -13818,13 +13746,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -13836,7 +13763,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -14096,13 +14023,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -14114,7 +14040,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -14371,13 +14297,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -14389,7 +14314,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -14646,13 +14571,12 @@
                         "owed_balance": 2000.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -14664,7 +14588,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -14923,13 +14847,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -14941,7 +14864,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15064,13 +14987,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15082,7 +15004,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15207,13 +15129,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15225,7 +15146,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15392,13 +15313,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15410,7 +15330,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15577,13 +15497,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15595,7 +15514,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15777,13 +15696,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15795,7 +15713,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -15977,13 +15895,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -15995,7 +15912,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -16180,13 +16097,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -16198,7 +16114,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -16396,13 +16312,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -16414,7 +16329,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -16611,13 +16526,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -16629,7 +16543,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -16827,13 +16741,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -16845,7 +16758,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -17046,13 +16959,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -17064,7 +16976,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 700,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -17252,13 +17164,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -17270,7 +17181,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -17454,13 +17365,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -17472,7 +17382,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -17657,13 +17567,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -17675,7 +17584,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -17863,13 +17772,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -17881,7 +17789,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -18093,13 +18001,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -18111,7 +18018,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -18323,13 +18230,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -18341,7 +18247,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -18553,13 +18459,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -18571,7 +18476,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -18787,13 +18692,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -18805,7 +18709,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -19021,13 +18925,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -19039,7 +18942,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -19258,13 +19161,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -19276,7 +19178,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 650,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -19482,13 +19384,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -19500,7 +19401,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -19703,13 +19604,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -19721,7 +19621,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -19927,13 +19827,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -19945,7 +19844,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -20172,13 +20071,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -20190,7 +20088,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -20417,13 +20315,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -20435,7 +20332,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -20662,13 +20559,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -20680,7 +20576,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     },
                     "alex_smith": {
                         "identification": "alexpassword123",
@@ -20689,13 +20585,12 @@
                         "owed_balance": 150.0,
                         "credit_score": 580,
                         "safety_box": "Alex's old documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9101 1121",
+                        "credit_cards": {
+                            "1234 5678 9101 1121": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 100.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -20922,13 +20817,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -20940,7 +20834,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -21183,13 +21077,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -21201,7 +21094,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -21443,13 +21336,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -21461,7 +21353,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -21704,13 +21596,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -21722,7 +21613,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -21965,13 +21856,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -21983,7 +21873,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -22229,13 +22119,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -22247,7 +22136,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -22508,13 +22397,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -22526,7 +22414,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -22787,13 +22675,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -22805,7 +22692,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 700,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -23069,13 +22956,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -23087,7 +22973,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -23353,13 +23239,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -23371,7 +23256,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     },
                     "alice_smith": {
                         "identification": "asdoeasfhnwoasrd",
@@ -23380,13 +23265,12 @@
                         "owed_balance": 150.0,
                         "credit_score": 680,
                         "safety_box": "Alice important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9101 1121",
+                        "credit_cards": {
+                            "1234 5678 9101 1121": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 100.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -23525,13 +23409,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -23543,7 +23426,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -23682,13 +23565,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -23700,7 +23582,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -23839,13 +23721,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -23857,7 +23738,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -23996,13 +23877,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24014,7 +23894,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     },
                     "alice_smith": {
                         "identification": "alicesecurepass",
@@ -24023,13 +23903,12 @@
                         "owed_balance": 100.0,
                         "credit_score": 800,
                         "safety_box": "Alice's documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9101 1121",
+                        "credit_cards": {
+                            "1234 5678 9101 1121": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 100.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -24194,13 +24073,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24212,7 +24090,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -24377,13 +24255,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24395,7 +24272,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     },
                     "alice_smith": {
                         "identification": "alicesmithpass",
@@ -24404,7 +24281,7 @@
                         "owed_balance": 100.0,
                         "credit_score": 680,
                         "safety_box": "Alice's documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -24581,13 +24458,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24599,7 +24475,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -24775,13 +24651,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24793,7 +24668,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -24970,13 +24845,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -24988,7 +24862,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -25194,13 +25068,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -25212,7 +25085,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -25418,13 +25291,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -25436,7 +25308,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     },
                     "alice_smith": {
                         "identification": "alicesecurepassword",
@@ -25445,13 +25317,12 @@
                         "owed_balance": 100.0,
                         "credit_score": 800,
                         "safety_box": "Alice's documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "1234 5678 9012 3456",
+                        "credit_cards": {
+                            "1234 5678 9012 3456": {
                                 "credit_limit": 500.0,
                                 "credit_balance": 100.0
                             }
-                        ]
+                        }
                     }
                 },
                 "foreign_exchange": {
@@ -25646,13 +25517,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -25664,7 +25534,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -25859,13 +25729,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -25877,7 +25746,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -26102,13 +25971,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -26120,7 +25988,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -26345,13 +26213,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -26363,7 +26230,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -26588,13 +26455,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -26606,7 +26472,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -26843,13 +26709,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -26861,7 +26726,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -27097,13 +26962,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -27115,7 +26979,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -27352,13 +27216,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -27370,7 +27233,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -27607,13 +27470,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -27625,7 +27487,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -27880,13 +27742,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -27898,7 +27759,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
@@ -28153,13 +28014,12 @@
                         "owed_balance": 200.0,
                         "credit_score": 750,
                         "safety_box": "John important documents",
-                        "credit_cards": [
-                            {
-                                "card_number": "2357 1113 1719 2329",
+                        "credit_cards": {
+                            "2357 1113 1719 2329": {
                                 "credit_limit": 250.0,
                                 "credit_balance": 0.0
                             }
-                        ]
+                        }
                     },
                     "jane_doe": {
                         "identification": {
@@ -28171,7 +28031,7 @@
                         "owed_balance": 1000.0,
                         "credit_score": 300,
                         "safety_box": "Jane important documents",
-                        "credit_cards": []
+                        "credit_cards": {}
                     }
                 },
                 "foreign_exchange": {
