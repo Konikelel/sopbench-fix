@@ -12,6 +12,7 @@ from env.dep_eval import Dependency_Evaluator
 from env.helpers import get_domain_dependency_none
 
 import copy
+import hashlib
 
 
 # default correct database values
@@ -191,7 +192,7 @@ class Bank:
     def apply_credit_card(self, username:str, total_assets:float, monthly_income:float) -> bool:
         if not self.domain_dep.process(method_str="apply_credit_card", username=username, total_assets=total_assets, monthly_income=monthly_income):
             return False
-        new_card_number = ''.join([str(abs(hash(f"{username}{total_assets}{monthly_income}{i}")) % 10) for i in range(16)])
+        new_card_number = ''.join([str(int(hashlib.sha256(f"{username}{total_assets}{monthly_income}{i}".encode()).hexdigest(), 16) % 10) for i in range(16)])
         new_card_number = " ".join([new_card_number[i:i+4] for i in range(4)])
         new_card_details = {
             "credit_limit": monthly_income / 4,

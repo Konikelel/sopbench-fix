@@ -6,7 +6,6 @@ on:
     branches: [main]
 
 env:
-  PYTHONHASHSEED: "0"
   ORIGINAL_SHA: 8790ed7406acbd22270f90bd1c4038de3fc5db8f
 
 jobs:
