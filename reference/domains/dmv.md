@@ -46,12 +46,12 @@
 
 | Constraint | Description | Helper functions |
 |---|---|---|
-| `above_minimum_age` | The user with "{username}" must be above the minimum age of {min_age}. The age should be determined as per interaction_time. | None |
+| `above_minimum_age` | The user with "{username}" must be at least the minimum age of {min_age}. The age should be determined as per interaction_time. | None |
 | `authenticate_admin_password` | The user is able to authenticate the correct "{username}" and "{admin_password}" to perform this action, matching the database credentials. | None |
 | `authenticated_admin_password` | The user with "{username}" has authenticated the admin password previously to perform this action. | `authenticate_admin_password`, `{'username': 'username', 'admin_password': 'admin_password'}` |
 | `before_test_date` | The interaction_time in the database **must be strictly before** the scheduled_time of the "{test_type}" in the tests for the user "{username}". The interaction_time and scheduled_time are compared as **ISO 8601 formatted datetime values**. Ensure that the scheduled_time is **at least one second later** than the interaction_time. | None |
 | `drive_test_ready` | The user with "{username}" must have passed the knowledge test and must have a status of "not scheduled" in "drive" of their tests. | None |
-| `internal_check_test_slot_available` | The specified "{schedule_time}" exists only in the "{test_type}" of test_slots. If it exists elsewhere in the databse, it is consided **NON-EXISTENT**. | None |
+| `internal_check_test_slot_available` | The specified "{schedule_time}" exists in the "{test_type}" of test_slots. | None |
 | `internal_check_username_exist` | The user parameter key "{username}" **MUST EXIST** as a top-level key in the accounts section of the database. | None |
 | `internal_has_dl` | The user with "{username}" has a driver_license that is not null in their account. | None |
 | `internal_has_vehicle` | The user with "{username}" owns the vehicle with the plate number "{plate_num}" in their vehicles. | None |
@@ -65,6 +65,6 @@
 | `test_type_is_drive` | The input test type "{test_type}" must be 'drive'. | None |
 | `valid_vehicle_insurance` | The vehicle with the plate number "{plate_num}" belonging to the user "{username}" must have an insurance_status of 'valid'. | None |
 | `within_attempt_limit` | The user with "{username}" has an "attempts" of less than {attempt_limit} their "{test_type}" of tests. | None |
-| `within_dl_renewal_period` | The interaction_time falls within the driver_license renewal period for the user "{username}". The renewal period is defined as the time starting {dl_renewal_window} days before the exp_date and ending on the expiration date itself. Both interaction_time and exp_date are ISO 8601 formatted strings and are considered as date-time values. | None |
-| `within_vehicle_renewal_period` | The interaction_time falls within the vehicle renewal period for the vehicle with "{plate_num}" of the user "{username}". The renewal period is defined as the time starting {vehicle_renewal_window} days before the reg_date and ending on the reg_date itself. Both interaction_time and reg_date are ISO 8601 formatted strings and are considered as date-time values. | None |
+| `within_dl_renewal_period` | The interaction_time falls within the driver_license renewal period for the user "{username}". The renewal period is defined as the time starting {dl_renewal_window} days before the exp_date and ending on the expiration date itself. Both interaction_time and exp_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time. | None |
+| `within_vehicle_renewal_period` | The interaction_time falls within the vehicle renewal period for the vehicle with "{plate_num}" of the user "{username}". The renewal period is defined as the time starting {vehicle_renewal_window} days before the reg_date and ending on the reg_date itself. Both interaction_time and reg_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time. | None |
 

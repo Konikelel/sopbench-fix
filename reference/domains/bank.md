@@ -60,9 +60,9 @@
 | `no_credit_card_balance` | The user "{username}" **must not have** any outstanding balance on any of their credit cards to proceed. | None |
 | `no_credit_card_balance_on_card` | The user "{username}" **must not have** outstanding balance on credit card of "{card_number}" to proceed. | None |
 | `no_owed_balance` | The user "{username}" **must not have** any outstanding owed balance "owed_balance" in their account to proceed. | None |
-| `not_over_credit_limit` | The amount "{amount}" must be less than or equal to the avliable credit of credit card "{card_number}", avaliable credit is defined as the credit limit subtracted from the credit balance. | None |
+| `not_over_credit_limit` | The amount "{amount}" must be less than or equal to the avliable credit of credit card "{card_number}", avaliable credit is defined as the credit balance subtracted from the credit limit. | None |
 | `pay_loan_account_balance_restr` | The user "{username}" has an account balance "balance" that is **equal to or greater than >=** their owed balance "owed_balance". | None |
 | `pay_loan_amount_restr` | The user "{username}" has an account balance "balance" that is **equal to or greater than >=** the requested owed balance payment "{pay_owed_amount_request}" | None |
 | `safety_box_eligible` | The user "{username}" must have an account balance of at least {minimum_account_balance_safety_box} to be eligible for a safety deposit box. | None |
-| `sufficient_account_balance` | The user does have more account balance "balance" than the task amount user parameter "{amount}" to perform this task. | None |
+| `sufficient_account_balance` | The user does have an account balance "balance" **equal to or greater than >=** the task amount user parameter "{amount}" to perform this task. | None |
 

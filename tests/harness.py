@@ -64,11 +64,15 @@ def dep_full(args):
                                     dependency_verb_dep_orig=True)
 
 
-def offered_tools(domain, task):
+def assistant_info(domain, task):
     args = simulation_args(domain)
-    _, _, assistant_info, _ = task_initializer(domain, copy.deepcopy(task), *dep_full(args), None, args.env_mode,
-                                               args.shuffle_func, args.constraint_descr_format)
-    return [t["function"]["name"] for t in assistant_info["tools"]]
+    _, _, info, _ = task_initializer(domain, copy.deepcopy(task), *dep_full(args), None, args.env_mode,
+                                     args.shuffle_func, args.constraint_descr_format)
+    return info
+
+
+def offered_tools(domain, task):
+    return [t["function"]["name"] for t in assistant_info(domain, task)["tools"]]
 
 
 def simulate(domain, task, calls, flags=()):

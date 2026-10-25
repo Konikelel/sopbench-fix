@@ -309,7 +309,7 @@ positive_constraint_descriptions = {
     "within_review_limits": "The rating parameter \"{rating}\" **MUST BE WITHIN** the allowed range of {rating_lower_bound} to {rating_upper_bound} (inclusive) to perform this action.",
     "has_items_in_cart": "The user \"{username}\" **MUST HAVE** at least one item in their cart to perform this action.",
     "amount_positive_restr": "The amount parameter \"{amount}\" provided **MUST BE GREATER THAN ZERO** to perform this action.",
-    "not_already_added_shipping_address": "The shipping address \"{address}\" **MUST NOT ALREADY EXIST** in the user's \"{username}\" shipping addresses section",
+    "not_already_added_shipping_address": "The shipping address \"{address}\", compared case-insensitively, **MUST NOT ALREADY EXIST** in the user's \"{username}\" shipping addresses section.",
     "unique_review":  "The user \"{username}\" **MUST NOT HAVE** already reviewed the product with product ID \"{product_id}\".",
     "product_bought_by_user": "The user \"{username}\" **MUST HAVE** already ordered the product with product ID \"{product_id}\" to perform this action.",
     "internal_check_order_exist":             "The order with order ID \"{order_id}\" **MUST HAVE** been placed by the user \"{username}\" to perform this action.",
@@ -319,12 +319,14 @@ positive_constraint_descriptions = {
     "credit_status_not_suspended":      "The user \"{username}\" **MUST NOT HAVE** a credit status of 'suspended' to perform this action.",
     "credit_status_excellent":          "The user \"{username}\" **MUST HAVE** a credit status of 'excellent' to perform this action.",
     "within_exchange_period":           "The interaction time falls within the allowable exchange period for the order with ID \"{order_id}\". "\
-            +"The exchange period starts from the order placed date and extends for {exchange_period} days after the order placed date."\
-            +"Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values.",
+            +"The exchange period ends {exchange_period} days after the order placed date, that moment included, and has no lower bound, "\
+            +"so an interaction time before the order placed date also falls within it. "\
+            +"The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values.",
     "within_return_period":             "The interaction time falls within the allowable return period for the order with ID \"{order_id}\". "\
-            +"The return period starts from the order placed date and extends for {return_period} days after the order placed date."\
-            +"Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values.",
-    "less_than_max_exchanges":          "The order with order ID \"{order_id}\" **MUST NOT EXCEED** the maximum exchange times of {max_exchange_times} to perform this action.",
+            +"The return period ends {return_period} days after the order placed date, that moment included, and has no lower bound, "\
+            +"so an interaction time before the order placed date also falls within it. "\
+            +"The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values.",
+    "less_than_max_exchanges":          "The order with order ID \"{order_id}\" **MUST HAVE** a number_of_exchanges **LESS THAN** the maximum exchange times of {max_exchange_times} to perform this action.",
     "coupon_not_expired":               "The coupon with code \"{coupon_code}\" **MUST HAVE** an expiration date **AFTER** the interaction time to be applied.",
     "coupon_valid":                     "The user \"{username}\" **MUST HAVE** applicable products in their order \"{order_id}\" to be able to use the coupon with code \"{coupon_code}\".",
     "coupon_not_already_used":          "The coupon with code \"{coupon_code}\" **MUST NOT HAVE** already been used by the user \"{username}\" to perform this action.",
@@ -347,7 +349,7 @@ negative_constraint_descriptions = {
     "within_review_limits": "The rating parameter \"{rating}\" **MUST BE OUTSIDE** the allowed range of {rating_lower_bound} to {rating_upper_bound} (inclusive) to perform this action.",
     "has_items_in_cart": "The user \"{username}\" **MUST NOT HAVE** any items in their cart to perform this action.",
     "amount_positive_restr": "The amount parameter \"{amount}\" provided **MUST BE LESS THAN OR EQUAL TO ZERO** to perform this action.",
-    "not_already_added_shipping_address": "The shipping address \"{address}\" **MUST ALREADY EXIST** in the user's \"{username}\" shipping addresses section.",
+    "not_already_added_shipping_address": "The shipping address \"{address}\", compared case-insensitively, **MUST ALREADY EXIST** in the user's \"{username}\" shipping addresses section.",
     "unique_review":  "The user \"{username}\" **MUST HAVE** already reviewed the product with product ID \"{product_id}\".",
     "product_bought_by_user": "The user \"{username}\" **MUST NOT HAVE** the product with product ID \"{product_id}\" in their ORDER HISTORY section with any ORDER to perform this action.",
 
@@ -359,12 +361,14 @@ negative_constraint_descriptions = {
     "credit_status_not_suspended":      "The user \"{username}\" **MUST HAVE** a credit status of 'suspended' to perform this action.",
     "credit_status_excellent":          "The user \"{username}\" **MUST NOT HAVE** a credit status of 'excellent' to perform this action.",
     "within_exchange_period":           "The interaction time falls outside the allowable exchange period for the order with ID \"{order_id}\". "\
-            +"The exchange period starts from the order_placed_date and extends for {exchange_period} days after the order_placed_date."\
-            +"Both interaction time and order_placed_date are ISO 8601 formatted strings and are considered as date-time values.",
+            +"The exchange period ends {exchange_period} days after the order_placed_date, that moment included, and has no lower bound, "\
+            +"so only an interaction time more than {exchange_period} days after the order_placed_date falls outside it. "\
+            +"The order_placed_date is taken at 00:00:00 and compared with the interaction time as date-time values.",
     "within_return_period":             "The interaction time falls outside the allowable return period for the order with ID \"{order_id}\". "\
-            +"The return period starts from the order_placed_date and extends for {return_period} days after the order_placed_date."\
-            +"Both interaction time and order_placed_date are ISO 8601 formatted strings and are considered as date-time values.",
-    "less_than_max_exchanges":          "The order with order ID \"{order_id}\" **MUST EXCEED** the maximum exchange times of {max_exchange_times} allowed to perform this action.",
+            +"The return period ends {return_period} days after the order_placed_date, that moment included, and has no lower bound, "\
+            +"so only an interaction time more than {return_period} days after the order_placed_date falls outside it. "\
+            +"The order_placed_date is taken at 00:00:00 and compared with the interaction time as date-time values.",
+    "less_than_max_exchanges":          "The order with order ID \"{order_id}\" **MUST HAVE** a number_of_exchanges **EQUAL TO OR GREATER THAN** the maximum exchange times of {max_exchange_times} allowed to perform this action.",
     "coupon_not_expired":               "The coupon with code \"{coupon_code}\" **MUST HAVE** an expiration date before the interaction time to be applied.",
     "coupon_valid":                     "The user \"{username}\" **MUST NOT HAVE** applicable products in their order \"{order_id}\" to be able to use the coupon with code \"{coupon_code}\".",
     "coupon_not_already_used":          "The coupon with code \"{coupon_code}\" **MUST HAVE** already been used by the user \"{username}\" to perform this action.",

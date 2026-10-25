@@ -58,7 +58,7 @@ ALL of these conditions must be met:
 • The current interaction time must be **no later than** 48 hours before 15:00 on "old_check_in_date".
 • ANY ONE of these conditions must be met:
   • The stay from "check_in_date" to "check_out_date" must span **exactly** 10 nights **or fewer**.
-  • The guest "guest_name" must have a loyalty tier of either "gold" or "platinum".
+  • The guest "guest_name" must have a loyalty tier of either "gold" or "platinum", compared case-insensitively.
 
 * process_guest_checkin:
 ALL of these conditions must be met:
@@ -70,7 +70,7 @@ ALL of these conditions must be met:
 ALL of these conditions must be met:
 • The guest "guest_name" must be listed in the room check-in records.
 • The input "key_returned" must be set to true.
-• The current interaction time must be **before** the check-out time 11:00 on the interaction date.
+• The current interaction time must be **at or before** the check-out time 11:00 on the interaction date.
 
 * request_room_change:
 ALL of these conditions must be met:

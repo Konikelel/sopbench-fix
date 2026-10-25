@@ -61,8 +61,8 @@
 | `internal_is_restricted` | The book "{book_title}" has its restricted status set to **true**. | None |
 | `logged_in_user` | The user with "{username}" is logged in previously with the correct credentials to perform this action. | `login_user`, `{'username': 'username'}` |
 | `login_user` | The user "{username}" must be able to login with the correct password "{password}" to perform this action. | None |
-| `sufficient_account_balance_for_late_fee` | The user "{username}" does have more account balance "balance" than the late fee,  which is the product of the user's "late_book_count" in their account and late_fee_per_book in the database. | None |
-| `sufficient_account_balance_for_membership` | The user "{username}" does have more account balance "balance" than the monthly resitrcted access fee,  which is the membership_monthly_fee in the database. | None |
+| `sufficient_account_balance_for_late_fee` | The user "{username}" does have an account balance "balance" equal to or greater than the late fee,  which is the product of the user's "late_book_count" in their account and late_fee_per_book in the database. | None |
+| `sufficient_account_balance_for_membership` | The user "{username}" does have an account balance "balance" equal to or greater than the monthly resitrcted access fee,  which is the membership_monthly_fee in the database. | None |
 | `user_book_borrowed` | The book's ID (retrieved using "{book_title}" from the "book_title_to_id" section) exists in the "borrowed" of the user "{username}". | None |
 | `user_book_not_borrowed` | The book's ID (retrieved using "{book_title}" from the "book_title_to_id" section) **must not exist** in the "borrowed" of the user "{username}". | None |
 | `valid_membership` | The user "{username}" must have a 'membership' field that is a date on or after the interaction_time.  | None |
