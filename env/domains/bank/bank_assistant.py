@@ -205,7 +205,7 @@ action_customizable_dependencies = {
     "transfer_funds":               [
                                         ("single", "logged_in_user", {"username": "username"}),
                                         ("single", "authenticated_admin_password", {"username": "username"}),
-                                        ("single", "sufficient_account_balance", {"username": "username", "amount": "amount"})
+                                        ("single", "sufficient_account_balance", {"username": "username", "amount": "amount", "unit": "unit"})
                                     ],
 
     "deposit_funds":                [
@@ -213,7 +213,7 @@ action_customizable_dependencies = {
                                         ("single", "logged_in_user", {"username": "username"}),
                                     ],
     "pay_bill":                     [
-                                        ("single", "sufficient_account_balance", {"username": "username", "amount": "amount"}),
+                                        ("single", "sufficient_account_balance", {"username": "username", "amount": "amount", "unit": "unit"}),
                                         ("single", "logged_in_user", {"username": "username"}),
                                     ],
 
