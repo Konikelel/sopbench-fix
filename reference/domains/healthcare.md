@@ -34,10 +34,10 @@
 
 | Constraint | Description | Helper functions |
 |---|---|---|
-| `amount_positive_restr` | The amount parameter "{amount}" provided must be greater than zero. | None |
-| `appointment_date_valid` | The appointment_date "{appointment_date}" **MUST BE AFTER** the interaction time. | None |
+| `amount_positive_restr` | The amount parameter "{amount}" provided must be zero or greater. | None |
+| `appointment_date_valid` | The appointment_date "{appointment_date}", taken at 00:00:00 of its date, **MUST BE AT THE SAME TIME AS OR AFTER** the interaction time. The appointment_date must be written as YYYY-MM-DD, optionally followed by a space or 'T' and a time HH:MM or HH:MM:SS. | None |
 | `claim_status_denied` | The claim with ID "{claim_id}" for user "{username}" **MUST HAVE** a status of 'denied' in order to be appealed. | None |
-| `claim_within_coverage_amount` | The total amount of pending and approved claims for the user "{username}" **MUST NOT EXCEED** the coverage amount specified in their policy when submitting a new claim. | None |
+| `claim_within_coverage_amount` | The total claimed amount, including the new claim of "{amount}", **MUST NOT EXCEED** the coverage amount for the user "{username}". The total claimed amount is calculated as the sum of all previously approved and pending claims. The coverage amount is retrieved from the user's policy details. | None |
 | `claim_within_limits` | The amount "{amount}" must be less than the maximum claimable amount of {maximum_claimable_amount}. | None |
 | `income_proof_enough` | The requested coverage amount "{coverage_amount}" **MUST NOT EXCEED** {max_coverage_percentage} percent of the annual income "{annual_income}" provided by the user. | None |
 | `internal_check_claim_exists` | The claim ID parameter "{claim_id}" **MUST EXIST** under the user's claims history. | None |
@@ -50,9 +50,9 @@
 | `policy_inactive` | The user "{username}" **must have an inactive policy** to perform this action. In the policy section of the user "{username}", the policy type MUST be marked as 'Inactive' | None |
 | `policy_type_valid` | The policy type "{policy_type}" **MUST BE** one of the valid insurance policy types: Health, Dental, Pharmacy, or Vision. | None |
 | `provider_authorized` | The provider with ID "{provider_id}" **MUST BE** authorized for the user "{username}". | None |
-| `provider_available` | The provider with ID "{provider_id}" **MUST HAVE** the availability of 'Available' in order to schedule an appointment. | None |
+| `provider_available` | The provider with ID "{provider_id}" **MUST HAVE** the availability of 'Available', compared case-insensitively, in order to schedule an appointment. | None |
 | `provider_covers_policy` | The provider with ID "{provider_id}" **MUST HAVE** the service type that match the policy type of the user "{username}" in order to perform this action. | None |
 | `provider_not_already_authorized` | The provider ID "{provider_id}" **MUST NOT already exist** in the list of authorized providers for the user "{username}". | None |
-| `within_appeal_period` | The interaction time falls within the allowable appeal period for the claim with ID "{claim_id}" of the user "{username}". The appeal period starts from the claim date and extends for {appeal_period} days after the claim date. Both interaction time and claim date are ISO 8601 formatted strings and are considered as date-time values. | None |
-| `within_enrollment_period` | The interaction time falls within the allowable enrollment period for the user "{username}". The enrollemnt period starts from the enrollment date of the user's policy and extends for {enrollment_period} days after the enrollment date. Both interaction time and enrollment date are ISO 8601 formatted strings and are considered as date-time values. | None |
+| `within_appeal_period` | The interaction time falls within the allowable appeal period for the claim with ID "{claim_id}" of the user "{username}". The appeal period ends {appeal_period} days after the claim date, that moment included, and has no lower bound, so an interaction time before the claim date also falls within it. The claim date is taken at 00:00:00 and compared with the interaction time as date-time values. | None |
+| `within_enrollment_period` | The interaction time falls within the allowable enrollment period for the user "{username}". The enrollment period ends {enrollment_period} days after the enrollment date of the user's policy, that moment included, and has no lower bound, so an interaction time before the enrollment date also falls within it. The enrollment date is taken at 00:00:00 and compared with the interaction time as date-time values. | None |
 

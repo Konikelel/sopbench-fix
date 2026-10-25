@@ -275,8 +275,7 @@ positive_constraint_descriptions = {
     "internal_vehicle_registered":          "The vehicle with the plate number \"{plate_num}\" is registed under one user's 'vehicles' in the database." ,  
     "internal_has_dl":                      "The user with \"{username}\" has a driver_license that is not null in their account.",
     "internal_valid_test_type":             "The input test type \"{test_type}\" is valid (either 'knowledge' or 'drive').",
-    "internal_check_test_slot_available":   "The specified \"{schedule_time}\" exists only in the \"{test_type}\" of test_slots. "\
-                                            + "If it exists elsewhere in the databse, it is consided **NON-EXISTENT**." ,
+    "internal_check_test_slot_available":   "The specified \"{schedule_time}\" exists in the \"{test_type}\" of test_slots." ,
     # state tracker constraints
     "logged_in_user":                       "The user with \"{username}\" is logged in previously with the correct credentials to perform this action.",
     "authenticated_admin_password":         "The user with \"{username}\" has authenticated the admin password previously to perform this action.",
@@ -284,12 +283,12 @@ positive_constraint_descriptions = {
     "valid_vehicle_insurance":              "The vehicle with the plate number \"{plate_num}\" belonging to the user \"{username}\" must have an insurance_status of 'valid'.",
     "within_vehicle_renewal_period":        "The interaction_time falls within the vehicle renewal period for the vehicle with \"{plate_num}\" of the user \"{username}\". "\
                                             + "The renewal period is defined as the time starting {vehicle_renewal_window} days before the reg_date and ending on the reg_date itself. "\
-                                            + "Both interaction_time and reg_date are ISO 8601 formatted strings and are considered as date-time values.",
+                                            + "Both interaction_time and reg_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time.",
     "is_dl_address_different":              "The driver license of the user \"{username}\" must have an address different from \"{address_new}\".",
     "within_dl_renewal_period":             "The interaction_time falls within the driver_license renewal period for the user \"{username}\". "\
                                             + "The renewal period is defined as the time starting {dl_renewal_window} days before the exp_date and ending on the expiration date itself. "\
-                                            + "Both interaction_time and exp_date are ISO 8601 formatted strings and are considered as date-time values.",
-    "above_minimum_age":                    "The user with \"{username}\" must be above the minimum age of {min_age}. "\
+                                            + "Both interaction_time and exp_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time.",
+    "above_minimum_age":                    "The user with \"{username}\" must be at least the minimum age of {min_age}. "\
                                             + "The age should be determined as per interaction_time.",
     "test_type_is_drive":                   "The input test type \"{test_type}\" must be 'drive'.",
     "drive_test_ready":                     "The user with \"{username}\" must have passed the knowledge test and must have a status of \"not scheduled\" in \"drive\" of their tests.",
@@ -318,22 +317,22 @@ negative_constraint_descriptions = {
     "valid_vehicle_insurance":              "The vehicle with the plate number \"{plate_num}\" belonging to the user \"{username}\" **must not** have an insurance_status of 'valid'.",
     "within_vehicle_renewal_period":        "The interaction_time **does not fall within** the vehicle renewal period for the vehicle with \"{plate_num}\" of the user \"{username}\". "\
                                             + "The renewal period is defined as the time starting {vehicle_renewal_window} days before the reg_date and ending on the reg_date itself. "\
-                                            + "Both interaction_time and reg_date are ISO 8601 formatted strings and are considered as date-time values.",
+                                            + "Both interaction_time and reg_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time.",
     "is_dl_address_different":              "The driver license of the user \"{username}\" **must** have an address **identical to** \"{address_new}\".",
     "within_dl_renewal_period":             "The interaction_time **does not fall within** the driver_license renewal period for the user \"{username}\". "\
                                             + "The renewal period is defined as the time starting {dl_renewal_window} days before the exp_date and ending on the expiration date itself. "\
-                                            + "Both interaction_time and exp_date are ISO 8601 formatted strings and are considered as date-time values.",
+                                            + "Both interaction_time and exp_date are ISO 8601 formatted strings and are compared by date only, ignoring the time of day of interaction_time.",
 
-    "above_minimum_age":                    "The user with \"{username}\" **must not** be above the minimum age of {min_age}. "\
+    "above_minimum_age":                    "The user with \"{username}\" **must be younger than** the minimum age of {min_age}. "\
                                             + "The age should be determined as per interaction_time.",
     "test_type_is_drive":                   "The input test type \"{test_type}\" **must not** be 'drive'.",
     "drive_test_ready":                     "The user with \"{username}\" **must not have passed** the knowledge test "\
-                                            + "and must have a status **different from** \"not scheduled\" in \"drive\" of their tests.",
-    "test_scheduled":                       "The user with \"{username}\" **must not** have their test status set to 'scheduled' and **must not have** a corersponding scheduled_time in \"{test_type}\" of their tests.",
-    "within_attempt_limit":                 "The user with \"{username}\" has an \"attempts\" of **more than {attempt_limit}** their \"{test_type}\" of tests.",
-    "before_test_date":                     "The interaction_time in the database **must be strictly after** the scheduled_time of the \"{test_type}\" in the tests for the user \"{username}\". "\
+                                            + "**or** must have a status **different from** \"not scheduled\" in \"drive\" of their tests.",
+    "test_scheduled":                       "The user with \"{username}\" **must not** have their test status set to 'scheduled' **or** must not have a corersponding scheduled_time in \"{test_type}\" of their tests.",
+    "within_attempt_limit":                 "The user with \"{username}\" has an \"attempts\" of **{attempt_limit} or more** in their \"{test_type}\" of tests.",
+    "before_test_date":                     "The interaction_time in the database **must be at the same time as or after** the scheduled_time of the \"{test_type}\" in the tests for the user \"{username}\". "\
                                             + "The interaction_time and scheduled_time are compared as **ISO 8601 formatted datetime values**. " \
-                                            + "Ensure that the scheduled_time is **at least one second earlier** than the interaction_time."
+                                            + "Ensure that the scheduled_time is **equal to or earlier than** the interaction_time."
 }
 
 # links the dependency to the action that changes its state in the state tracker, should be one to one

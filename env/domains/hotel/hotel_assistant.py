@@ -248,7 +248,7 @@ positive_constraint_descriptions = {
                                                             +" to the new stay (\"{check_in_date}\" to \"{check_out_date}\") with a new room type \"{room_type}\".",
     "valid_identification":                                 "The \"{identification}\" must include a \"type\" that matches one of {valid_document_types} and a valid \"birthday\" indicating the guest is at least {min_age} years old.",
     "after_check_in_time":                                  "The current interaction time must be **on or after** the check-in time {check_in_time} on the interaction date.",
-    "before_check_out_time":                                "The current interaction time must be **before** the check-out time {check_out_time} on the interaction date.",
+    "before_check_out_time":                                "The current interaction time must be **at or before** the check-out time {check_out_time} on the interaction date.",
     "guest_already_checked_in":                             "The guest \"{guest_name}\" must be listed in the room check-in records.",
     "room_key_returned":                                    "The input \"{key_returned}\" must be set to true.",
     "room_type_available_for_room_change":                  "The \"{room_type}\" must have at least one room available for all remaining nights between the current interaction date and the \"check_out_date\" in the reservation of the checked-in guest \"{guest_name}\".",
@@ -261,7 +261,7 @@ positive_constraint_descriptions = {
     "payment_with_loyalty_points":                          "The \"{payment_method}\" must be set to \"loyalty_points\".",
     "sufficient_payment_for_room_service":                  "If the \"{payment_method}\" is not \"loyalty_points\", then the \"{amount}\" must be **greater than or equal to** the cost of \"{order_items}\" in the \"{order_type}\" category."\
                                                             + " Otherwise, the guest \"{guest_name}\" must have enough loyalty points to cover the total room service cost (10 points per dollar).",
-    "is_gold_or_higher_member":                             "The guest \"{guest_name}\" must have a loyalty tier of either \"gold\" or \"platinum\".",
+    "is_gold_or_higher_member":                             "The guest \"{guest_name}\" must have a loyalty tier of either \"gold\" or \"platinum\", compared case-insensitively.",
     "amount_positive_restr":                                "The user parameter key \"{amount}\" is **greater than** zero.",
 }
 
@@ -289,7 +289,7 @@ negative_constraint_descriptions = {
                                                             +" to the new stay (\"{check_in_date}\" to \"{check_out_date}\") with a new room type \"{room_type}\".",
     "valid_identification":                                 "The \"{identification}\" must include a \"type\" that **does not match** any of {valid_document_types} or an invalid \"birthday\" indicating the guest is **less than** {min_age} years old.",
     "after_check_in_time":                                  "The current interaction time must be **before** the check-in time {check_in_time} on the interaction date.",
-    "before_check_out_time":                                "The current interaction time must be **on or after** the check-out time {check_out_time} on the interaction date.",
+    "before_check_out_time":                                "The current interaction time must be **strictly after** the check-out time {check_out_time} on the interaction date.",
     "guest_already_checked_in":                             "The guest \"{guest_name}\" **must not** be listed in the room check-in records.",
     "room_key_returned":                                    "The input \"{key_returned}\" must be set to **false**.",
     "room_type_available_for_room_change":                  "The \"{room_type}\" **must not** have any room available for all remaining nights between the current interaction date and the \"check_out_date\" in the reservation of the checked-in guest \"{guest_name}\".",
@@ -302,7 +302,7 @@ negative_constraint_descriptions = {
     "payment_with_loyalty_points":                          "The \"{payment_method}\" **must not** be set to \"loyalty_points\".",
     "sufficient_payment_for_room_service":                  "If the \"{payment_method}\" is not \"loyalty_points\", then the \"{amount}\" must be **less than** the cost of \"{order_items}\" in the \"{order_type}\" category."\
                                                             + " Otherwise, the guest \"{guest_name}\" **must not** have enough loyalty points to cover the total room service cost (10 points per dollar).",
-    "is_gold_or_higher_member":                             "The guest \"{guest_name}\" **must** have a loyalty tier of \"silver\".",
+    "is_gold_or_higher_member":                             "The guest \"{guest_name}\" **must** have a loyalty tier of neither \"gold\" nor \"platinum\", compared case-insensitively.",
     "amount_positive_restr":                                "The user parameter key \"{amount}\" is **less than or equal to** zero.",
 }
 

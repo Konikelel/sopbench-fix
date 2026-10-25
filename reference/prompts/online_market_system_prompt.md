@@ -57,7 +57,7 @@ The user is logged in previously with the correct credentials to perform this ac
 * add_shipping_address:
 ALL of these conditions must be met:
 • The user is logged in previously with the correct credentials to perform this action.
-• The shipping address "address" **MUST NOT ALREADY EXIST** in the user's "username" shipping addresses section
+• The shipping address "address", compared case-insensitively, **MUST NOT ALREADY EXIST** in the user's "username" shipping addresses section.
 
 * view_shipping_addresses:
 The user is logged in previously with the correct credentials to perform this action.
@@ -83,7 +83,7 @@ ALL of these conditions must be met:
 • The order with order ID "order_id" **MUST HAVE** been placed by the user "username" to perform this action.
 • The order with order ID "order_id" **MUST HAVE** a status of 'Delivered' to perform this action.
 • ANY ONE of these conditions must be met:
-  • The interaction time falls within the allowable return period for the order with ID "order_id". The return period starts from the order placed date and extends for 182 days after the order placed date.Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values.
+  • The interaction time falls within the allowable return period for the order with ID "order_id". The return period ends 182 days after the order placed date, that moment included, and has no lower bound, so an interaction time before the order placed date also falls within it. The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values.
   • The user "username" **MUST HAVE** a credit status of 'excellent' to perform this action.
 
 * exchange_product:
@@ -95,8 +95,8 @@ ALL of these conditions must be met:
 • The product ID "new_product_id" must have sufficient stock to fulfill the requested quantity "quantity" in the database.
 • ANY ONE of these conditions must be met:
   • ALL of these conditions must be met:
-  • The interaction time falls within the allowable exchange period for the order with ID "order_id". The exchange period starts from the order placed date and extends for 365 days after the order placed date.Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values.
-  • The order with order ID "order_id" **MUST NOT EXCEED** the maximum exchange times of 2 to perform this action.
+  • The interaction time falls within the allowable exchange period for the order with ID "order_id". The exchange period ends 365 days after the order placed date, that moment included, and has no lower bound, so an interaction time before the order placed date also falls within it. The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values.
+  • The order with order ID "order_id" **MUST HAVE** a number_of_exchanges **LESS THAN** the maximum exchange times of 2 to perform this action.
   • The user "username" **MUST HAVE** a credit status of 'excellent' to perform this action.
 
 * use_coupon:

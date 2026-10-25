@@ -231,7 +231,7 @@ positive_constraint_descriptions = {
     "internal_check_provider_exists":"The provider with ID \"{provider_id}\" **MUST EXIST** within the providers section of the system database.",
     "login_user":                   "The user is able to login with the correct credentials of \"{username}\" and \"{identification}\" to perform this action,"\
         + " matching the database credentials.",
-    "amount_positive_restr":        "The amount parameter \"{amount}\" provided must be greater than zero.",
+    "amount_positive_restr":        "The amount parameter \"{amount}\" provided must be zero or greater.",
     "claim_within_coverage_amount": "The total claimed amount, including the new claim of \"{amount}\", **MUST NOT EXCEED** the coverage amount for the user \"{username}\". "\
             + "The total claimed amount is calculated as the sum of all previously approved and pending claims. "\
             + "The coverage amount is retrieved from the user's policy details.",
@@ -241,22 +241,24 @@ positive_constraint_descriptions = {
         #"The user \"{username}\" **must have an active policy** to perform this action. An active policy is one that is not marked as \"Inactive\" in the policy_type.",
     "policy_inactive":  "The user \"{username}\" **must have an inactive policy** to perform this action. In the policy section of the user \"{username}\", the policy type MUST be marked as 'Inactive'",
 
-    "provider_available": "The provider with ID \"{provider_id}\" **MUST HAVE** the availability of 'Available' in order to schedule an appointment.",
-    "claim_within_coverage_amount": "The total amount of pending and approved claims for the user \"{username}\" **MUST NOT EXCEED** the coverage amount specified in their policy when submitting a new claim.",
+    "provider_available": "The provider with ID \"{provider_id}\" **MUST HAVE** the availability of 'Available', compared case-insensitively, in order to schedule an appointment.",
     "no_pending_claims": "The user \"{username}\" **MUST NOT HAVE** any claims with a status of 'pending' in order to proceed with this action.",
     "provider_covers_policy": "The provider with ID \"{provider_id}\" **MUST HAVE** the service type that match the policy type of the user \"{username}\" in order to perform this action.",
     "income_proof_enough": "The requested coverage amount \"{coverage_amount}\" **MUST NOT EXCEED** {max_coverage_percentage} percent of the annual income \"{annual_income}\" provided by the user.",
     "claim_status_denied": "The claim with ID \"{claim_id}\" for user \"{username}\" **MUST HAVE** a status of 'denied' in order to be appealed.",
     "provider_authorized": "The provider with ID \"{provider_id}\" **MUST BE** authorized for the user \"{username}\".",
     "within_enrollment_period": "The interaction time falls within the allowable enrollment period for the user \"{username}\". "\
-            + "The enrollemnt period starts from the enrollment date of the user's policy and extends for {enrollment_period} days after the enrollment date. "\
-            + "Both interaction time and enrollment date are ISO 8601 formatted strings and are considered as date-time values.",
+            + "The enrollment period ends {enrollment_period} days after the enrollment date of the user's policy, that moment included, and has no lower bound, "\
+            + "so an interaction time before the enrollment date also falls within it. "\
+            + "The enrollment date is taken at 00:00:00 and compared with the interaction time as date-time values.",
     "within_appeal_period": "The interaction time falls within the allowable appeal period for the claim with ID \"{claim_id}\" of the user \"{username}\". "\
-            + "The appeal period starts from the claim date and extends for {appeal_period} days after the claim date. "\
-            + "Both interaction time and claim date are ISO 8601 formatted strings and are considered as date-time values.",
+            + "The appeal period ends {appeal_period} days after the claim date, that moment included, and has no lower bound, "\
+            + "so an interaction time before the claim date also falls within it. "\
+            + "The claim date is taken at 00:00:00 and compared with the interaction time as date-time values.",
 
     "policy_type_valid": "The policy type \"{policy_type}\" **MUST BE** one of the valid insurance policy types: Health, Dental, Pharmacy, or Vision.",
-    "appointment_date_valid": "The appointment_date \"{appointment_date}\" **MUST BE AFTER** the interaction time."
+    "appointment_date_valid": "The appointment_date \"{appointment_date}\", taken at 00:00:00 of its date, **MUST BE AT THE SAME TIME AS OR AFTER** the interaction time. "\
+            + "The appointment_date must be written as YYYY-MM-DD, optionally followed by a space or 'T' and a time HH:MM or HH:MM:SS."
     
 
 }
@@ -268,30 +270,32 @@ negative_constraint_descriptions = {
     "internal_check_provider_exists":"The provider with ID \"{provider_id}\" **MUST NOT EXIST** in the providers section of the system database.",
     "login_user":                   "The user **must not be able to login** with the correct credentials of \"{username}\" and \"{identification}\" to perform this action,"\
         + " **not matching** the database credentials.",
-    "amount_positive_restr":        "The amount parameter \"{amount}\" provided is not greater than zero.",
-    "claim_within_coverage_amount":          "The claim amount \"{amount}\" **must not be within** the maximum claimable limit for the user's policy.",
+    "amount_positive_restr":        "The amount parameter \"{amount}\" provided is less than zero.",
     "provider_not_already_authorized":"Look into the account user \"{username}\" in the initial database. In the policy section of the user \"{username}\", the list of authorized providers **must contain** provider id \"{provider_id}\".",
         #"The provider ID \"{provider_id}\" **must already exist** in the list of authorized providers for the user \"{username}\".",
     "policy_active":                "The user \"{username}\" **must have an inactive policy** to perform this action. In the policy section of the user \"{username}\", the policy type MUST be marked as 'Inactive'.",
     "policy_inactive": "The user \"{username}\" **must have an active policy** to perform this action. In the policy section of the user \"{username}\", the policy type MUST NOT and CAN NOT be marked as 'Inactive'.",
-    "provider_available": "The provider with ID \"{provider_id}\" **MUST HAVE** the availability of 'Inavailable' in order to schedule an appointment.",
+    "provider_available": "The provider with ID \"{provider_id}\" **MUST HAVE** an availability other than 'Available', compared case-insensitively, in order to schedule an appointment.",
     "claim_within_coverage_amount": "The total claimed amount, including the new claim of \"{amount}\", **MUST EXCEED** the coverage amount for the user \"{username}\". "\
         + "The total claimed amount is calculated as the sum of all previously approved and pending claims. "\
         + "The coverage amount is retrieved from the user's policy details.",
-    "claim_within_limits": "The amount \"{amount}\" must be greater than the maximum claimable amount of {maximum_claimable_amount}.",
+    "claim_within_limits": "The amount \"{amount}\" must be equal to or greater than the maximum claimable amount of {maximum_claimable_amount}.",
     "no_pending_claims": "The user \"{username}\" **MUST HAVE** any claims with a status of 'pending' in order to proceed with this action.",
     "provider_covers_policy": "The provider with ID \"{provider_id}\" **MUST NOT HAVE** the service type that match the policy type of the user \"{username}\" in order to perform this action.",
     "income_proof_enough": "The requested coverage amount \"{coverage_amount}\" **MUST EXCEED** {max_coverage_percentage} percent of the annual income \"{annual_income}\" provided by the user.",
     "claim_status_denied": "The claim with ID \"{claim_id}\" for user \"{username}\" **MUST NOT HAVE** a status of 'denied' in order to be appealed.",
     "provider_authorized": "The provider with ID \"{provider_id}\" **MUST NOT BE** authorized for the user \"{username}\".",
     "within_enrollment_period": "The interaction time falls outside the allowable enrollment period for the user \"{username}\". "\
-            + "The enrollment period starts from the enrollment_date of the user's policy and extends for {enrollment_period} days after the enrollment_date. "\
-            + "Both interaction time and enrollment_date are ISO 8601 formatted strings and are considered as date-time values.",
+            + "The enrollment period ends {enrollment_period} days after the enrollment_date of the user's policy, that moment included, and has no lower bound, "\
+            + "so only an interaction time more than {enrollment_period} days after the enrollment_date falls outside it. "\
+            + "The enrollment_date is taken at 00:00:00 and compared with the interaction time as date-time values.",
     "within_appeal_period": "The interaction time falls outside the allowable appeal period for the claim with ID \"{claim_id}\" of the user \"{username}\". "\
-            + "The appeal period starts from the claim_date and extends for {appeal_period} days after the claim_date. "\
-            + "Both interaction time and claim_date are ISO 8601 formatted strings and are considered as date-time values.",
+            + "The appeal period ends {appeal_period} days after the claim_date, that moment included, and has no lower bound, "\
+            + "so only an interaction time more than {appeal_period} days after the claim_date falls outside it. "\
+            + "The claim_date is taken at 00:00:00 and compared with the interaction time as date-time values.",
     "policy_type_valid": "The policy type \"{policy_type}\" **MUST NOT BE** one of the valid insurance policy types: Health, Dental, Pharmacy, or Vision.",
-    "appointment_date_valid": "The appointment_date \"{appointment_date}\" must be before past the interaction time."
+    "appointment_date_valid": "The appointment_date \"{appointment_date}\", taken at 00:00:00 of its date, **MUST BE BEFORE** the interaction time, "\
+            + "or it is not written as YYYY-MM-DD, optionally followed by a space or 'T' and a time HH:MM or HH:MM:SS."
 
 }
 

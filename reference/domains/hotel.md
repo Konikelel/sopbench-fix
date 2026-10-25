@@ -43,7 +43,7 @@
 |---|---|---|
 | `after_check_in_time` | The current interaction time must be **on or after** the check-in time {check_in_time} on the interaction date. | None |
 | `amount_positive_restr` | The user parameter key "{amount}" is **greater than** zero. | None |
-| `before_check_out_time` | The current interaction time must be **before** the check-out time {check_out_time} on the interaction date. | None |
+| `before_check_out_time` | The current interaction time must be **at or before** the check-out time {check_out_time} on the interaction date. | None |
 | `before_modification_deadline` | The current interaction time must be **no later than** {modification_deadline_hours} hours before {check_in_time} on "{check_in_date}". | None |
 | `guest_already_checked_in` | The guest "{guest_name}" must be listed in the room check-in records. | None |
 | `has_confirmed_reservation` | The guest "{guest_name}" must have a reservation from "{check_in_date}" to "{check_out_date}" with status marked as "confirmed". | None |
@@ -59,7 +59,7 @@
 | `internal_valid_room_service_payment_method` | The "{payment_method}" must be listed as one of the accepted payment methods for room service. | None |
 | `internal_valid_room_type` | The "{room_type}" must refer to one of the room types currently offered by the hotel. | None |
 | `is_booking_date_within_lead_time_range` | The "{check_in_date}" must be **no earlier than** {min_booking_lead_time_days} days after and **no later than** {max_booking_lead_time_days} days after the current interaction date. | None |
-| `is_gold_or_higher_member` | The guest "{guest_name}" must have a loyalty tier of either "gold" or "platinum". | None |
+| `is_gold_or_higher_member` | The guest "{guest_name}" must have a loyalty tier of either "gold" or "platinum", compared case-insensitively. | None |
 | `payment_with_loyalty_points` | The "{payment_method}" must be set to "loyalty_points". | None |
 | `room_key_returned` | The input "{key_returned}" must be set to true. | None |
 | `room_type_available_for_dates` | The "{room_type}" must have at least one specific room available for every date from "{check_in_date}" up to (but not including) "{check_out_date}". | None |

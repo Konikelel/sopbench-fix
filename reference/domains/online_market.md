@@ -54,16 +54,16 @@
 | `internal_check_order_exist` | The order with order ID "{order_id}" **MUST HAVE** been placed by the user "{username}" to perform this action. | None |
 | `internal_check_product_exist` | The product ID parameter "{product_id}" **MUST EXIST** as a key in the products section of the database. | None |
 | `internal_check_username_exist` | The user parameter key "{username}" **MUST EXIST** as a top-level key in the accounts section of the database. | None |
-| `less_than_max_exchanges` | The order with order ID "{order_id}" **MUST NOT EXCEED** the maximum exchange times of {max_exchange_times} to perform this action. | None |
+| `less_than_max_exchanges` | The order with order ID "{order_id}" **MUST HAVE** a number_of_exchanges **LESS THAN** the maximum exchange times of {max_exchange_times} to perform this action. | None |
 | `logged_in_user` | The user is logged in previously with the correct credentials to perform this action. | `login_user`, `{'username': 'username'}` |
 | `login_user` | The user is able to login with the correct credentials of "{username}" and "{password}" to perform this action, matching the database credentials. | None |
-| `not_already_added_shipping_address` | The shipping address "{address}" **MUST NOT ALREADY EXIST** in the user's "{username}" shipping addresses section | None |
+| `not_already_added_shipping_address` | The shipping address "{address}", compared case-insensitively, **MUST NOT ALREADY EXIST** in the user's "{username}" shipping addresses section. | None |
 | `order_delivered` | The order with order ID "{order_id}" **MUST HAVE** a status of 'Delivered' to perform this action. | None |
 | `order_processing` | The order with order ID "{order_id}" **MUST HAVE** a status of 'Processing' to perform this action. | None |
 | `product_bought_by_user` | The user "{username}" **MUST HAVE** already ordered the product with product ID "{product_id}" to perform this action. | None |
 | `product_exists_in_order` | The product with ID "{product_id}" **MUST EXIST** in the order with order ID "{order_id}" placed by the user "{username}" to perform this action. | None |
 | `unique_review` | The user "{username}" **MUST NOT HAVE** already reviewed the product with product ID "{product_id}". | None |
-| `within_exchange_period` | The interaction time falls within the allowable exchange period for the order with ID "{order_id}". The exchange period starts from the order placed date and extends for {exchange_period} days after the order placed date.Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values. | None |
-| `within_return_period` | The interaction time falls within the allowable return period for the order with ID "{order_id}". The return period starts from the order placed date and extends for {return_period} days after the order placed date.Both interaction time and order placed date are ISO 8601 formatted strings and are considered as date-time values. | None |
+| `within_exchange_period` | The interaction time falls within the allowable exchange period for the order with ID "{order_id}". The exchange period ends {exchange_period} days after the order placed date, that moment included, and has no lower bound, so an interaction time before the order placed date also falls within it. The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values. | None |
+| `within_return_period` | The interaction time falls within the allowable return period for the order with ID "{order_id}". The return period ends {return_period} days after the order placed date, that moment included, and has no lower bound, so an interaction time before the order placed date also falls within it. The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values. | None |
 | `within_review_limits` | The rating parameter "{rating}" **MUST BE WITHIN** the allowed range of {rating_lower_bound} to {rating_upper_bound} (inclusive) to perform this action. | None |
 

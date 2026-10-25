@@ -69,7 +69,7 @@ ALL of these conditions must be met:
 • The user parameter key "destination_username" must exist within the initial existing database of accounts. The users with accounts exist within the accounts section of the initial database.
 • The user with username username is logged in previously with the correct credentials to perform this action.
 • The user with username username has authenticated the admin password previously to perform this action.
-• The user does have more account balance "balance" than the task amount user parameter "amount" to perform this task.
+• The user does have an account balance "balance" **equal to or greater than >=** the task amount user parameter "amount" to perform this task.
 
 * deposit_funds:
 ALL of these conditions must be met:
@@ -80,13 +80,13 @@ ALL of these conditions must be met:
 * pay_bill:
 ALL of these conditions must be met:
 • The user parameter key "username" must exist within the initial existing database of accounts. The users with accounts exist within the accounts section of the initial database.
-• The user does have more account balance "balance" than the task amount user parameter "amount" to perform this task.
+• The user does have an account balance "balance" **equal to or greater than >=** the task amount user parameter "amount" to perform this task.
 • The user with username username is logged in previously with the correct credentials to perform this action.
 
 * pay_bill_with_credit_card:
 ALL of these conditions must be met:
 • The user parameter key "username" must exist within the initial existing database of accounts. The users with accounts exist within the accounts section of the initial database.
-• The amount "amount" must be less than or equal to the avliable credit of credit card "card_number", avaliable credit is defined as the credit limit subtracted from the credit balance.
+• The amount "amount" must be less than or equal to the avliable credit of credit card "card_number", avaliable credit is defined as the credit balance subtracted from the credit limit.
 • The user with username username is logged in previously with the correct credentials to perform this action.
 
 * apply_credit_card:

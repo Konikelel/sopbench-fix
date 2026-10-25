@@ -47,14 +47,14 @@ ALL of these conditions must be met:
 • The student "username" **MUST HAVE** at least 90 completed credits to enroll in an upper-division course.
 • The course "course_code" **MUST NOT** already be completed by the student "username".
 • The exam schedule for course "course_code" **MUST NOT CONFLICT** with any of the student's other enrolled course exam times.
-• The student "username" **MUST BE** in a major allowed by the course "course_code" major restrictions.
+• The student "username" **MUST BE** in a major listed in the "restricted_to_majors" of the course "course_code"; an empty list allows no major.
 
 * drop_course:
 ALL of these conditions must be met:
 • Student "username" **MUST BE CURRENTLY ENROLLED** in course "course_code"
 • The user is logged in previously with the correct credentials to perform this action.
 • After dropping course "course_code", student "username" **MUST RETAIN** at least 12 credits (current credits - course credits)
-• Current interaction time **MUST BE BEFORE** the withdrawal deadline in academic calendar
+• Current interaction time **MUST BE AT OR BEFORE** the withdrawal deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date.
 
 * request_graduation:
 ALL of these conditions must be met:
@@ -64,7 +64,7 @@ ALL of these conditions must be met:
 • The student "username" **MUST HAVE COMPLETED** at least 180 total credits to graduate.
 • The student "username" **MUST HAVE** a GPA greater than or equal to the minimum required GPA of 2.0 to graduate.
 • The tuition balance for student "username" **MUST BE ZERO OR LESS** in order to proceed with graduation.
-• The current interaction time **MUST BE BEFORE** the official graduation deadline in the academic calendar.
+• The current interaction time **MUST BE AT OR BEFORE** the official graduation deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date.
 • The student "username" **MUST NOT BE** on academic probation in order to perform this action.
 
 * change_major:
@@ -84,7 +84,7 @@ ALL of these conditions must be met:
 • The number of overlapping required courses between "minor" minor and the student's major **MUST NOT EXCEED** 2.
 • The student's GPA **MUST MEET OR EXCEED** the "minor" minor's minimum requirement.
 • The student **MUST HAVE COMPLETED** all prerequisite courses for "minor".
-• The current interaction time **MUST FALL** before the minor declaration date in the academic calendar.
+• The current interaction time **MUST BE AT OR BEFORE** the minor declaration deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date.
 
 * apply_financial_aid:
 ALL of these conditions must be met:
@@ -93,7 +93,7 @@ ALL of these conditions must be met:
 • The number of quarters the student "username" has received financial aid **MUST BE LESS THAN** the maximum allowed (12).
 • The student "username" **MUST NOT BE** on academic probation in order to perform this action.
 • The student "username" **MUST HAVE** a minimum GPA of 2.0 to qualify for financial aid
-• The student "username" **MUST HAVE** an annual income under 50000 to be eligible for aid
+• The student "username" **MUST HAVE** an annual income of at most 50000 to be eligible for aid
 • The student "username" **MUST BE** either in-state or public school graduate residency status
 
 ### Internal Verification Functions:

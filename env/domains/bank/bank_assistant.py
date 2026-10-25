@@ -273,7 +273,7 @@ positive_constraint_descriptions = {
     # state tracker constraints
     "logged_in_user":               "The user with username {username} is logged in previously with the correct credentials to perform this action.",
     "authenticated_admin_password": "The user with username {username} has authenticated the admin password previously to perform this action.",
-    "sufficient_account_balance":   "The user does have more account balance \"balance\" than the"\
+    "sufficient_account_balance":   "The user does have an account balance \"balance\" **equal to or greater than >=** the"\
         + " task amount user parameter \"{amount}\" to perform this task.",
     "get_loan_owed_balance_restr":  "The user with the parameter \"{username}\" does have owed balance less than {maximum_owed_balance} to take a loan.",
     "pay_loan_account_balance_restr":"The user \"{username}\" has an account balance \"balance\""\
@@ -289,7 +289,7 @@ positive_constraint_descriptions = {
     "maximum_deposit_limit":         "The deposit amount \"{amount}\" must be less than or equal to the {maximum_deposit} to be accepted.",
     "maximum_exchange_amount":       "The exchange amount \"{amount}\" must be less than or equal to the {maximum_exchange}",
     "not_over_credit_limit":         "The amount \"{amount}\" must be less than or equal to the avliable credit of credit card \"{card_number}\","\
-        + " avaliable credit is defined as the credit limit subtracted from the credit balance.",
+        + " avaliable credit is defined as the credit balance subtracted from the credit limit.",
     # domain system constraints
     "login_user":                   "The user is able to login with the correct credentials of \"{username}\" and \"{identification}\" to perform this action,"\
         + " matching the database credentials.",
@@ -310,7 +310,7 @@ negative_constraint_descriptions = {
     "logged_in_user":               "The user with username {username} **must not be logged in previously with the correct credentials** to perform this action.",
     "authenticated_admin_password": "The user with username {username} **must not have authenticated** the admin password previously to perform this action.",
     "sufficient_account_balance":   "The user's account balance \"balance\" **must be STRICTLY LESS THAN <** the task amount user-known parameter \"{amount}\".",
-    "get_loan_owed_balance_restr":  "The user with the parameter \"{username}\" **must have an owed balance more than {maximum_owed_balance}**.",
+    "get_loan_owed_balance_restr":  "The user with the parameter \"{username}\" **must have an owed balance equal to or greater than {maximum_owed_balance}**.",
     "pay_loan_account_balance_restr":"The user \"{username}\" has an account balance \"balance\""\
         + " that is **STRICTLY LESS THAN <** their owed balance \"owed_balance\".",
     "pay_loan_amount_restr":        "The user \"{username}\" has an account balance \"balance\""\
@@ -324,7 +324,7 @@ negative_constraint_descriptions = {
     "maximum_deposit_limit":         "The deposit amount \"{amount}\" must be greater than {maximum_deposit} to be accepted.",
     "maximum_exchange_amount":       "The exchange amount \"{amount}\" must be greater than the {maximum_exchange}",
     "not_over_credit_limit":         "The amount \"{amount}\" must be greater than the avliable credit of credit card \"{card_number}\","\
-        + " avaliable credit is defined as the credit limit subtracted from the credit balance.",
+        + " avaliable credit is defined as the credit balance subtracted from the credit limit.",
     # domain system constraints
     "login_user":                   "The user **must not be able to login** with the correct credentials of \"{username}\" and \"{identification}\" to perform this action,"\
         + " **not matching** the database credentials.",

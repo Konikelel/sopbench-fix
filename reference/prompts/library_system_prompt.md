@@ -70,12 +70,12 @@ The user with "username" is logged in previously with the correct credentials to
 * pay_late_fee:
 ALL of these conditions must be met:
 • The user with "username" is logged in previously with the correct credentials to perform this action.
-• The user "username" does have more account balance "balance" than the late fee,  which is the product of the user's "late_book_count" in their account and late_fee_per_book in the database.
+• The user "username" does have an account balance "balance" equal to or greater than the late fee,  which is the product of the user's "late_book_count" in their account and late_fee_per_book in the database.
 
 * update_membership:
 ALL of these conditions must be met:
 • The user with "username" is logged in previously with the correct credentials to perform this action.
-• The user "username" does have more account balance "balance" than the monthly resitrcted access fee,  which is the membership_monthly_fee in the database.
+• The user "username" does have an account balance "balance" equal to or greater than the monthly resitrcted access fee,  which is the membership_monthly_fee in the database.
 
 * add_book:
 ALL of these conditions must be met:

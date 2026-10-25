@@ -36,7 +36,7 @@
 
 | Constraint | Description | Helper functions |
 |---|---|---|
-| `before_graduation_deadline` | The current interaction time **MUST BE BEFORE** the official graduation deadline in the academic calendar. | None |
+| `before_graduation_deadline` | The current interaction time **MUST BE AT OR BEFORE** the official graduation deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date. | None |
 | `course_enrolled_by_user` | Student "{username}" **MUST BE CURRENTLY ENROLLED** in course "{course_code}" | None |
 | `course_has_capacity` | The course "{course_code}" **MUST HAVE** available seats remaining (enrolled < capacity). | None |
 | `course_not_completed` | The course "{course_code}" **MUST NOT** already be completed by the student "{username}". | None |
@@ -58,9 +58,9 @@
 | `major_requirements_met` | The student "{username}" **MUST HAVE COMPLETED** all required courses for their declared major. | None |
 | `meets_division_requirements` | The student "{username}" **MUST HAVE** at least 90 completed credits to enroll in an upper-division course. | None |
 | `meets_half_time_enrollment` | The student "{username}" **MUST BE ENROLLED** in at least 6 credits to qualify as half-time enrolled. | None |
-| `meets_income_requirements` | The student "{username}" **MUST HAVE** an annual income under {max_income_financial_aid} to be eligible for aid | None |
+| `meets_income_requirements` | The student "{username}" **MUST HAVE** an annual income of at most {max_income_financial_aid} to be eligible for aid | None |
 | `meets_major_gpa_requirement` | The GPA of student "{username}" **MUST BE GREATER THAN OR EQUAL TO** the minimum GPA required for the new major "{new_major}". | None |
-| `meets_major_restriction` | The student "{username}" **MUST BE** in a major allowed by the course "{course_code}" major restrictions. | None |
+| `meets_major_restriction` | The student "{username}" **MUST BE** in a major listed in the "restricted_to_majors" of the course "{course_code}"; an empty list allows no major. | None |
 | `meets_min_gpa_for_aid` | The student "{username}" **MUST HAVE** a minimum GPA of {min_gpa_financial_aid} to qualify for financial aid | None |
 | `meets_minor_gpa_requirement` | The student's GPA **MUST MEET OR EXCEED** the "{minor}" minor's minimum requirement. | None |
 | `meets_minor_prerequisites` | The student **MUST HAVE COMPLETED** all prerequisite courses for "{minor}". | None |
@@ -74,7 +74,7 @@
 | `under_max_minors` | The student "{username}" **MUST HAVE DECLARED FEWER THAN** {max_minors} minors in total. | None |
 | `valid_residency_status` | The student "{username}" **MUST BE** either in-state or public school graduate residency status | None |
 | `within_major_change_period` | The current interaction time **MUST FALL** before or on the major change deadline in the academic calendar. | None |
-| `within_minor_declaration_period` | The current interaction time **MUST FALL** before the minor declaration date in the academic calendar. | None |
+| `within_minor_declaration_period` | The current interaction time **MUST BE AT OR BEFORE** the minor declaration deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date. | None |
 | `within_registration_period` | The current interaction time **MUST FALL** within the academic registration period as defined in the academic calendar. | None |
-| `within_withdrawal_period` | Current interaction time **MUST BE BEFORE** the withdrawal deadline in academic calendar | None |
+| `within_withdrawal_period` | Current interaction time **MUST BE AT OR BEFORE** the withdrawal deadline in the academic calendar. A deadline given as a date without a time of day means 00:00:00 on that date. | None |
 

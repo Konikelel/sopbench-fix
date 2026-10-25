@@ -264,9 +264,9 @@ positive_constraint_descriptions = {
     "database_book_not_borrowed":                           "The book's ID, retrieved using the \"{book_title}\" from the \"book_title_to_id\" section, "\
                                                             + "**must NOT appear** as a key in the \"borrowed\" dictionaries of "\
                                                             + "any users listed in the \"accounts\" section of the database.",
-    "sufficient_account_balance_for_late_fee":              "The user \"{username}\" does have more account balance \"balance\" than the late fee, "\
+    "sufficient_account_balance_for_late_fee":              "The user \"{username}\" does have an account balance \"balance\" equal to or greater than the late fee, "\
                                                             + " which is the product of the user's \"late_book_count\" in their account and late_fee_per_book in the database.",
-    "sufficient_account_balance_for_membership":            "The user \"{username}\" does have more account balance \"balance\" than the monthly resitrcted access fee, "\
+    "sufficient_account_balance_for_membership":            "The user \"{username}\" does have an account balance \"balance\" equal to or greater than the monthly resitrcted access fee, "\
                                                             + " which is the membership_monthly_fee in the database.",
     "amount_positive_restr":                                "The user parameter key \"{amount}\" is more than zero.",
     "valid_membership":                                     "The user \"{username}\" must have a 'membership' field that is a date on or after the interaction_time. ",            
@@ -291,15 +291,15 @@ negative_constraint_descriptions = {
     # state tracker constraints
     "logged_in_user":                                       "The user with \"{username}\" **must not be logged in previously with the correct credentials** to perform this action.",
     "user_book_borrowed":                                   "The book's ID, retrieved using its \"{book_title}\" from the \"book_title_to_id\" section, **must not exist**  "\
-                                                            + "as a key in the \"borrowed\" dictionary of **at least one user** in the \"accounts\" section of the database.",
+                                                            + "as a key in the \"borrowed\" of the user \"{username}\".",
     "user_book_not_borrowed":                               "The book's ID (retrieved using \"{book_title}\" from the \"book_title_to_id\" section) **must exist** "\
                                                             + "in the \"borrowed\" of the user \"{username}\".",
     "database_book_not_borrowed":                           "The book's ID, retrieved using the \"{book_title}\" from the \"book_title_to_id\" section, "\
                                                             + "**must appear** as a key in the \"borrowed\" dictionaries of "\
                                                             + "**at least 1 user** listed in the \"accounts\" section of the database.",
-    "sufficient_account_balance_for_late_fee":              "The user \"{username}\" **does not have** more account balance \"balance\" than the late fee, "\
+    "sufficient_account_balance_for_late_fee":              "The user \"{username}\" has an account balance \"balance\" **strictly less than** the late fee, "\
                                                             + " which is the product of the user's \"late_book_count\" in their account and late_fee_per_book in the database.",
-    "sufficient_account_balance_for_membership":            "The user \"{username}\" **does not have** more account balance \"balance\" than the monthly resitrcted access fee, "\
+    "sufficient_account_balance_for_membership":            "The user \"{username}\" has an account balance \"balance\" **strictly less than** the monthly resitrcted access fee, "\
                                                             + " which is the membership_monthly_fee in the database.",
     "amount_positive_restr":                                "The user parameter key \"{amount}\" **must be less than or equal to zero**.",
     "valid_membership":                                     "The user \"{username}\" must have a 'membership' field that is **EITHER null OR** a date that is **before** the interaction_time.",
