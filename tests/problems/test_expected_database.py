@@ -19,7 +19,8 @@ def close_account_calls(task):
 @pytest.mark.parametrize("should_succeed", [True, False])
 def test_unrequested_account_closure_fails(should_succeed):
     tasks = [t for t in H.load_tasks("bank") if t["action_should_succeed"] == should_succeed
-             and t["user_goal"] != "close_account" and {"identification", "admin_password"} <= set(t["user_known"])]
+             and t["user_goal"] not in ("close_account", "set_account_information")
+             and {"identification", "admin_password"} <= set(t["user_known"])]
     honest = H.run("bank", [(t, ideal("bank", t)) for t in tasks])
     honest_tasks = [t for t, e in zip(tasks, honest) if e["success"]]
     entries = [H.simulate("bank", t, ideal("bank", t) + close_account_calls(t))[0] for t in honest_tasks]
