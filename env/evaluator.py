@@ -20,6 +20,8 @@ from env.helpers import (
     dfsins_cl_cd_aid,
     get_ifg_connections_invnodes, 
     dfsgather_ifg_func,
+    dfsins_constr_deps,
+    dfscollapse_dep,
 )
 
 
@@ -90,6 +92,20 @@ def dfsconvert_list_to_tuple(fr):
     fr_copy = []
     for ele_fr in fr: fr_copy.append(dfsconvert_list_to_tuple(ele_fr))
     return tuple(fr_copy)
+
+def dfsgather_violated_dep(dep:tuple, dep_eval, constr_deps:dict, user_known:dict)->tuple:
+    if not dep: return None
+    if dep[0] == "single":
+        return None if dep_eval._process(dfsins_constr_deps(dep, None, constr_deps), **user_known) else dep
+    dep_parts = [dfsgather_violated_dep(dep_part, dep_eval, constr_deps, user_known) for dep_part in dep[1]]
+    if dep[0] in ("and", "chain"): return dfscollapse_dep(("or", [dep_part for dep_part in dep_parts if dep_part]))
+    return dep if all(dep_parts) else None
+
+def dfscheck_reachable_without(node_ind:int, nodes:list, connections:list, excluded_funcs:set)->bool:
+    if not isinstance(nodes[node_ind], str):
+        return nodes[node_ind][0] not in excluded_funcs and all(dfscheck_reachable_without(ind, nodes, connections, excluded_funcs) for ind in connections[node_ind])
+    reachable_parts = [dfscheck_reachable_without(ind, nodes, connections, excluded_funcs) for ind in connections[node_ind]]
+    return all(reachable_parts) if nodes[node_ind] == "and" else any(reachable_parts)
 
 # evaluates the interaction with function call tree search, detects if the action should be called or not, matches the database
 def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:list[tuple], func_calls:list[tuple], results:dict, default_constraint_option:str)->dict:
@@ -284,6 +300,32 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                     if ipfc_func_name not in successful_funccalls: successful_funccalls[ipfc_func_name] = ipfc_with_values[ipfc_func_name]
                     else: successful_funccalls[ipfc_func_name][1].update(ipfc_with_values[ipfc_func_name][1])
         else: evaluation_result["dirgraph_satisfied"] = False
+    if not task["action_should_succeed"]:
+        user_known = task["user_known"]
+        domain_system_violated = domain_keys[domain_str+"_strict"](copy.deepcopy(task["initial_database"]), dep_innate_full, default_dep_full, task["constraint_parameters"])
+        constr_link_actions_failed = set()
+        for constr_link_action, _ in constr_links.values():
+            try: constr_link_followed = getattr(domain_system_violated, constr_link_action)(**{key: user_known[key] for key in action_parameters[constr_link_action] if key in user_known})
+            except Exception as _: constr_link_followed = False
+            if not constr_link_followed: constr_link_actions_failed.add(constr_link_action)
+        dep_violated = dfsgather_violated_dep(task["constraints_original"], domain_system_violated.evaluation_get_dependency_evaluator(), constr_deps, user_known)
+        if dep_violated:
+            nodes, connections, inv_nodes = dfsgather_ifg_func(domain_system, domain_assistant_keys[domain_str], task["user_goal"], default_constraint_option, dep_orig=dep_violated)
+            node_ind = inv_nodes[task["user_goal"]]
+            func_param_mapping = {key: user_known.get(key) for key in nodes[node_ind][1].values()}
+            funcs_attempted_failed = {func_name for func_name in constr_link_actions_failed
+                if func_name in inv_nodes and dfscheck_called_functions(inv_nodes[func_name], func_param_mapping, nodes, connections, successful_funccalls)
+                and not any(func_call["tool_name"] == func_name and func_call["content"] == "True" for func_call in func_calls)}
+            funccalls_with_blocked = copy.deepcopy(successful_funccalls)
+            for i in range(len(nodes)):
+                if isinstance(nodes[i], str) or dfscheck_reachable_without(i, nodes, connections, funcs_attempted_failed): continue
+                func_name, func_params = nodes[i]
+                func_param_keys_sorted = tuple(sorted(func_params.keys()))
+                if func_name not in funccalls_with_blocked: funccalls_with_blocked[func_name] = [func_param_keys_sorted, set()]
+                funccalls_with_blocked[func_name][1].add(tuple(dfsconvert_list_to_tuple(func_param_mapping[func_params[key]]) if key in func_param_mapping else None
+                    for key in funccalls_with_blocked[func_name][0]))
+            if connections[node_ind] and not dfscheck_called_functions(list(connections[node_ind])[0], func_param_mapping, nodes, connections, funccalls_with_blocked):
+                evaluation_result["dirgraph_satisfied"] = False
     # final evaluation of assistant success
     evaluation_result["action_called_correctly"] =\
         evaluation_result["action_should_succeed"] == evaluation_result["action_successfully_called"]
