@@ -157,7 +157,7 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                 mismatch_found_bool = False
                 for i in range(len(pfpv)):
                     if (not mismatch_found_bool
-                        and exp_func_param_values[i]
+                        and exp_func_param_values[i] is not None
                         and exp_func_param_values[i] != pfpv[i]):
                         mismatch_found_bool = True
                 if not mismatch_found_bool: return True
