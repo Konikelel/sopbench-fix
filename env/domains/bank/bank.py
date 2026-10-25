@@ -303,7 +303,8 @@ class Bank_State_Tracker:
     # dependencies based on the bank state, alternative terms: conditions, constraints, restrictions
     def logged_in_user(self, username:str)->bool: return self.previously_logged_in_username == username
     def authenticated_admin_password(self, username:str)->bool: return self.prev_auth_admin_pass
-    def sufficient_account_balance(self, username:str, amount:float)->bool:
+    def sufficient_account_balance(self, username:str, amount:float, unit:str)->bool:
+        if "dollar" not in unit: amount = amount / 100
         return self.domain_system.get_account_balance(username)[1] >= amount
     def get_loan_owed_balance_restr(self, username:str)->bool:
         return self.domain_system.get_account_owed_balance(username)[1] < self.maximum_owed_balance
