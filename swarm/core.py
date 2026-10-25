@@ -313,11 +313,12 @@ class Swarm:
                 break
             
             # add the tool calls to the actions
-            actions.extend(message.tool_calls)
+            tool_calls = message.tool_calls[:max_actions - len(actions)]
+            actions.extend(tool_calls)
             
             # handle function calls, updating context_variables, and switching agents
             partial_response = self.handle_tool_calls(
-                message.tool_calls, active_agent.functions, context_variables, debug
+                tool_calls, active_agent.functions, context_variables, debug
             )
             debug_print(debug, "Tool call response:", partial_response)
             # add the tool call response to the history, and the active agent's history

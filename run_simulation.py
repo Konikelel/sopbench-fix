@@ -229,6 +229,8 @@ def run_task_simulation(
         execute_tools=True,
         start_agent=start_agent,
         finished_action=exit_conversation,
+        max_turns=args.max_num_turns,
+        max_actions=args.max_num_actions,
     )
         
     # the interaction history and the final database state

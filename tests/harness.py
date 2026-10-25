@@ -47,8 +47,8 @@ class ScriptedModel(OpenAIHandler):
         return {"completion": construct_chatcompletion("assistant", None, tool_calls)}
 
 
-def simulation_args(domain):
-    with mock.patch.object(sys, "argv", ["run_simulation.py", "--domain", domain, "--assistant_model", MODEL_NAME]):
+def simulation_args(domain, flags=()):
+    with mock.patch.object(sys, "argv", ["run_simulation.py", "--domain", domain, "--assistant_model", MODEL_NAME, *flags]):
         return RS.parse_args()
 
 
@@ -71,8 +71,8 @@ def offered_tools(domain, task):
     return [t["function"]["name"] for t in assistant_info["tools"]]
 
 
-def simulate(domain, task, calls):
-    args = simulation_args(domain)
+def simulate(domain, task, calls, flags=()):
+    args = simulation_args(domain, flags)
     task = copy.deepcopy(task)
     model = ScriptedModel(calls)
     assistant = Agent(name="domain assistant", client=model, temperature=args.assistant_temperature,
