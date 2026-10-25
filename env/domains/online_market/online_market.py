@@ -177,7 +177,7 @@ class OnlineMarket:
         cart = account["cart"]
         total_amount = sum(item["price"] for item in cart)
         default_index = account.get("default_address_index")
-        order_date = self.interaction_time
+        order_date = self.interaction_time.split("T")[0]
         order = {
             "order_id": f"ORD-{len(account['order_history']) + 1}",
             "items": cart,
