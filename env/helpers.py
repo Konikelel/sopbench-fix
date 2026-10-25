@@ -989,7 +989,7 @@ def get_ifg_connections_invnodes(inv_func_call_graph:dict)->tuple[list[list],dic
 
 # gathers the inverse function call directed graph for a function of a domain, given that the action is a part of the domain
 def dfsgather_ifg_func(domain_system, domain_assistant:dict, action:str, default_dependency_option:str,
-    ifg_processed_conns:bool=True)->dict|tuple[list,list,dict]:
+    ifg_processed_conns:bool=True, dep_orig:tuple=None)->dict|tuple[list,list,dict]:
     if action not in domain_assistant.action_descriptions: return None
     # variable loading
     ard = domain_assistant.action_required_dependencies
@@ -999,7 +999,7 @@ def dfsgather_ifg_func(domain_system, domain_assistant:dict, action:str, default
     action_default_dep_orig = gather_action_default_dependencies(ard, acd, default_dependency_option=default_dependency_option)
     action_parameters = get_action_parameters(domain_system, domain_assistant)
     # process the graph
-    dep_orig = action_default_dep_orig[action]
+    if dep_orig is None: dep_orig = action_default_dep_orig[action]
     user_goal_node = (action, {key: key for key in action_parameters[action]})
     inv_func_call_graph = dfsgather_invfunccalldirgraph(dep_orig, cl, cp, action_default_dep_orig, action_parameters, user_goal_node)    
     if not ifg_processed_conns: return inv_func_call_graph
