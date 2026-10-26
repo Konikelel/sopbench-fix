@@ -1941,7 +1941,8 @@
             },
             "user_known": {
                 "username": "john_doe",
-                "card_number": "2357 1113 1719 2329"
+                "card_number": "2357 1113 1719 2329",
+                "identification": "padoesshnwojord"
             },
             "constraints": [
                 "and",
@@ -11545,7 +11546,11 @@
             "user_known": {
                 "amount": 800.0,
                 "username": "jane_doe",
-                "card_number": "1234 5678 9012 3456"
+                "card_number": "1234 5678 9012 3456",
+                "identification": {
+                    "drivers_license_id": "D1234567",
+                    "drivers_license_state": "CA"
+                }
             },
             "constraints": [
                 "and",
