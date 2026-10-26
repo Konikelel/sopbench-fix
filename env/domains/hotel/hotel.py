@@ -330,7 +330,7 @@ class Hotel:
                 if date not in availability:
                     availability.append(date)
             availability.sort()
-            self.data["rooms"][room_type]["availability"][assigned_room] = availability
+            self.data["rooms"][old_room_type]["availability"][assigned_room] = availability
         new_check_in_dt = datetime.strptime(check_in_date, "%Y-%m-%d")
         new_check_out_dt = datetime.strptime(check_out_date, "%Y-%m-%d")
         new_num_days = (new_check_out_dt - new_check_in_dt).days
