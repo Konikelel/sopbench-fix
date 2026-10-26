@@ -184,7 +184,8 @@ class OnlineMarket:
             "status": "Processing",
             "total_amount": round(total_amount, 2),
             "shipping_address": account["shipping_addresses"][default_index]["address"],
-            "order_placed_date": order_date
+            "order_placed_date": order_date,
+            "number_of_exchanges": 0
         }
         account["order_history"].append(order)
         account["cart"] = []
@@ -265,6 +266,7 @@ class OnlineMarket:
         order_item["product_id"] = new_product_id
         order_item["price"] = new_product["price"] * quantity
         order["total_amount"] = sum(item["price"] for item in order["items"])
+        order["number_of_exchanges"] += 1
         return True
     
     def use_coupon(self, username: str, order_id: str, coupon_code: str) -> bool:
