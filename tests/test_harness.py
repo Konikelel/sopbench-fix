@@ -3,7 +3,7 @@ import os
 import pytest
 
 from tests import harness as H
-from tests.agents import executable_paths, graph_paths, ideal_calls
+from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan
 
 pytest_plugins = "pytester"
 
@@ -55,6 +55,14 @@ def test_executable_paths_use_only_offered_tools():
     paths = executable_paths("bank", task)
     assert len(paths) < len(graph_paths(task))
     assert all(c.name in offered for p in paths for c in ideal_calls(task, p))
+
+
+def test_ideal_agent_stops_a_should_fail_path_at_a_failed_login():
+    task = next(t for t in H.load_tasks("bank") if t["id"] == "get_loan#3")
+    [path] = executable_paths("bank", task)
+    calls, entry, _ = ideal_plan("bank", task, path)
+    assert [c.name for c in calls] == ["login_user"]
+    assert H.evaluate("bank", [entry])[0]["success"]
 
 
 def test_scripted_calls_reach_the_official_evaluation():
