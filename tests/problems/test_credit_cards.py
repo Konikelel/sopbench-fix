@@ -7,7 +7,7 @@ def test_ideal_agent_completes_the_credit_card_tasks_with_a_known_identification
     tasks = [t for t in H.load_tasks("bank") if t["user_goal"] in ("cancel_credit_card", "pay_bill_with_credit_card")
              and t["action_should_succeed"] and "identification" in t["user_known"]]
     results = ideal_agent("bank", tasks)
-    assert len(tasks) == 6 and all(passed > 0 for passed, _ in results.values())
+    assert len(tasks) == 8 and all(passed > 0 for passed, _ in results.values())
 
 
 def test_strict_agrees_with_every_bank_label():
