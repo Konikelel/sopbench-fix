@@ -391,6 +391,8 @@ class Hotel:
                 booking_id_to_remove = booking_id
                 loyalty_points = booking.get("loyalty_points_to_add", 0)
                 break
+        else:
+            return False
         del self.bookings[booking_id_to_remove]
         for room, checkin in list(self.data["room_checkins"].items()):
             if checkin.get("booking_id") == booking_id_to_remove:
@@ -411,6 +413,8 @@ class Hotel:
                 and booking["status"]=="checked-in"):
                 original_booking = booking
                 break
+        if original_booking is None:
+            return False
         original_room_id = self.data["room_assignment"].get(booking_id)
         original_room_type = original_booking["room_type"]
         check_out_date = booking["check_out_date"]
