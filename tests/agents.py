@@ -1,6 +1,7 @@
 import collections
 import json
 
+from env.variables import domain_assistant_keys
 from tests import harness as H
 
 
@@ -41,12 +42,25 @@ def executable_paths(domain, task):
     return [p for p in graph_paths(task) if all(c.name in offered for c in ideal_calls(task, p))]
 
 
+def ideal_plan(domain, task, path):
+    calls = ideal_calls(task, path)
+    entry, offered = H.simulate(domain, task, calls)
+    if task["action_should_succeed"]:
+        return calls, entry, offered
+    gates = {action for action, _ in domain_assistant_keys[domain].constraint_links.values()}
+    responses = [m["content"] for m in entry["interactions"][0]["interaction"] if "tool_call_id" in m]
+    failed = next((i for i, (c, r) in enumerate(zip(calls, responses)) if c.name in gates and r == "False"), None)
+    if failed is None or failed == len(calls) - 1:
+        return calls, entry, offered
+    calls = calls[:failed + 1]
+    return (calls, *H.simulate(domain, task, calls))
+
+
 def ideal_agent(domain, tasks):
     entries, owner = [], []
     for task in tasks:
         for path in executable_paths(domain, task):
-            calls = ideal_calls(task, path)
-            entry, offered = H.simulate(domain, task, calls)
+            calls, entry, offered = ideal_plan(domain, task, path)
             assert {c.name for c in calls} <= set(offered), task["id"]
             entries.append(entry)
             owner.append(task["id"])
