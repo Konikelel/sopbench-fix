@@ -181,7 +181,7 @@ class Healthcare:
             "status": "pending",
             "description": description,
             "provider_id": provider_id,
-            "claim_date": self.interaction_time
+            "claim_date": self.interaction_time.split("T")[0]
         })
 
         return True
@@ -229,7 +229,7 @@ class Healthcare:
         self.accounts[username]["policy"]["details"] = {
             "type": policy_type,
             "coverage_amount": coverage_amount,
-            "enrollment_date": self.interaction_time,
+            "enrollment_date": self.interaction_time.split("T")[0],
             "authorized_providers": [],
             "annual_income": annual_income
         }
