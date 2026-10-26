@@ -101,6 +101,25 @@ def dfsgather_violated_dep(dep:tuple, dep_eval, constr_deps:dict, user_known:dic
     if dep[0] in ("and", "chain"): return dfscollapse_dep(("or", [dep_part for dep_part in dep_parts if dep_part]))
     return dep if all(dep_parts) else None
 
+def gather_violated_deps(domain_str:str, task:dict, default_constraint_option:str)->tuple:
+    domain_assistant = domain_assistant_keys[domain_str]
+    dep_innate_full = domain_assistant.action_innate_dependencies
+    default_dep_full = get_default_dep_full(domain_str, default_constraint_option)
+    default_dep_full[task["user_goal"]] = task["constraints"]
+    user_known = task["user_known"]
+    domain_system_violated = domain_keys[domain_str+"_strict"](copy.deepcopy(task["initial_database"]), dep_innate_full, default_dep_full, task["constraint_parameters"])
+    action_parameters = get_action_parameters(domain_system_violated.evaluation_get_domain_system(), domain_assistant)
+    constr_link_actions_failed = set()
+    for constr_link_action, _ in domain_assistant.constraint_links.values():
+        try: constr_link_followed = getattr(domain_system_violated, constr_link_action)(**{key: user_known[key] for key in action_parameters[constr_link_action] if key in user_known})
+        except Exception as _: constr_link_followed = False
+        if not constr_link_followed: constr_link_actions_failed.add(constr_link_action)
+    dep_eval = domain_system_violated.evaluation_get_dependency_evaluator()
+    constr_deps = domain_assistant.constraint_dependencies
+    dep_violated = dfsgather_violated_dep(task["constraints_original"], dep_eval, constr_deps, user_known)
+    dep_innate_violated = dfsgather_violated_dep(dep_innate_full[task["user_goal"]], dep_eval, constr_deps, user_known)
+    return constr_link_actions_failed, dep_violated, dep_innate_violated
+
 def dfscheck_reachable_without(node_ind:int, nodes:list, connections:list, excluded_funcs:set)->bool:
     if not isinstance(nodes[node_ind], str):
         return nodes[node_ind][0] not in excluded_funcs and all(dfscheck_reachable_without(ind, nodes, connections, excluded_funcs) for ind in connections[node_ind])
@@ -164,7 +183,7 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
             if func_name not in successful_funccalls: return False
             # function called before, check the parameters of those previous calls
             func_param_keys_sorted = successful_funccalls[func_name][0]
-            exp_func_param_values = tuple(dfsconvert_list_to_tuple(func_param_mapping[func_params[key]]) if key in func_param_mapping else None
+            exp_func_param_values = tuple(dfsconvert_list_to_tuple(func_param_mapping[func_params[key]]) if func_params.get(key) in func_param_mapping else None
                 for key in func_param_keys_sorted)
             act_prev_func_param_values = successful_funccalls[func_name][1]
             if exp_func_param_values in act_prev_func_param_values: return True
@@ -216,18 +235,16 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                 else: 
                     # Convert the values to tuples before updating
                     all_func_called[func_name][1].update(all_func_called_part[func_name][1])
-            return all_func_called
+        return all_func_called
     # inserts parameter values into the function call recorder structure
     def ipfc_insert_param_values(implied_prev_func_called:dict, parameter_values:dict)->dict:
         ipfc_with_values = {}
         parameter_names = set(parameter_values.keys())
         for ipfc_func_name in implied_prev_func_called:
             ipfc_keys = implied_prev_func_called[ipfc_func_name][0]
-            ipfc_values = implied_prev_func_called[ipfc_func_name][1]
-            if not set(ipfc_keys) <= parameter_names: continue
-            ipfc_with_values[ipfc_func_name] = [ipfc_keys, set()]
-            for ipfc_value in ipfc_values:
-                ipfc_with_values[ipfc_func_name][1].add(tuple(parameter_values[ele] for ele in ipfc_value))
+            ipfc_values = {tuple(dfsconvert_list_to_tuple(parameter_values[ele]) for ele in ipfc_value)
+                for ipfc_value in implied_prev_func_called[ipfc_func_name][1] if set(ipfc_value) <= parameter_names}
+            if ipfc_values: ipfc_with_values[ipfc_func_name] = [ipfc_keys, ipfc_values]
         return ipfc_with_values
     # detecting if action is successfully called and if the assistant called the necessary functions, tool calls are valid
     nodes, connections, inv_nodes = None, None, None
@@ -240,6 +257,8 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
     action_parameters = get_action_parameters(domain_system, domain_assistant_keys[domain_str])
     constr_act_set = set(action_parameters.keys())
     successful_funccalls = {} # {"action1": [("param1", "param2"), {('a', 1), ('b', 2)}]}
+    constr_link_actions_failed, dep_violated, dep_innate_violated = (set(), None, None) if task["action_should_succeed"]\
+        else gather_violated_deps(domain_str, task, default_constraint_option)
     evaluation_result["action_successfully_called"] = False
     evaluation_result["dirgraph_satisfied"] = True
     # Check if the first function call is the target action directly
@@ -276,7 +295,7 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
         gt_response = gt_responses[i][1]
         if (not evaluation_result["action_successfully_called"]
             and func_name == task["user_goal"]
-            and (not task["action_should_succeed"]
+            and (dep_violated
                 or func_resp == "True"
                 or (isinstance(gt_response, tuple) and gt_response[0] is True and func_resp == str(gt_response[1])))):
             evaluation_result["action_successfully_called"] = True
@@ -301,18 +320,11 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                     else: successful_funccalls[ipfc_func_name][1].update(ipfc_with_values[ipfc_func_name][1])
         else: evaluation_result["dirgraph_satisfied"] = False
     if not task["action_should_succeed"]:
-        user_known = task["user_known"]
-        domain_system_violated = domain_keys[domain_str+"_strict"](copy.deepcopy(task["initial_database"]), dep_innate_full, default_dep_full, task["constraint_parameters"])
-        constr_link_actions_failed = set()
-        for constr_link_action, _ in constr_links.values():
-            try: constr_link_followed = getattr(domain_system_violated, constr_link_action)(**{key: user_known[key] for key in action_parameters[constr_link_action] if key in user_known})
-            except Exception as _: constr_link_followed = False
-            if not constr_link_followed: constr_link_actions_failed.add(constr_link_action)
-        dep_violated = dfsgather_violated_dep(task["constraints_original"], domain_system_violated.evaluation_get_dependency_evaluator(), constr_deps, user_known)
-        if dep_violated:
-            nodes, connections, inv_nodes = dfsgather_ifg_func(domain_system, domain_assistant_keys[domain_str], task["user_goal"], default_constraint_option, dep_orig=dep_violated)
+        dep_checked = dep_violated or dep_innate_violated
+        if dep_checked:
+            nodes, connections, inv_nodes = dfsgather_ifg_func(domain_system, domain_assistant_keys[domain_str], task["user_goal"], default_constraint_option, dep_orig=dep_checked)
             node_ind = inv_nodes[task["user_goal"]]
-            func_param_mapping = {key: user_known.get(key) for key in nodes[node_ind][1].values()}
+            func_param_mapping = {key: task["user_known"].get(key) for key in nodes[node_ind][1].values()}
             funcs_attempted_failed = {func_name for func_name in constr_link_actions_failed
                 if func_name in inv_nodes and dfscheck_called_functions(inv_nodes[func_name], func_param_mapping, nodes, connections, successful_funccalls)
                 and not any(func_call["tool_name"] == func_name and func_call["content"] == "True" for func_call in func_calls)}
@@ -322,7 +334,7 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                 func_name, func_params = nodes[i]
                 func_param_keys_sorted = tuple(sorted(func_params.keys()))
                 if func_name not in funccalls_with_blocked: funccalls_with_blocked[func_name] = [func_param_keys_sorted, set()]
-                funccalls_with_blocked[func_name][1].add(tuple(dfsconvert_list_to_tuple(func_param_mapping[func_params[key]]) if key in func_param_mapping else None
+                funccalls_with_blocked[func_name][1].add(tuple(dfsconvert_list_to_tuple(func_param_mapping[func_params[key]]) if func_params.get(key) in func_param_mapping else None
                     for key in funccalls_with_blocked[func_name][0]))
             if connections[node_ind] and not dfscheck_called_functions(list(connections[node_ind])[0], func_param_mapping, nodes, connections, funccalls_with_blocked):
                 evaluation_result["dirgraph_satisfied"] = False

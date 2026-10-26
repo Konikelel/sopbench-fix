@@ -41,13 +41,10 @@ def test_target_action_returning_a_value_counts_as_called(domain, task_id):
     assert ideal_run(domain, task_id)["success"]
 
 
-@pytest.mark.parametrize("domain, task_id", [("bank", "get_account_owed_balance#1"), ("bank", "transfer_funds#1"),
-                                             ("dmv", "renew_dl#3"), ("dmv", "renew_vehicle#5"), ("dmv", "renew_vehicle#8"),
-                                             ("healthcare", "add_authorized_provider#1"), ("healthcare", "get_claim_details#2"),
-                                             ("healthcare", "get_policy_details#2"), ("healthcare", "reactivate_policy#1"),
+@pytest.mark.parametrize("domain, task_id", [("bank", "get_account_owed_balance#1"), ("dmv", "renew_dl#3"),
+                                             ("dmv", "renew_vehicle#5"), ("dmv", "renew_vehicle#8"),
+                                             ("healthcare", "get_claim_details#2"), ("healthcare", "get_policy_details#2"),
                                              ("library", "check_return_date#1"), ("library", "show_available_rooms#2"),
-                                             ("online_market", "add_review#1"), ("online_market", "exchange_product#1"),
-                                             ("online_market", "exchange_product#2"), ("online_market", "exchange_product#3"),
                                              ("online_market", "get_order_details#1")])
 def test_calling_a_forbidden_target_action_fails_the_task(domain, task_id):
     should_fail_task = task(domain, task_id)

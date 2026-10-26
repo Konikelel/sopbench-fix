@@ -65,6 +65,14 @@ def test_ideal_agent_stops_a_should_fail_path_at_a_failed_login():
     assert H.evaluate("bank", [entry])[0]["success"]
 
 
+def test_ideal_agent_calls_a_should_fail_target_that_the_policy_allows():
+    task = next(t for t in H.load_tasks("online_market") if t["id"] == "add_review#1")
+    [path] = executable_paths("online_market", task)
+    calls, entry, _ = ideal_plan("online_market", task, path)
+    assert [c.name for c in calls] == ["login_user", "add_review"]
+    assert H.evaluate("online_market", [entry])[0]["success"]
+
+
 def test_scripted_calls_reach_the_official_evaluation():
     task = H.load_tasks("university")[0]
     calls = ideal_calls(task, executable_paths("university", task)[0])

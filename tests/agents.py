@@ -1,6 +1,7 @@
 import collections
 import json
 
+from env import evaluator
 from env.variables import domain_assistant_keys
 from tests import harness as H
 
@@ -44,6 +45,9 @@ def executable_paths(domain, task):
 
 def ideal_plan(domain, task, path):
     calls = ideal_calls(task, path)
+    if (not task["action_should_succeed"] and hasattr(evaluator, "gather_violated_deps")
+            and not evaluator.gather_violated_deps(domain, task, "full")[1]):
+        calls.append(H.Call(task["user_goal"], arguments(task, path[-1][1])))
     entry, offered = H.simulate(domain, task, calls)
     if task["action_should_succeed"]:
         return calls, entry, offered
