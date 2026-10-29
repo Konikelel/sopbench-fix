@@ -1,3 +1,4 @@
+import ast
 import collections
 import json
 
@@ -43,8 +44,24 @@ def executable_paths(domain, task):
     return [p for p in graph_paths(task) if all(c.name in offered for c in ideal_calls(task, p))]
 
 
+def responses(entry):
+    return [m["content"] for m in entry["interactions"][0]["interaction"] if "tool_call_id" in m]
+
+
+def response_value(response):
+    try:
+        return ast.literal_eval(response)
+    except (ValueError, SyntaxError):
+        return None
+
+
 def ideal_plan(domain, task, path):
     calls = ideal_calls(task, path)
+    for i, (call, (_, mapping)) in enumerate(zip(calls, path)):
+        missing = mapping.keys() - call.arguments.keys()
+        if missing:
+            earlier = map(response_value, responses(H.simulate(domain, task, calls[:i])[0]))
+            call.arguments.update({k: r[k] for r in earlier if isinstance(r, dict) for k in missing if k in r})
     if (not task["action_should_succeed"] and hasattr(evaluator, "gather_violated_deps")
             and not evaluator.gather_violated_deps(domain, task, "full")[1]):
         calls.append(H.Call(task["user_goal"], arguments(task, path[-1][1])))
@@ -52,8 +69,7 @@ def ideal_plan(domain, task, path):
     if task["action_should_succeed"]:
         return calls, entry, offered
     gates = {action for action, _ in domain_assistant_keys[domain].constraint_links.values()}
-    responses = [m["content"] for m in entry["interactions"][0]["interaction"] if "tool_call_id" in m]
-    failed = next((i for i, (c, r) in enumerate(zip(calls, responses)) if c.name in gates and r == "False"), None)
+    failed = next((i for i, (c, r) in enumerate(zip(calls, responses(entry))) if c.name in gates and r == "False"), None)
     if failed is None or failed == len(calls) - 1:
         return calls, entry, offered
     calls = calls[:failed + 1]

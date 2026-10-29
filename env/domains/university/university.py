@@ -546,7 +546,42 @@ class University_Strict:
         return self._check_dep_and_do("declare_minor", username = username, minor = minor)
 
     
-    #add the internals
+    def internal_check_username_exists(self, **kwargs) -> tuple[bool, bool]:
+        return self._check_dep_and_do("internal_check_username_exists", **kwargs)
+
+    def internal_check_course_exists(self, **kwargs) -> tuple[bool, bool]:
+        return self._check_dep_and_do("internal_check_course_exists", **kwargs)
+
+    def internal_get_student_info(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_student_info", **kwargs)
+
+    def internal_get_course_info(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_course_info", **kwargs)
+
+    def internal_get_academic_calendar(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_academic_calendar", **kwargs)
+
+    def internal_get_major_info(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_major_info", **kwargs)
+
+    def internal_get_minor_info(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_minor_info", **kwargs)
+
+    def internal_check_minor_exists(self, **kwargs) -> tuple[bool, bool]:
+        return self._check_dep_and_do("internal_check_minor_exists", **kwargs)
+
+    def internal_check_major_exists(self, **kwargs) -> tuple[bool, bool]:
+        return self._check_dep_and_do("internal_check_major_exists", **kwargs)
+
+    def internal_get_interaction_time(self, **kwargs) -> tuple[bool, str]:
+        return self._check_dep_and_do("internal_get_interaction_time", **kwargs)
+
+    def internal_get_database(self, **kwargs) -> tuple[bool, dict]:
+        return self._check_dep_and_do("internal_get_database", **kwargs)
+
+    def internal_get_number_of_students_for_major(self, **kwargs) -> tuple[bool, int]:
+        return self._check_dep_and_do("internal_get_number_of_students_for_major", **kwargs)
+
     def evaluation_get_database(self)->dict:
         return self.domain_system.evaluation_get_database()
     def evaluation_get_dependency_parameters(self)->dict:
