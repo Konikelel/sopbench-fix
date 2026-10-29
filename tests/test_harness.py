@@ -73,6 +73,14 @@ def test_ideal_agent_calls_a_should_fail_target_that_the_policy_allows():
     assert H.evaluate("online_market", [entry])[0]["success"]
 
 
+def test_ideal_agent_takes_an_argument_missing_from_user_known_from_an_earlier_response():
+    task = next(t for t in H.load_tasks("university") if t["id"] == "declare_minor#0")
+    [path] = executable_paths("university", task)
+    calls, entry, _ = ideal_plan("university", task, path)
+    assert H.Call("internal_get_major_info", {"major": "Computer Science"}) in calls
+    assert H.evaluate("university", [entry])[0]["success"]
+
+
 def test_scripted_calls_reach_the_official_evaluation():
     task = H.load_tasks("university")[0]
     calls = ideal_calls(task, executable_paths("university", task)[0])
