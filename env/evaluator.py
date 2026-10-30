@@ -129,6 +129,8 @@ def dfscheck_reachable_without(node_ind:int, nodes:list, connections:list, exclu
 # evaluates the interaction with function call tree search, detects if the action should be called or not, matches the database
 def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:list[tuple], func_calls:list[tuple], results:dict, default_constraint_option:str)->dict:
     evaluation_result = {}
+    unexecuted_calls = [func_call for func_call in func_calls if func_call["content"] is None]
+    func_calls = [func_call for func_call in func_calls if func_call["content"] is not None]
     dep_innate_full = domain_assistant_keys[domain_str].action_innate_dependencies
     default_dep_full = get_default_dep_full(domain_str, default_constraint_option)
     default_dep_full[task["user_goal"]] = task["constraints"]
@@ -319,6 +321,8 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
                     if ipfc_func_name not in successful_funccalls: successful_funccalls[ipfc_func_name] = ipfc_with_values[ipfc_func_name]
                     else: successful_funccalls[ipfc_func_name][1].update(ipfc_with_values[ipfc_func_name][1])
         else: evaluation_result["dirgraph_satisfied"] = False
+    if dep_violated and any(func_call["tool_name"] == task["user_goal"] for func_call in unexecuted_calls):
+        evaluation_result["action_successfully_called"] = True
     if not task["action_should_succeed"]:
         dep_checked = dep_violated or dep_innate_violated
         if dep_checked:

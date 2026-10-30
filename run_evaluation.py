@@ -200,8 +200,9 @@ def main():
                 # collect the function call and response
                 func_calls = []
                 for i, message in enumerate(interaction):
+                    if not message.get("tool_calls"): continue
                     responses = itertools.takewhile(lambda m: "tool_name" in m, interaction[i+1:])
-                    for tool_call, response in zip(message.get("tool_calls") or [], responses):
+                    for tool_call, response in itertools.zip_longest(message["tool_calls"], responses):
                         # Clean N/A function call
                         if tool_call["function"]["name"].lower() in ["n/a", "na", "none", "null"]: continue
                         arguments = tool_call["function"]["arguments"]
@@ -209,9 +210,9 @@ def main():
                         except Exception: pass
                         func_calls.append({
                             "message": i,
-                            "tool_name": response["tool_name"],
+                            "tool_name": response["tool_name"] if response else tool_call["function"]["name"],
                             "arguments": arguments,
-                            "content": response["content"]
+                            "content": response["content"] if response else None
                         })
                 # Use directed graph evaluator instead of gorilla
                 evaluation_result = evaluator_function_directed_graph(
