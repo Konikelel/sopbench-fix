@@ -99,9 +99,17 @@ def dfsgather_violated_dep(dep:tuple, dep_eval, constr_deps:dict, user_known:dic
         return None if dep_eval._process(dfsins_constr_deps(dep, None, constr_deps), **user_known) else dep
     dep_parts = [dfsgather_violated_dep(dep_part, dep_eval, constr_deps, user_known) for dep_part in dep[1]]
     if dep[0] in ("and", "chain"): return dfscollapse_dep(("or", [dep_part for dep_part in dep_parts if dep_part]))
-    return dep if all(dep_parts) else None
+    return ("and", dep_parts) if all(dep_parts) else None
 
-def gather_violated_deps(domain_str:str, task:dict, default_constraint_option:str)->tuple:
+def dfsgather_checked_dep(dep:list, dep_eval, constr_deps:dict, user_known:dict)->list:
+    if not dep or dep[0] == "single": return dep
+    dep_parts = [dep_part for dep_part in dep[1]
+        if dep[0] in ("and", "chain") or not dfsgather_violated_dep(dep_part, dep_eval, constr_deps, user_known)]
+    dep_rel = dep[0] if dep_parts else "and"
+    dep_parts = [dfsgather_checked_dep(dep_part, dep_eval, constr_deps, user_known) for dep_part in dep_parts or dep[1]]
+    return dep_parts[0] if dep_rel in ("or", "gate") and len(dep_parts) == 1 else [dep_rel, dep_parts]
+
+def gather_strict_dep_eval(domain_str:str, task:dict, default_constraint_option:str)->tuple:
     domain_assistant = domain_assistant_keys[domain_str]
     dep_innate_full = domain_assistant.action_innate_dependencies
     default_dep_full = get_default_dep_full(domain_str, default_constraint_option)
@@ -114,11 +122,19 @@ def gather_violated_deps(domain_str:str, task:dict, default_constraint_option:st
         try: constr_link_followed = getattr(domain_system_violated, constr_link_action)(**{key: user_known[key] for key in action_parameters[constr_link_action] if key in user_known})
         except Exception as _: constr_link_followed = False
         if not constr_link_followed: constr_link_actions_failed.add(constr_link_action)
-    dep_eval = domain_system_violated.evaluation_get_dependency_evaluator()
+    return constr_link_actions_failed, domain_system_violated.evaluation_get_dependency_evaluator()
+
+def gather_violated_deps(domain_str:str, task:dict, default_constraint_option:str)->tuple:
+    constr_link_actions_failed, dep_eval = gather_strict_dep_eval(domain_str, task, default_constraint_option)
+    domain_assistant = domain_assistant_keys[domain_str]
     constr_deps = domain_assistant.constraint_dependencies
-    dep_violated = dfsgather_violated_dep(task["constraints_original"], dep_eval, constr_deps, user_known)
-    dep_innate_violated = dfsgather_violated_dep(dep_innate_full[task["user_goal"]], dep_eval, constr_deps, user_known)
+    dep_violated = dfsgather_violated_dep(task["constraints_original"], dep_eval, constr_deps, task["user_known"])
+    dep_innate_violated = dfsgather_violated_dep(domain_assistant.action_innate_dependencies[task["user_goal"]], dep_eval, constr_deps, task["user_known"])
     return constr_link_actions_failed, dep_violated, dep_innate_violated
+
+def gather_checked_dep(domain_str:str, task:dict, default_constraint_option:str)->list:
+    _, dep_eval = gather_strict_dep_eval(domain_str, task, default_constraint_option)
+    return dfsgather_checked_dep(task["constraints_original"], dep_eval, domain_assistant_keys[domain_str].constraint_dependencies, task["user_known"])
 
 def dfscheck_reachable_without(node_ind:int, nodes:list, connections:list, excluded_funcs:set)->bool:
     if not isinstance(nodes[node_ind], str):
@@ -253,6 +269,9 @@ def evaluator_function_directed_graph(domain_str:str, task:dict, log_msg_fcall:l
     ifcg = copy.deepcopy(task["directed_action_graph"]) # directed_action_graph with user_known values plugged in
     nodes_task = ifcg["nodes"]
     connections_task, inv_nodes_task = get_ifg_connections_invnodes(ifcg)
+    dep_policy = gather_checked_dep(domain_str, task, default_constraint_option) if task["action_should_succeed"] else task["constraints_original"]
+    if dep_policy != task["constraints_original"]:
+        nodes_task, connections_task, inv_nodes_task = dfsgather_ifg_func(domain_system, domain_assistant_keys[domain_str], task["user_goal"], default_constraint_option, dep_orig=dep_policy)
     constr_links = domain_assistant_keys[domain_str].constraint_links
     constr_deps = domain_assistant_keys[domain_str].constraint_dependencies
     constr_pros = domain_assistant_keys[domain_str].constraint_processes

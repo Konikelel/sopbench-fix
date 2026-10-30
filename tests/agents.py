@@ -1,14 +1,16 @@
 import ast
 import collections
+import copy
 import json
 
 from env import evaluator
-from env.variables import domain_assistant_keys
+from env.helpers import dfsgather_ifg_func
+from env.variables import domain_assistant_keys, domain_keys
 from tests import harness as H
 
 
-def graph_paths(task):
-    graph = task["directed_action_graph"]
+def graph_paths(task, graph=None):
+    graph = graph or task["directed_action_graph"]
     nodes = graph["nodes"]
     children = collections.defaultdict(list)
     for parent, child in graph["connections"]:
@@ -39,9 +41,20 @@ def ideal_calls(task, path):
             if task["action_should_succeed"] or name != task["user_goal"]]
 
 
+def checked_graph(domain, task):
+    if task["action_should_succeed"] or not hasattr(evaluator, "gather_checked_dep"):
+        return None
+    dep = evaluator.gather_checked_dep(domain, task, "full")
+    if dep == task["constraints_original"]:
+        return None
+    system = domain_keys[domain](copy.deepcopy(task["initial_database"]), domain_assistant_keys[domain].action_innate_dependencies,
+                                 task["constraint_parameters"])
+    return dfsgather_ifg_func(system, domain_assistant_keys[domain], task["user_goal"], "full", False, dep)
+
+
 def executable_paths(domain, task):
     offered = set(H.offered_tools(domain, task))
-    return [p for p in graph_paths(task) if all(c.name in offered for c in ideal_calls(task, p))]
+    return [p for p in graph_paths(task, checked_graph(domain, task)) if all(c.name in offered for c in ideal_calls(task, p))]
 
 
 def responses(entry):

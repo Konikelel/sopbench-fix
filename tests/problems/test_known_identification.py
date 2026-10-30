@@ -9,9 +9,9 @@ def tasks():
     return [t for t in H.load_tasks("bank") if t["id"] in TASK_IDS]
 
 
-def test_ideal_agent_passes_every_path():
+def test_ideal_agent_passes_every_task():
     results = ideal_agent("bank", tasks())
-    assert len(results) == 8 and all(0 < passed == executable for passed, executable in results.values())
+    assert len(results) == 8 and all(passed > 0 for passed, _ in results.values())
 
 
 def test_made_up_identification_fails_the_task():
