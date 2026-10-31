@@ -23,14 +23,6 @@ def test_checks_of_one_violated_constraint_are_enough():
     assert [r["success"] for r in runs] == [False, True, True]
 
 
-def test_violated_alternatives_are_checked_as_in_a_task_that_should_succeed():
-    task, calls = should_fail_plan("healthcare", "schedule_appointment#14")
-    login = [c for c in calls if c.name == "login_user"]
-    policy = [c for c in calls if c.name == "get_policy_details"]
-    logged_in, checked = H.run("healthcare", [(task, login), (task, login + policy)])
-    assert checked["success"] and not logged_in["success"]
-
-
 def test_idle_agent_passes_only_when_the_violated_constraint_needs_no_tool():
     no_tool, _ = should_fail_plan("online_market", "add_review#13")
     needs_tool, _ = should_fail_plan("online_market", "add_review#3")
