@@ -23,5 +23,5 @@ def test_asking_for_the_interaction_date_keeps_the_result_of_a_plan():
     plans = [(t, ideal_calls(t, p)) for t in tasks for p in executable_paths("library", t)]
     results = H.run("library", plans + [(t, calls + [H.Call(TOOL)]) for t, calls in plans])
     outcomes = [r["success"] for r in results]
-    assert len(plans) == 78 and outcomes[:len(plans)] == outcomes[len(plans):]
+    assert len(plans) == 66 and outcomes[:len(plans)] == outcomes[len(plans):]
     assert {t["id"] for (t, _), passed in zip(plans, outcomes) if passed} == {t["id"] for t in tasks}

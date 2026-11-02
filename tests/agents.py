@@ -42,7 +42,7 @@ def ideal_calls(task, path):
 
 
 def checked_graph(domain, task):
-    if task["action_should_succeed"] or not hasattr(evaluator, "gather_checked_dep"):
+    if not hasattr(evaluator, "gather_checked_dep"):
         return None
     dep = evaluator.gather_checked_dep(domain, task, "full")
     if dep == task["constraints_original"]:
@@ -54,7 +54,8 @@ def checked_graph(domain, task):
 
 def executable_paths(domain, task):
     offered = set(H.offered_tools(domain, task))
-    return [p for p in graph_paths(task, checked_graph(domain, task)) if all(c.name in offered for c in ideal_calls(task, p))]
+    return [p for p in graph_paths(task, checked_graph(domain, task))
+            if all(c.name in offered for c in ideal_calls(task, p)) and filled_calls(domain, task, p) is not None]
 
 
 def responses(entry):
@@ -68,21 +69,35 @@ def response_value(response):
         return None
 
 
-def ideal_plan(domain, task, path):
+def gates(domain):
+    return {action for action, _ in domain_assistant_keys[domain].constraint_links.values()}
+
+
+def filled_calls(domain, task, path):
     calls = ideal_calls(task, path)
     for i, (call, (_, mapping)) in enumerate(zip(calls, path)):
         missing = mapping.keys() - call.arguments.keys()
-        if missing:
-            earlier = map(response_value, responses(H.simulate(domain, task, calls[:i])[0]))
-            call.arguments.update({k: r[k] for r in earlier if isinstance(r, dict) for k in missing if k in r})
+        if not missing:
+            continue
+        earlier = responses(H.simulate(domain, task, calls[:i])[0])
+        call.arguments.update({k: r[k] for r in map(response_value, earlier) if isinstance(r, dict) for k in missing if k in r})
+        if missing - call.arguments.keys():
+            authenticated = any(c.name in gates(domain) and r == "True" for c, r in zip(calls[:i], earlier))
+            if task["action_should_succeed"] or call.name not in gates(domain) or authenticated:
+                return None
+            return calls[:i + 1]
+    return calls
+
+
+def ideal_plan(domain, task, path):
+    calls = filled_calls(domain, task, path)
     if (not task["action_should_succeed"] and hasattr(evaluator, "gather_violated_deps")
             and not evaluator.gather_violated_deps(domain, task, "full")[1]):
         calls.append(H.Call(task["user_goal"], arguments(task, path[-1][1])))
     entry, offered = H.simulate(domain, task, calls)
     if task["action_should_succeed"]:
         return calls, entry, offered
-    gates = {action for action, _ in domain_assistant_keys[domain].constraint_links.values()}
-    failed = next((i for i, (c, r) in enumerate(zip(calls, responses(entry))) if c.name in gates and r == "False"), None)
+    failed = next((i for i, (c, r) in enumerate(zip(calls, responses(entry))) if c.name in gates(domain) and r == "False"), None)
     if failed is None or failed == len(calls) - 1:
         return calls, entry, offered
     calls = calls[:failed + 1]

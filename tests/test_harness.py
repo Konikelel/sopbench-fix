@@ -57,6 +57,40 @@ def test_executable_paths_use_only_offered_tools():
     assert all(c.name in offered for p in paths for c in ideal_calls(task, p))
 
 
+def test_executable_paths_of_a_should_succeed_task_go_only_through_the_satisfied_alternative():
+    task = next(t for t in H.load_tasks("bank") if t["id"] == "pay_loan#1")
+    [path] = executable_paths("bank", task)
+    assert [name for name, _ in path] == ["login_user", "internal_check_username_exist", "get_account_balance",
+                                          "get_account_owed_balance", "pay_loan"]
+    _, entry, _ = ideal_plan("bank", task, path)
+    assert H.evaluate("bank", [entry])[0]["success"]
+
+
+@pytest.mark.parametrize("domain, task_id, unreachable", [("healthcare", "submit_claim#0", "get_claim_details"),
+                                                          ("healthcare", "submit_claim#1", "get_claim_details"),
+                                                          ("bank", "cancel_credit_card#3", "authenticate_admin_password")])
+def test_executable_paths_skip_a_call_with_an_argument_nothing_earlier_gives(domain, task_id, unreachable):
+    task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
+    assert any(name == unreachable for p in graph_paths(task) for name, _ in p)
+    paths = executable_paths(domain, task)
+    assert paths and not any(name == unreachable for p in paths for name, _ in p)
+
+
+def test_ideal_agent_stops_a_should_fail_path_at_a_gate_it_has_no_credential_for():
+    task = next(t for t in H.load_tasks("bank") if t["id"] == "get_loan#1")
+    [path] = executable_paths("bank", task)
+    calls, entry, _ = ideal_plan("bank", task, path)
+    assert calls == [H.Call("login_user", {"username": task["user_known"]["username"]})]
+    assert H.evaluate("bank", [entry])[0]["success"]
+
+
+def test_executable_paths_of_a_should_fail_task_skip_a_gate_without_a_credential_after_a_successful_login():
+    task = next(t for t in H.load_tasks("bank") if t["id"] == "cancel_credit_card#9")
+    [path] = executable_paths("bank", task)
+    assert [name for name, _ in path] == ["internal_check_username_exist", "login_user", "get_credit_card_info",
+                                          "cancel_credit_card"]
+
+
 def test_ideal_agent_stops_a_should_fail_path_at_a_failed_login():
     task = next(t for t in H.load_tasks("bank") if t["id"] == "get_loan#3")
     [path] = executable_paths("bank", task)
