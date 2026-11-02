@@ -6,7 +6,7 @@ from tests.agents import executable_paths, ideal_calls
 
 def ideal(domain, task):
     paths = executable_paths(domain, task)
-    return ideal_calls(task, max(paths, key=len)) if paths else []
+    return ideal_calls(task, paths[0]) if paths else []
 
 
 def close_account_calls(task):

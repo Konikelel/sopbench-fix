@@ -3,7 +3,7 @@ import os
 import pytest
 
 from tests import harness as H
-from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan, longest_path
+from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan
 
 pytest_plugins = "pytester"
 
@@ -127,7 +127,7 @@ def test_ideal_agent_takes_an_argument_missing_from_user_known_from_an_earlier_r
 
 def test_scripted_calls_reach_the_official_evaluation():
     task = H.load_tasks("university")[0]
-    calls = ideal_calls(task, longest_path("university", task))
+    calls = ideal_calls(task, executable_paths("university", task)[0])
     entry, offered = H.simulate("university", task, calls)
     assert offered == H.offered_tools("university", task) + ["exit_conversation"]
     [evaluation] = H.evaluate("university", [entry])

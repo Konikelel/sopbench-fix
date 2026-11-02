@@ -1,7 +1,7 @@
 import pytest
 
 from tests import harness as H
-from tests.agents import arguments, ideal_calls, longest_path
+from tests.agents import arguments, executable_paths, ideal_calls
 
 TASKS = [("dmv", "renew_dl#3"), ("online_market", "get_order_details#1")]
 
@@ -10,7 +10,7 @@ def should_fail_run(domain, task_id):
     task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
     assert not task["action_should_succeed"]
     target = H.Call(task["user_goal"], arguments(task, task["directed_action_graph"]["nodes"][0][1]))
-    return task, ideal_calls(task, longest_path(domain, task)), target
+    return task, ideal_calls(task, executable_paths(domain, task)[0]), target
 
 
 @pytest.mark.parametrize("domain, task_id", TASKS)

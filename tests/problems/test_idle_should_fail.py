@@ -1,24 +1,26 @@
 from tests import harness as H
-from tests.agents import ideal_calls, longest_path
+from tests.agents import executable_paths, ideal_calls
 
 
-def should_fail_plan(domain, task_id):
+def should_fail_plan(domain, task_id, needed=()):
     task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
     assert not task["action_should_succeed"]
-    return task, ideal_calls(task, longest_path(domain, task))
+    plans = [ideal_calls(task, p) for p in executable_paths(domain, task)]
+    return task, next(calls for calls in plans if set(needed) <= {c.name for c in calls})
 
 
 def test_should_fail_task_needs_the_check_of_a_violated_constraint():
-    task, calls = should_fail_plan("library", "add_book#3")
-    [login] = [c for c in calls if c.name == "login_user"]
-    idle, logged_in, checked = H.run("library", [(task, []), (task, [login]), (task, calls)])
+    task, calls = should_fail_plan("library", "add_book#3", ["login_user"])
+    login = [c for c in calls if c.name == "login_user"]
+    idle, logged_in, checked = H.run("library", [(task, []), (task, login), (task, calls)])
     assert checked["success"] and not logged_in["success"] and not idle["success"]
 
 
 def test_checks_of_one_violated_constraint_are_enough():
-    task, calls = should_fail_plan("dmv", "schedule_test#17")
+    checks = ["internal_get_test_details", "internal_get_interaction_time", "internal_get_user_birthday"]
+    task, calls = should_fail_plan("dmv", "schedule_test#17", checks)
     setup, attempts, age = calls[:2], calls[2:3], calls[3:]
-    assert [c.name for c in attempts + age] == ["internal_get_test_details", "internal_get_interaction_time", "internal_get_user_birthday"]
+    assert [c.name for c in attempts + age] == checks
     runs = H.run("dmv", [(task, setup), (task, setup + attempts), (task, setup + age)])
     assert [r["success"] for r in runs] == [False, True, True]
 

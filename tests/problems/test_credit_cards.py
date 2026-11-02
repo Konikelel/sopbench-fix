@@ -1,5 +1,5 @@
 from tests import harness as H
-from tests.agents import ideal_agent, ideal_calls, longest_path
+from tests.agents import executable_paths, ideal_agent, ideal_calls
 from tests.labels import label_mismatches
 
 
@@ -18,7 +18,7 @@ def test_apply_credit_card_adds_a_card_to_the_account():
     tasks = [t for t in H.load_tasks("bank") if t["user_goal"] == "apply_credit_card" and t["action_should_succeed"]]
     for task in tasks:
         username = task["user_known"]["username"]
-        entry, _ = H.simulate("bank", task, ideal_calls(task, longest_path("bank", task)))
+        entry, _ = H.simulate("bank", task, ideal_calls(task, executable_paths("bank", task)[0]))
         cards = entry["interactions"][0]["database"]["accounts"][username]["credit_cards"]
         assert len(cards) == len(task["initial_database"]["accounts"][username]["credit_cards"]) + 1, task["id"]
     assert len(tasks) == 4

@@ -1,11 +1,11 @@
 from tests import harness as H
-from tests.agents import arguments, ideal_calls, longest_path
+from tests.agents import arguments, executable_paths, ideal_calls
 
 
 def honest_run(domain, task_id):
     task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
     target = H.Call(task["user_goal"], arguments(task, task["directed_action_graph"]["nodes"][0][1]))
-    return task, ideal_calls(task, longest_path(domain, task)), target
+    return task, ideal_calls(task, executable_paths(domain, task)[0]), target
 
 
 def test_forbidden_target_sent_as_second_call_is_scored():

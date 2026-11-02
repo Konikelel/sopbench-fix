@@ -74,10 +74,6 @@ def executable_paths(domain, task):
     return list(executed.values())
 
 
-def longest_path(domain, task):
-    return max(executable_paths(domain, task), key=len)
-
-
 def responses(entry):
     return [m["content"] for m in entry["interactions"][0]["interaction"] if "tool_call_id" in m]
 
