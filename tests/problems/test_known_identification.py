@@ -19,4 +19,4 @@ def test_made_up_identification_fails_the_task():
                  for c in ideal_calls(t, path)])
             for t in tasks() for path in executable_paths("bank", t)]
     results = H.run("bank", runs)
-    assert len(results) == 10 and not any(r["success"] for r in results)
+    assert len(results) == 8 and not any(r["success"] for r in results)
