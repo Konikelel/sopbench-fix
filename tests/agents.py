@@ -41,21 +41,41 @@ def ideal_calls(task, path):
             if task["action_should_succeed"] or name != task["user_goal"]]
 
 
-def checked_graph(domain, task):
-    if not hasattr(evaluator, "gather_checked_dep"):
-        return None
-    dep = evaluator.gather_checked_dep(domain, task, "full")
-    if dep == task["constraints_original"]:
-        return None
+def dep_paths(domain, task, dep):
+    if not dep or dep == task["constraints_original"]:
+        return graph_paths(task)
     system = domain_keys[domain](copy.deepcopy(task["initial_database"]), domain_assistant_keys[domain].action_innate_dependencies,
                                  task["constraint_parameters"])
-    return dfsgather_ifg_func(system, domain_assistant_keys[domain], task["user_goal"], "full", False, dep)
+    return graph_paths(task, dfsgather_ifg_func(system, domain_assistant_keys[domain], task["user_goal"], "full", False, dep))
+
+
+def step_keys(path):
+    return {json.dumps(step, sort_keys=True) for step in path}
+
+
+def candidate_paths(domain, task):
+    if not hasattr(evaluator, "gather_checked_dep"):
+        return graph_paths(task)
+    checked = dep_paths(domain, task, evaluator.gather_checked_dep(domain, task, "full"))
+    minimal = checked
+    if not task["action_should_succeed"]:
+        minimal = dep_paths(domain, task, evaluator.gather_violated_deps(domain, task, "full")[1])
+    unique = {json.dumps(p, sort_keys=True): p for p in checked + graph_paths(task) + minimal}
+    return [p for p in unique.values() if any(step_keys(m) <= step_keys(p) for m in minimal)]
 
 
 def executable_paths(domain, task):
     offered = set(H.offered_tools(domain, task))
-    return [p for p in graph_paths(task, checked_graph(domain, task))
-            if all(c.name in offered for c in ideal_calls(task, p)) and filled_calls(domain, task, p) is not None]
+    executed = {}
+    for path in candidate_paths(domain, task):
+        if all(c.name in offered for c in ideal_calls(task, path)) and filled_calls(domain, task, path) is not None:
+            calls = ideal_plan(domain, task, path)[0]
+            executed.setdefault(json.dumps([[c.name, c.arguments] for c in calls], sort_keys=True), path)
+    return list(executed.values())
+
+
+def longest_path(domain, task):
+    return max(executable_paths(domain, task), key=len)
 
 
 def responses(entry):

@@ -1,7 +1,7 @@
 import pytest
 
 from tests import harness as H
-from tests.agents import executable_paths, ideal_calls
+from tests.agents import ideal_calls, longest_path
 from tests.labels import strict_system
 
 CREDENTIAL_CHECKS = {"login_user": "logged_in_user", "authenticate_admin_password": "authenticated_admin_password"}
@@ -17,7 +17,7 @@ def task(domain, task_id):
                                              ("university", "apply_financial_aid#0")])
 def test_wrong_credential_fails_the_task(domain, task_id):
     should_succeed_task = task(domain, task_id)
-    honest = ideal_calls(should_succeed_task, executable_paths(domain, should_succeed_task)[0])
+    honest = ideal_calls(should_succeed_task, longest_path(domain, should_succeed_task))
     wrong = [H.Call(c.name, {k: v if k == "username" or c.name not in CREDENTIAL_CHECKS else "WRONG_CREDENTIAL"
                              for k, v in c.arguments.items()}) for c in honest]
     honest_run, wrong_run = H.run(domain, [(should_succeed_task, honest), (should_succeed_task, wrong)])
@@ -37,7 +37,7 @@ def test_wrong_credential_leaves_the_strict_state_unchanged(domain, task_id, act
     strict = strict_system(domain, t)
     username = t["user_known"]["username"]
     if action != "login_user":
-        login = next(c for c in ideal_calls(t, executable_paths(domain, t)[0]) if c.name == "login_user")
+        login = next(c for c in ideal_calls(t, longest_path(domain, t)) if c.name == "login_user")
         assert strict.login_user(**login.arguments)
     assert getattr(strict, action)(username, "WRONG_CREDENTIAL") is False
     assert not getattr(strict.evaluation_get_state_tracker(), CREDENTIAL_CHECKS[action])(username)

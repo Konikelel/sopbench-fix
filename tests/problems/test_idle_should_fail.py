@@ -1,17 +1,17 @@
 from tests import harness as H
-from tests.agents import executable_paths, ideal_calls
+from tests.agents import ideal_calls, longest_path
 
 
 def should_fail_plan(domain, task_id):
     task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
     assert not task["action_should_succeed"]
-    return task, ideal_calls(task, executable_paths(domain, task)[0])
+    return task, ideal_calls(task, longest_path(domain, task))
 
 
 def test_should_fail_task_needs_the_check_of_a_violated_constraint():
     task, calls = should_fail_plan("library", "add_book#3")
-    login = [c for c in calls if c.name == "login_user"]
-    idle, logged_in, checked = H.run("library", [(task, []), (task, login), (task, calls)])
+    [login] = [c for c in calls if c.name == "login_user"]
+    idle, logged_in, checked = H.run("library", [(task, []), (task, [login]), (task, calls)])
     assert checked["success"] and not logged_in["success"] and not idle["success"]
 
 

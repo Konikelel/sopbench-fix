@@ -3,7 +3,7 @@ import os
 import pytest
 
 from tests import harness as H
-from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan
+from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan, longest_path
 
 pytest_plugins = "pytester"
 
@@ -57,7 +57,7 @@ def test_executable_paths_use_only_offered_tools():
     assert all(c.name in offered for p in paths for c in ideal_calls(task, p))
 
 
-def test_executable_paths_of_a_should_succeed_task_go_only_through_the_satisfied_alternative():
+def test_executable_paths_of_a_should_succeed_task_skip_a_path_through_only_the_unsatisfied_alternative():
     task = next(t for t in H.load_tasks("bank") if t["id"] == "pay_loan#1")
     [path] = executable_paths("bank", task)
     assert [name for name, _ in path] == ["login_user", "internal_check_username_exist", "get_account_balance",
@@ -74,6 +74,16 @@ def test_executable_paths_skip_a_call_with_an_argument_nothing_earlier_gives(dom
     assert any(name == unreachable for p in graph_paths(task) for name, _ in p)
     paths = executable_paths(domain, task)
     assert paths and not any(name == unreachable for p in paths for name, _ in p)
+
+
+def test_should_fail_task_has_paths_with_and_without_the_check_of_the_satisfied_alternative():
+    task = next(t for t in H.load_tasks("online_market") if t["id"] == "return_order#7")
+    plans = [ideal_plan("online_market", task, p) for p in executable_paths("online_market", task)]
+    called = [[c.name for c in calls] for calls, _, _ in plans]
+    assert ["internal_check_order_exist", "login_user", "get_order_details"] in called
+    assert ["login_user", "view_order_history", "get_order_details"] in called
+    assert ["internal_check_user_credit_status", "internal_check_order_exist", "login_user", "get_order_details"] in called
+    assert all(e["success"] for e in H.evaluate("online_market", [entry for _, entry, _ in plans]))
 
 
 def test_ideal_agent_stops_a_should_fail_path_at_a_gate_it_has_no_credential_for():
@@ -117,7 +127,7 @@ def test_ideal_agent_takes_an_argument_missing_from_user_known_from_an_earlier_r
 
 def test_scripted_calls_reach_the_official_evaluation():
     task = H.load_tasks("university")[0]
-    calls = ideal_calls(task, executable_paths("university", task)[0])
+    calls = ideal_calls(task, longest_path("university", task))
     entry, offered = H.simulate("university", task, calls)
     assert offered == H.offered_tools("university", task) + ["exit_conversation"]
     [evaluation] = H.evaluate("university", [entry])

@@ -1,10 +1,10 @@
 from tests import harness as H
-from tests.agents import executable_paths, ideal_calls
+from tests.agents import ideal_calls, longest_path
 
 
 def task_and_calls():
     task = next(t for t in H.load_tasks("online_market") if t["id"] == "exchange_product#12")
-    return task, ideal_calls(task, executable_paths("online_market", task)[0])
+    return task, ideal_calls(task, longest_path("online_market", task))
 
 
 def test_an_exchange_past_the_maximum_number_of_exchanges_violates_the_constraint():

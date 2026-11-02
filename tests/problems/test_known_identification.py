@@ -11,7 +11,7 @@ def tasks():
 
 def test_ideal_agent_passes_every_task():
     results = ideal_agent("bank", tasks())
-    assert len(results) == 8 and all(passed > 0 for passed, _ in results.values())
+    assert len(results) == 8 and all(passed == executable > 0 for passed, executable in results.values())
 
 
 def test_made_up_identification_fails_the_task():
@@ -19,4 +19,4 @@ def test_made_up_identification_fails_the_task():
                  for c in ideal_calls(t, path)])
             for t in tasks() for path in executable_paths("bank", t)]
     results = H.run("bank", runs)
-    assert len(results) == 8 and not any(r["success"] for r in results)
+    assert len(results) == 9 and not any(r["success"] for r in results)

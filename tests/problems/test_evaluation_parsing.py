@@ -1,7 +1,7 @@
 import pytest
 
 from tests import harness as H
-from tests.agents import arguments, executable_paths, ideal_calls
+from tests.agents import arguments, ideal_calls, longest_path
 
 
 def task(domain, task_id):
@@ -10,7 +10,7 @@ def task(domain, task_id):
 
 def ideal_run(domain, task_id):
     ideal_task = task(domain, task_id)
-    [evaluation] = H.run(domain, [(ideal_task, ideal_calls(ideal_task, executable_paths(domain, ideal_task)[0]))])
+    [evaluation] = H.run(domain, [(ideal_task, ideal_calls(ideal_task, longest_path(domain, ideal_task)))])
     return evaluation
 
 
@@ -48,7 +48,7 @@ def test_target_action_returning_a_value_counts_as_called(domain, task_id):
                                              ("online_market", "get_order_details#1")])
 def test_calling_a_forbidden_target_action_fails_the_task(domain, task_id):
     should_fail_task = task(domain, task_id)
-    honest = ideal_calls(should_fail_task, executable_paths(domain, should_fail_task)[0])
+    honest = ideal_calls(should_fail_task, longest_path(domain, should_fail_task))
     target = H.Call(should_fail_task["user_goal"], arguments(should_fail_task, should_fail_task["directed_action_graph"]["nodes"][0][1]))
     honest_run, forbidden_run = H.run(domain, [(should_fail_task, honest), (should_fail_task, honest + [target])])
     assert honest_run["success"] and not forbidden_run["success"]

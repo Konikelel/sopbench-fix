@@ -1,7 +1,7 @@
 import pytest
 
 from tests import harness as H
-from tests.agents import arguments, executable_paths, ideal_calls
+from tests.agents import arguments, ideal_calls, longest_path
 
 
 def task(domain, task_id):
@@ -26,7 +26,7 @@ def test_should_fail_task_allowed_by_the_policy_needs_the_check_the_target_actio
                                              ("online_market", "exchange_product#1"), ("online_market", "exchange_product#2")])
 def test_rejected_target_action_call_stands_in_for_the_check_the_policy_allows(domain, task_id):
     allowed = task(domain, task_id)
-    calls = ideal_calls(allowed, executable_paths(domain, allowed)[0]) + [target_call(allowed)]
+    calls = ideal_calls(allowed, longest_path(domain, allowed)) + [target_call(allowed)]
     idle, attempted = H.run(domain, [(allowed, []), (allowed, calls)])
     assert attempted["success"] and not idle["success"]
 

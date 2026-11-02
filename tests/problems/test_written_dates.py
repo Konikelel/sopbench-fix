@@ -1,10 +1,10 @@
 from tests import harness as H
-from tests.agents import executable_paths, ideal_calls
+from tests.agents import ideal_calls, longest_path
 
 
 def task_and_calls(domain, task_id):
     task = next(t for t in H.load_tasks(domain) if t["id"] == task_id)
-    return task, ideal_calls(task, executable_paths(domain, task)[0])
+    return task, ideal_calls(task, longest_path(domain, task))
 
 
 def replays_without_error(domain, task, calls):
