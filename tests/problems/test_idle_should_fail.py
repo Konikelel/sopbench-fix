@@ -1,5 +1,5 @@
 from tests import harness as H
-from tests.agents import executable_paths, ideal_calls
+from tests.agents import executable_paths, graph_paths, ideal_calls
 
 
 def should_fail_plan(domain, task_id):
@@ -16,9 +16,10 @@ def test_should_fail_task_needs_the_check_of_a_violated_constraint():
 
 
 def test_checks_of_one_violated_constraint_are_enough():
-    task, calls = should_fail_plan("dmv", "schedule_test#17")
+    task = next(t for t in H.load_tasks("dmv") if t["id"] == "schedule_test#17")
+    checks = ["internal_get_test_details", "internal_get_interaction_time", "internal_get_user_birthday"]
+    calls = next(ideal_calls(task, p) for p in graph_paths(task) if [name for name, _ in p][2:5] == checks)
     setup, attempts, age = calls[:2], calls[2:3], calls[3:]
-    assert [c.name for c in attempts + age] == ["internal_get_test_details", "internal_get_interaction_time", "internal_get_user_birthday"]
     runs = H.run("dmv", [(task, setup), (task, setup + attempts), (task, setup + age)])
     assert [r["success"] for r in runs] == [False, True, True]
 

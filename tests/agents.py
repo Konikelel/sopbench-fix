@@ -41,21 +41,46 @@ def ideal_calls(task, path):
             if task["action_should_succeed"] or name != task["user_goal"]]
 
 
-def checked_graph(domain, task):
-    if not hasattr(evaluator, "gather_checked_dep"):
-        return None
-    dep = evaluator.gather_checked_dep(domain, task, "full")
-    if dep == task["constraints_original"]:
+def dep_graph(domain, task, dep):
+    if not dep or dep == task["constraints_original"]:
         return None
     system = domain_keys[domain](copy.deepcopy(task["initial_database"]), domain_assistant_keys[domain].action_innate_dependencies,
                                  task["constraint_parameters"])
     return dfsgather_ifg_func(system, domain_assistant_keys[domain], task["user_goal"], "full", False, dep)
 
 
+def step_keys(path):
+    return {json.dumps(step, sort_keys=True) for step in path[:-1]}
+
+
+def prefix_paths(domain, task):
+    if not hasattr(evaluator, "gather_checked_dep"):
+        return graph_paths(task)
+    complete = graph_paths(task, dep_graph(domain, task, evaluator.gather_checked_dep(domain, task, "full")))
+    if task["action_should_succeed"]:
+        return complete
+    violated = evaluator.gather_violated_deps(domain, task, "full")[1]
+    if not violated:
+        return complete
+    minimal = [step_keys(p) for p in graph_paths(task, dep_graph(domain, task, violated))]
+    paths = {}
+    for path in complete:
+        keys = [json.dumps(step, sort_keys=True) for step in path[:-1]]
+        ends = [max((keys.index(k) for k in m), default=-1) for m in minimal if m <= set(keys)]
+        if ends:
+            prefix = path[:min(ends) + 1] + path[-1:]
+            paths.setdefault(json.dumps(prefix, sort_keys=True), prefix)
+    return list(paths.values())
+
+
 def executable_paths(domain, task):
     offered = set(H.offered_tools(domain, task))
-    return [p for p in graph_paths(task, checked_graph(domain, task))
-            if all(c.name in offered for c in ideal_calls(task, p)) and filled_calls(domain, task, p) is not None]
+    executed = {}
+    for path in prefix_paths(domain, task):
+        if all(c.name in offered for c in ideal_calls(task, path)) and filled_calls(domain, task, path) is not None:
+            calls = ideal_plan(domain, task, path)[0]
+            executed.setdefault(json.dumps([[c.name, c.arguments] for c in calls], sort_keys=True), path)
+    return list(executed.values())
 
 
 def responses(entry):
