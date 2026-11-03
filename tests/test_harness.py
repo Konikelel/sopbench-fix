@@ -149,3 +149,13 @@ def test_problem_tests_are_inverted_on_the_original_version(pytester, monkeypatc
     result = pytester.runpytest()
     result.assert_outcomes(passed=1, failed=1, errors=1)
     result.stdout.fnmatch_lines(["FAILED test_*::test_fixed*", "ERROR test_*::test_skipped*"])
+
+
+def test_should_fail_path_ends_at_the_check_that_violates_the_policy():
+    task = next(t for t in H.load_tasks("bank") if t["id"] == "set_safety_box#29")
+    [path] = executable_paths("bank", task)
+    calls, entry, _ = ideal_plan("bank", task, path)
+    assert [c.name for c in calls] == ["login_user", "authenticate_admin_password", "internal_check_username_exist",
+                                       "get_account_balance"]
+    assert [name for name, _ in graph_paths(task)[0]][-2:] == ["internal_get_credit_score", "set_safety_box"]
+    assert H.evaluate("bank", [entry])[0]["success"]
