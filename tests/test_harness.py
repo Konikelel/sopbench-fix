@@ -1,9 +1,10 @@
+import itertools
 import os
 
 import pytest
 
 from tests import harness as H
-from tests.agents import executable_paths, graph_paths, ideal_calls, ideal_plan
+from tests.agents import branch_orders, executable_paths, graph_paths, ideal_calls, ideal_plan, reactive_paths
 
 pytest_plugins = "pytester"
 
@@ -159,3 +160,89 @@ def test_should_fail_path_ends_at_the_check_that_violates_the_policy():
                                        "get_account_balance"]
     assert [name for name, _ in graph_paths(task)[0]][-2:] == ["internal_get_credit_score", "set_safety_box"]
     assert H.evaluate("bank", [entry])[0]["success"]
+
+
+def test_reactive_paths_check_unsatisfied_alternatives_in_every_order_before_the_satisfied_one():
+    raw = graph_paths(make_task(
+        nodes=[["target", {}], "and", ["login", {}], "or", ["check_a", {}], ["check_b", {}], ["check_c", {}]],
+        connections=[[0, 1], [1, 2], [1, 3], [3, 4], [3, 5], [3, 6]]))
+    complete = graph_paths(make_task(nodes=[["target", {}], "and", ["login", {}], ["check_c", {}]],
+                                     connections=[[0, 1], [1, 2], [1, 3]]))
+    assert [[name for name, _ in p] for p in complete + reactive_paths(raw, complete)] == [
+        ["login", "check_c", "target"],
+        ["login", "check_a", "check_c", "target"],
+        ["login", "check_a", "check_b", "check_c", "target"],
+        ["login", "check_b", "check_c", "target"],
+        ["login", "check_b", "check_a", "check_c", "target"],
+    ]
+
+
+def test_reactive_paths_keep_the_unsatisfied_alternative_of_each_or_at_its_own_node():
+    raw = graph_paths(make_task(
+        nodes=[["target", {}], "and", "or", ["bad_a", {}], ["good_a", {}], "or", ["bad_b", {}], ["good_b", {}]],
+        connections=[[0, 1], [1, 2], [2, 3], [2, 4], [1, 5], [5, 6], [5, 7]]))
+    complete = graph_paths(make_task(nodes=[["target", {}], "and", ["good_a", {}], ["good_b", {}]],
+                                     connections=[[0, 1], [1, 2], [1, 3]]))
+    assert [[name for name, _ in p] for p in reactive_paths(raw, complete)] == [
+        ["good_a", "bad_b", "good_b", "target"],
+        ["bad_a", "good_a", "good_b", "target"],
+        ["bad_a", "good_a", "bad_b", "good_b", "target"],
+    ]
+
+
+def test_reactive_paths_keep_the_and_order_when_a_satisfied_alternative_has_no_tool():
+    raw = graph_paths(make_task(
+        nodes=[["target", {}], "and", "or", ["bad_a", {}], ["bad_b", {}], "and", "or", ["bad_c", {}], "and"],
+        connections=[[0, 1], [1, 2], [2, 3], [2, 4], [2, 5], [1, 6], [6, 7], [6, 8]]))
+    complete = graph_paths(make_task(nodes=[["target", {}]], connections=[]))
+    assert [[name for name, _ in p] for p in reactive_paths(raw, complete)] == [
+        ["bad_c", "target"],
+        ["bad_a", "target"],
+        ["bad_a", "bad_c", "target"],
+        ["bad_a", "bad_b", "target"],
+        ["bad_a", "bad_b", "bad_c", "target"],
+        ["bad_b", "target"],
+        ["bad_b", "bad_c", "target"],
+        ["bad_b", "bad_a", "target"],
+        ["bad_b", "bad_a", "bad_c", "target"],
+    ]
+
+
+def test_branch_orders_permute_the_alternatives_of_a_violated_or_only():
+    dep = ["or", [["single", "a"], ["single", "b"], ["single", "c"]]]
+    orders = [[part[1] for part in d[1]] for d in branch_orders(dep, lambda _: True)]
+    assert orders == [list(order) for order in itertools.permutations("abc")]
+    assert branch_orders(dep, lambda _: False) == [dep]
+
+
+@pytest.mark.parametrize("task_id", ["borrow_book#7", "borrow_book#12"])
+def test_should_succeed_paths_check_the_unsatisfied_alternative_before_the_satisfied_one(task_id):
+    task = next(t for t in H.load_tasks("library") if t["id"] == task_id)
+    paths = executable_paths("library", task)
+    [path] = [p for p in paths if any(name == "internal_is_restricted" for name, _ in p)]
+    names = [name for name, _ in path]
+    assert len(paths) == 2 and names.index("internal_is_restricted") < names.index("internal_get_membership_status")
+    _, entry, _ = ideal_plan("library", task, path)
+    assert H.evaluate("library", [entry])[0]["success"]
+
+
+def test_should_fail_paths_check_the_unsatisfied_alternative_before_the_violated_check():
+    task = next(t for t in H.load_tasks("online_market") if t["id"] == "return_order#7")
+    plans = [ideal_plan("online_market", task, p) for p in executable_paths("online_market", task)
+             if p[0][0] == "internal_get_interaction_time"]
+    assert plans and all(calls[-1].name in ("get_order_details", "view_order_history") for calls, _, _ in plans)
+    assert all(e["success"] for e in H.evaluate("online_market", [entry for _, entry, _ in plans]))
+
+
+def test_should_fail_paths_check_the_violated_alternatives_in_either_order():
+    task = next(t for t in H.load_tasks("library") if t["id"] == "borrow_book#9")
+    plans = [ideal_plan("library", task, p) for p in executable_paths("library", task)]
+    names = [[c.name for c in calls] for calls, _, _ in plans]
+    assert {n.index("internal_is_restricted") < n.index("internal_get_membership_status") for n in names} == {True, False}
+    assert all(e["success"] for e in H.evaluate("library", [entry for _, entry, _ in plans]))
+
+
+def test_a_merged_path_cut_before_the_unsatisfied_alternative_is_not_a_path():
+    task = next(t for t in H.load_tasks("library") if t["id"] == "borrow_book#23")
+    [path] = executable_paths("library", task)
+    assert ideal_calls(task, path)[-1].name == "internal_get_user_num_borrowed"
