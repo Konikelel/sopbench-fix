@@ -1,6 +1,7 @@
 import ast
 import collections
 import copy
+import itertools
 import json
 
 from env import evaluator
@@ -49,27 +50,97 @@ def dep_graph(domain, task, dep):
     return dfsgather_ifg_func(system, domain_assistant_keys[domain], task["user_goal"], "full", False, dep)
 
 
+def step_key(step):
+    return json.dumps(step, sort_keys=True)
+
+
 def step_keys(path):
-    return {json.dumps(step, sort_keys=True) for step in path[:-1]}
+    return {step_key(step) for step in path[:-1]}
+
+
+def reactive_paths(raw, complete):
+    checked = {step_key(step) for path in complete for step in path}
+    raw_keys = [[step_key(step) for step in path] for path in raw]
+    raw_sets = list(map(set, raw_keys))
+    blocks = []
+    for path, keys in zip(raw, raw_keys):
+        unsatisfied = [i for i, k in enumerate(keys) if k not in checked]
+        if unsatisfied:
+            block = set(keys) - checked
+            rank = max(min(i for i, k in enumerate(other) if k in block) for other, other_set in zip(raw_keys, raw_sets) if block <= other_set)
+            blocks.append((block, set(keys) & checked, path[:unsatisfied[-1] + 1], set(keys[:unsatisfied[-1] + 1]), rank))
+    parts = {id(entry): [other for other, *_ in blocks if other < entry[0]] for entry in blocks}
+    blocks = [entry for entry in blocks if not any(not (a <= b or b <= a) for a, b in itertools.combinations(parts[id(entry)], 2))]
+
+    def alternatives(a, b):
+        return a != b and not any(a | b <= keys for keys in raw_sets)
+
+    def sequences(chosen, rest):
+        yield chosen
+        for i, entry in enumerate(rest):
+            if all(alternatives(entry[0], other[0]) for other in chosen):
+                yield from sequences(chosen + [entry], rest[:i] + rest[i + 1:])
+
+    paths = {}
+    for path in complete:
+        keys = [step_key(step) for step in path]
+        groups = []
+        for block, shared, prefix, prefix_keys, rank in blocks:
+            if shared <= set(keys):
+                entry = (block, prefix, min(i for i, k in enumerate(keys) if k not in prefix_keys), rank)
+                group = next((group for group in groups if all(block == other or alternatives(block, other) for other, *_ in group)), None)
+                groups.append([entry]) if group is None else group.append(entry)
+        groups.sort(key=lambda group: max(rank for *_, rank in group))
+        for choice in itertools.product(*(list(sequences([], group)) for group in groups)):
+            inserts = collections.defaultdict(list)
+            for _, prefix, position, _ in [entry for sequence in choice for entry in sequence]:
+                inserts[position].extend(prefix)
+            merged = list({step_key(s): s for i, step in enumerate(path) for s in inserts[i] + [step]}.values())
+            if merged != path:
+                paths.setdefault(step_key(merged), merged)
+    return list(paths.values())
+
+
+def branch_orders(dep, violated):
+    if not dep or dep[0] == "single":
+        return [dep]
+    combined = itertools.product(*(branch_orders(part, violated) for part in dep[1]))
+    if dep[0] in ("or", "gate") and violated(dep):
+        return [[dep[0], list(order)] for parts in combined for order in itertools.permutations(parts)]
+    return [[dep[0], list(parts)] for parts in combined]
+
+
+def permuted_deps(domain, task):
+    _, dep_eval = evaluator.gather_strict_dep_eval(domain, task, "full")
+    constr_deps = domain_assistant_keys[domain].constraint_dependencies
+
+    def violated(dep):
+        return evaluator.dfsgather_violated_dep(dep, dep_eval, constr_deps, task["user_known"])
+
+    deps = [evaluator.dfsgather_checked_dep(dep, dep_eval, constr_deps, task["user_known"])
+            for dep in branch_orders(task["constraints_original"], violated)]
+    return deps[1:]
 
 
 def prefix_paths(domain, task):
     if not hasattr(evaluator, "gather_checked_dep"):
         return graph_paths(task)
     complete = graph_paths(task, dep_graph(domain, task, evaluator.gather_checked_dep(domain, task, "full")))
-    if task["action_should_succeed"]:
-        return complete
-    violated = evaluator.gather_violated_deps(domain, task, "full")[1]
+    violated = None if task["action_should_succeed"] else evaluator.gather_violated_deps(domain, task, "full")[1]
+    if violated:
+        complete += [p for dep in permuted_deps(domain, task) for p in graph_paths(task, dep_graph(domain, task, dep))]
+    reactive = reactive_paths(graph_paths(task), complete)
     if not violated:
-        return complete
+        return complete + reactive
     minimal = [step_keys(p) for p in graph_paths(task, dep_graph(domain, task, violated))]
+    checked = {k for p in complete for k in step_keys(p)}
     paths = {}
-    for path in complete:
-        keys = [json.dumps(step, sort_keys=True) for step in path[:-1]]
+    for path in complete + reactive:
+        keys = [step_key(step) for step in path[:-1]]
         ends = [max((keys.index(k) for k in m), default=-1) for m in minimal if m <= set(keys)]
-        if ends:
+        if ends and (path in complete or not set(keys[:min(ends) + 1]) <= checked):
             prefix = path[:min(ends) + 1] + path[-1:]
-            paths.setdefault(json.dumps(prefix, sort_keys=True), prefix)
+            paths.setdefault(step_key(prefix), prefix)
     return list(paths.values())
 
 

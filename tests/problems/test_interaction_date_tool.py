@@ -10,7 +10,7 @@ def test_ideal_agent_passes_every_executable_path_through_the_interaction_date_w
     tasks = [t for t in H.load_tasks("library") if t["id"] in DATE_TASK_IDS]
     paths = [(t, p) for t in tasks for p in executable_paths("library", t) if any(name == TOOL for name, _ in p)]
     results = H.run("library", [(t, ideal_calls(t, p)) for t, p in paths])
-    assert len(results) == 8 and all(r["success"] for r in results)
+    assert len(results) == 16 and all(r["success"] for r in results)
 
 
 def test_interaction_date_is_offered_where_it_decides_the_label():
@@ -23,5 +23,5 @@ def test_asking_for_the_interaction_date_keeps_the_result_of_a_plan():
     plans = [(t, ideal_calls(t, p)) for t in tasks for p in executable_paths("library", t)]
     results = H.run("library", plans + [(t, calls + [H.Call(TOOL)]) for t, calls in plans])
     outcomes = [r["success"] for r in results]
-    assert len(plans) == 66 and outcomes[:len(plans)] == outcomes[len(plans):]
+    assert len(plans) == 85 and outcomes[:len(plans)] == outcomes[len(plans):]
     assert {t["id"] for (t, _), passed in zip(plans, outcomes) if passed} == {t["id"] for t in tasks}
