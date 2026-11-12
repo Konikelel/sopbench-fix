@@ -91,19 +91,11 @@ def get_default_dep_full(domain_str:str, default_constraint_option:str, add_cons
     cd = domain_assistant_keys[domain_str].constraint_dependencies
     return gather_action_default_dependencies(ard, acd, cd if add_constr_dep_bool else None, default_constraint_option)
 
-# returns the default full dependency of the tasks and the default descriptions
 def task_default_dep_full(domain_str:str, default_constraint_option:str, constraint_descr_format:str, dependency_verb_dep_orig:bool=False)->tuple[dict,dict,dict]:
-    # collecting the default dependencies for non-tested actions
     dep_innate_full = domain_assistant_keys[domain_str].action_innate_dependencies
     default_dep_full = get_default_dep_full(domain_str, default_constraint_option)
     ddf_to_be_verbalized = default_dep_full if not dependency_verb_dep_orig else get_default_dep_full(domain_str, default_constraint_option, False)
-    default_dep_full_descr = {}
-    default_domain_system_strict = domain_keys[domain_str+"_strict"]()
-    dep_params = default_domain_system_strict.evaluation_get_dependency_parameters()
-    for action in ddf_to_be_verbalized:
-        dep_verb = get_dep_verb(domain_str, ddf_to_be_verbalized[action], dep_params, constraint_descr_format)
-        default_dep_full_descr[action] = dep_verb
-    return dep_innate_full, default_dep_full, default_dep_full_descr
+    return dep_innate_full, default_dep_full, ddf_to_be_verbalized
 
 dep_descr_format_instr = {
     "old": "You must follow the routines and constraints in the order that they are listed."\
@@ -162,7 +154,6 @@ def task_initializer(domain_str:str, task:dict, dep_innate_full:dict, default_de
     abl_hint:bool=False, abl_verdict:bool=False, abl_order:bool=False)->tuple:
     # initializing the domain system
     dep_full = copy.deepcopy(default_dep_full)
-    dep_full_descr = copy.deepcopy(default_dep_full_descr)
     user_goal = task["user_goal"] if task else None
     dep = task["constraints"] if task else {}
     dep_orig = task["constraints_original"] if task else tuple()
@@ -179,6 +170,8 @@ def task_initializer(domain_str:str, task:dict, dep_innate_full:dict, default_de
         domain_system = domain_keys[domain_str+"_strict"](dep_innate_full=dep_innate_full, dep_full=dep_full)
         dep_params = domain_system.evaluation_get_dependency_parameters()
         if mode != "program": domain_system = domain_keys[domain_str](dep_innate_full=dep_innate_full, dep_params=dep_params)
+    dep_full_descr = {action: get_dep_verb(domain_str, action_dep, dep_params, constraint_descr_format)
+        for action, action_dep in default_dep_full_descr.items()}
     # compiling the user instructions
     user_instructions = f"You should roleplay as a user has requests within the {domain_str} domain. Your goal is: " + task["user_instruction"] if task else "None"
     user_known = task["user_known"] if task else {}
