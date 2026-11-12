@@ -89,11 +89,7 @@ def annotated_structured(domain_str, dep, dep_params, domain_system, user_known,
             first_line = f"{indent}{i}. {part_lines[0]}"
         else:
             first_line = f"{indent}• {part_lines[0]}"
-        if len(part_lines) > 1:
-            rest_lines = [f"{indent}  {line.strip()}" for line in part_lines[1:]]
-            parts.append('\n'.join([first_line] + rest_lines))
-        else:
-            parts.append(first_line)
+        parts.append('\n'.join([first_line] + part_lines[1:]))
     return '\n'.join(parts)
 
 

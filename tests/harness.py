@@ -64,10 +64,11 @@ def dep_full(args):
                                     dependency_verb_dep_orig=True)
 
 
-def assistant_info(domain, task):
-    args = simulation_args(domain)
+def assistant_info(domain, task, flags=()):
+    args = simulation_args(domain, flags)
     _, _, info, _ = task_initializer(domain, copy.deepcopy(task), *dep_full(args), None, args.env_mode,
-                                     args.shuffle_func, args.constraint_descr_format)
+                                     args.shuffle_func, args.constraint_descr_format,
+                                     abl_hint=args.constraint_hint, abl_verdict=args.constraint_verdict)
     return info
 
 
