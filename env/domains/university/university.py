@@ -75,7 +75,7 @@ default_data = {
             "min_credits": 30,
             "min_gpa": 2.8,
             "prerequisites": ["MATH100"],
-            "max_overlap": 1,
+            "max_overlap": 2,
             "incompatible_majors": ["Music"]
         },
         "Digital Arts": {
