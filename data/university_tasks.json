@@ -4806,7 +4806,7 @@
                 ]
             },
             "user_instruction": "You are trying to update your declared academic program by switching to a new major, using your username and password to authenticate the change.",
-            "user_prompt": "Hello, I would like to update my declared academic program. I want to switch my major to Computer Science.\n\nMy username is: alice  \nMy password is: NXASNFIJSNAFnamfasfkjn123\n\nPlease process this change. Thank you!"
+            "user_prompt": "Hello, I would like to update my declared academic program. I want to switch my major to Music.\n\nMy username is: alice  \nMy password is: NXASNFIJSNAFnamfasfkjn123\n\nPlease process this change. Thank you!"
         }
     ],
     "declare_minor": [
@@ -13160,7 +13160,7 @@
                 ]
             },
             "user_instruction": "You are trying to enroll in the course identified by course_code using your username and password, and the system will check prerequisites and availability before confirming your enrollment.",
-            "user_prompt": "Hello, I would like to enroll in the course with course_code \"CS101\". My username is \"alice\" and my password is \"NXASNFIJSNAFnamfasfkjn123\". Could you please check the prerequisites and availability, and confirm my enrollment?"
+            "user_prompt": "Hello, I would like to enroll in the course with course_code \"MUS15\". My username is \"alice\" and my password is \"NXASNFIJSNAFnamfasfkjn123\". Could you please check the prerequisites and availability, and confirm my enrollment?"
         }
     ],
     "request_graduation": [

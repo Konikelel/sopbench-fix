@@ -7774,7 +7774,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are trying to schedule an appointment with a healthcare provider using their unique identifier on a specific date, ensuring you provide your username and identification for verification.",
-            "user_prompt": "Hello! I would like to schedule an appointment with a healthcare provider. I have the provider's unique identifier and details ready. Here they are:\n\n- Provider ID: kaiser_permanente_oakland\n- Appointment Date: 2025-02-20\n- Username: Zhang Jia Ming\n- Identification: zm,xz,cmzxczx\n\nPlease let me know if any further information is needed for the appointment booking. Thank you!",
+            "user_prompt": "Hello! I would like to schedule an appointment with a healthcare provider. I have the provider's unique identifier and details ready. Here they are:\n\n- Provider ID: kaiser_permanente_oakland\n- Appointment Date: 2025-02-20\n- Username: Zhang Jia Ming\n- Identification: zm,xz,cmzxczx,\n\nPlease let me know if any further information is needed for the appointment booking. Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -28033,7 +28033,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to update your healthcare policy by providing your username, identification, annual income, desired policy type, and coverage amount to ensure the policy meets your current needs and financial situation.",
-            "user_prompt": "Hello, I would like to update my healthcare policy. My username is Zhang Jia Ming. My identification is zm,xz,cmzxczx. My annual income is 50,000. I would like to update my policy type to \"Invalid\", and I want a coverage amount of 7,000. Could you please assist me with this? Thank you!",
+            "user_prompt": "Hello, I would like to update my healthcare policy. My username is Zhang Jia Ming. My identification is \"zm,xz,cmzxczx,\". My annual income is 50,000. I would like to update my policy type to \"Invalid\", and I want a coverage amount of 7,000. Could you please assist me with this? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [

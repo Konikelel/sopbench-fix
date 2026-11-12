@@ -21297,7 +21297,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and providing an amount for the transaction under the guest name guest_name.",
-            "user_prompt": "Hi, I\u2019d like to modify my existing reservation under the name Jane Smith. Please change my check-in date from 2024-12-03 to 2024-12-07, and my check-out date from 2024-12-06 to 2024-12-09. I\u2019d also like to switch to a double room. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hi, I\u2019d like to modify my existing reservation under the name Jane Smith. Please change my check-in date from 2024-12-03 to 2024-12-07, and my check-out date from 2024-12-06 to 2024-12-09. I\u2019d also like to switch to a suite. The amount for the transaction is 480. Thank you!"
         },
         {
             "initial_database": {
@@ -21692,7 +21692,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. Please change my check-in date from 2024-12-02 to 2024-12-04, and my check-out date from 2024-12-04 to 2024-12-06. I would also like to switch to a single room. Please let me know if the amount for the transaction needs to be adjusted. Thank you."
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please change my check-in date from 2024-12-03 to 2024-12-06, and my check-out date from 2024-12-06 to 2024-12-09. I would also like to switch to a suite room. The amount for the transaction is 480.0. Thank you."
         },
         {
             "initial_database": {
@@ -22082,7 +22082,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please confirm that my check-in date is December 3, 2024 (no change), and my check-out date is December 6, 2024 (no change). I would also like to switch to a double room, and please update the transaction amount to $330. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please confirm that my check-in date is December 3, 2024 (no change), and my check-out date is December 6, 2024 (no change). I would also like to switch to a suite room, and please update the transaction amount to $480. Thank you!"
         },
         {
             "initial_database": {
@@ -24238,7 +24238,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and providing an amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please change the check-in date from 2024-12-03 to 2024-12-04, and the check-out date from 2024-12-06 to 2024-12-08. I would also like to switch to a suite room type, and the amount for the transaction should be 320. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. The check-in date stays 2024-12-03, and the check-out date stays 2024-12-06. I would also like to switch to a double room type, and the amount for the transaction should be 330. Thank you!"
         },
         {
             "initial_database": {
@@ -25194,7 +25194,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Jane Smith. Please change the check-in date from 2024-12-03 to 2024-12-05, and the check-out date from 2024-12-06 to 2024-12-08. I\u2019d also like to switch to a single room. If this affects the amount for the transaction, please update it accordingly. Thank you!"
+            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Jane Smith. Please change the check-in date from 2024-12-05 to 2024-12-07, and the check-out date from 2024-12-08 to 2024-12-10. I\u2019d also like to switch to a double room. The amount for the transaction is 330. Thank you!"
         },
         {
             "initial_database": {
@@ -25669,7 +25669,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Jane Smith. Please change the check-in date from 2024-12-03 to 2024-12-05, and the check-out date from 2024-12-06 to 2024-12-08. I\u2019d also like to switch to a double room and update the amount for the transaction accordingly. Thank you!"
+            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Jane Smith. Please change the check-in date from 2024-12-03 to 2024-12-05, and the check-out date from 2024-12-06 to 2024-12-09. I\u2019d also like to switch to a suite room, and the amount for the transaction is 480. Thank you!"
         },
         {
             "initial_database": {
@@ -27110,7 +27110,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room_type, updating the check-in date from old_check_in_date to check_in_date, updating the check-out date from old_check_out_date to check_out_date, and providing an amount for the transaction.",
-            "user_prompt": "Hi, I would like to modify the reservation for John Doe. Please change the room type to single, update the check-in date from 2024-12-02 to 2024-12-03, and update the check-out date from 2024-12-04 to 2024-12-05. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you."
+            "user_prompt": "Hi, I would like to modify the reservation for John Doe. Please change the room type to suite, update the check-in date from 2024-12-02 to 2024-12-04, and update the check-out date from 2024-12-04 to 2024-12-06. The amount for the transaction is 320. Thank you."
         },
         {
             "initial_database": {
@@ -27599,7 +27599,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the stay dates from old_check_in_date\u2013old_check_out_date to check_in_date\u2013check_out_date, switching to a new room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for Sakana Inoue. Please change the stay dates from 2024-12-10\u20132024-12-12 to 2024-12-10\u20132024-12-14, switch the room type to double, and update the amount to 220.0. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Sakana Inoue. Please change the stay dates from 2024-12-10\u20132024-12-12 to 2024-12-10\u20132024-12-14, switch the room type to double, and update the amount to 280.0. Thank you!"
         },
         {
             "initial_database": {
@@ -28659,7 +28659,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the stay dates from old_check_in_date\u2013old_check_out_date to check_in_date\u2013check_out_date, switching to a new room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for John Doe. Please change the stay dates from 2024-12-02\u20132024-12-04 to UNKNOWN_PLACEHOLDER\u2013UNKNOWN_PLACEHOLDER, switch the room type to single, and update the amount to UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please keep the stay dates 2024-12-03\u20132024-12-06 unchanged, switch the room type to suite, and update the amount to 480. Thank you!"
         },
         {
             "initial_database": {
@@ -30695,7 +30695,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the stay dates from old_check_in_date\u2013old_check_out_date to check_in_date\u2013check_out_date, switching to a new room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Doe. Please update the stay dates from 2024-12-04\u20132024-12-06 to 2024-12-04\u20132024-12-07, switch the room type to single, and update the transaction amount as needed. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Doe. Please update the stay dates from 2024-12-04\u20132024-12-06 to 2024-12-08\u20132024-12-10, switch the room type to double, and update the transaction amount to 330. Thank you!"
         },
         {
             "initial_database": {
@@ -31184,7 +31184,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the stay dates from old_check_in_date\u2013old_check_out_date to check_in_date\u2013check_out_date, switching to a new room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for John Doe. Please change the stay dates from 2024-12-10\u20132024-12-12 to 2024-12-10\u20132024-12-14, switch the room type to double, and update the amount to 220.0. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for John Doe. Please change the stay dates from 2024-12-10\u20132024-12-12 to 2024-12-10\u20132024-12-14, switch the room type to double, and update the amount to 280.0. Thank you!"
         },
         {
             "initial_database": {
@@ -31907,7 +31907,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room type to room_type, updating the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, and providing an amount for the transaction.",
-            "user_prompt": "Hi, I\u2019d like to modify the reservation for Jane Smith. Please change the room type to single. The check-in date should remain 2024-12-10, and the check-out date should remain 2024-12-12. Also, please provide the amount for this transaction. Thank you."
+            "user_prompt": "Hi, I\u2019d like to modify the reservation for Jane Smith. Please change the room type to double. The check-in date should remain 2024-12-10, and the check-out date should remain 2024-12-12. The amount for this transaction is 220.0. Thank you."
         },
         {
             "initial_database": {
@@ -32309,7 +32309,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room type to room_type, updating the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, and providing an amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to a suite. The check-in date should remain the same at 2024-12-10, but I would like to update the check-out date from 2024-12-12 to 2024-12-14. The amount for this transaction will be 320. Thank you."
+            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to a suite. I would like to update the check-in date from 2024-12-10 to 2024-12-11 and the check-out date from 2024-12-12 to 2024-12-13. The amount for this transaction will be 320. Thank you."
         },
         {
             "initial_database": {
@@ -34116,7 +34116,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the original check-in date (old_check_in_date) and check-out date (old_check_out_date) to new dates (check_in_date and check_out_date), switch to a different room_type, and provide an amount for the transaction, in order to update the guest's booking.",
-            "user_prompt": "Hello, I would like to modify the reservation for Sakana Inoue. Please change the check-in date from 2024-12-10 to 2024-12-10 and the check-out date from 2024-12-12 to 2024-12-12. I would also like to switch the room type to single, and the amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hello, I would like to modify the reservation for Sakana Inoue. Please keep the check-in date at 2024-12-10 and change the check-out date from 2024-12-12 to 2024-12-16. I would also like to switch the room type to suite, and the amount for the transaction is 800. Thank you!"
         },
         {
             "initial_database": {
@@ -34579,7 +34579,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the original check-in date (old_check_in_date) and check-out date (old_check_out_date) to new dates (check_in_date and check_out_date), switch to a different room_type, and provide an amount for the transaction, in order to update the guest's booking.",
-            "user_prompt": "Hi, I would like to modify the reservation for Jane Smith. Please change the original check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-09. Also, I\u2019d like to switch the room type to a double. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hi, I would like to modify the reservation for Jane Smith. Please change the original check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-09. Also, I\u2019d like to switch the room type to a suite. The amount for the transaction is 320. Thank you!"
         },
         {
             "initial_database": {
@@ -35937,7 +35937,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the original check-in date (old_check_in_date) and check-out date (old_check_out_date) to new dates (check_in_date and check_out_date), switch to a different room_type, and provide an amount for the transaction, in order to update the guest's booking.",
-            "user_prompt": "Hi, I would like to modify the reservation for John Doe. Please change the original check-in date from 2024-12-02 to 2024-12-04 and the check-out date from 2024-12-04 to 2024-12-06. Also, I\u2019d like to switch the room type to a suite. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hi, I would like to modify the reservation for Jane Smith. Please change the original check-in date from 2024-12-03 to 2024-12-04 and the check-out date from 2024-12-06 to 2024-12-09. Also, I\u2019d like to switch the room type to a suite. The amount for the transaction is 480.0. Thank you!"
         },
         {
             "initial_database": {
@@ -36362,7 +36362,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and possibly updating the transaction amount to amount.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for Sakana Inoue. Please change the check-out date from 2024-12-12 to 2024-12-15, switch the room type to double, and update the transaction amount to 220. The check-in date remains 2024-12-10. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Sakana Inoue. Please change the check-out date from 2024-12-12 to 2024-12-15, switch the room type to double, and update the transaction amount to 390.0. The check-in date remains 2024-12-10. Thank you!"
         },
         {
             "initial_database": {
@@ -38185,7 +38185,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and possibly updating the transaction amount to amount.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please change the check-out date from 2024-12-06 to 2024-12-05, and switch the room type to a double. The check-in date remains the same at 2024-12-03. Also, please update the transaction amount to UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please change the check-out date from 2024-12-06 to 2024-12-05, and switch the room type to a suite. The check-in date remains the same at 2024-12-03. Also, please update the transaction amount to 320. Thank you!"
         },
         {
             "initial_database": {
@@ -38655,7 +38655,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and possibly updating the transaction amount to amount.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for John Doe. Please update the check-out date from 2024-12-04 to 2024-12-05, switch the room type to double, and update the transaction amount to 60. The check-in date remains 2024-12-02. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please update the check-out date from 2024-12-06 to 2024-12-05, switch the room type to suite, and update the transaction amount to 320. The check-in date remains 2024-12-03. Thank you!"
         },
         {
             "initial_database": {
@@ -39987,7 +39987,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room_type, updating the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to single, update the check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-09. Also, please adjust the transaction amount to 0. Thank you."
+            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to single, update the check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-09. Also, please adjust the transaction amount to 160. Thank you."
         },
         {
             "initial_database": {
@@ -40451,7 +40451,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room_type, updating the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to \"suite\", update the check-in date from 2024-12-10 to 2024-12-11, and the check-out date from 2024-12-13 to 2024-12-14. Also, please adjust the amount for the transaction as needed. Thank you!"
+            "user_prompt": "Hello, I would like to modify the reservation for Jane Smith. Please change the room type to \"double\", update the check-in date from 2024-12-04 to 2024-12-10, and the check-out date from 2024-12-07 to 2024-12-13. The amount for the transaction is 330. Thank you!"
         },
         {
             "initial_database": {
@@ -40932,7 +40932,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify the reservation for guest_name by changing the room_type, updating the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hi, I\u2019d like to modify the reservation for Jane Smith. Please change the room type to double, update the check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-08. Also, please adjust the amount for the transaction accordingly. Thank you!"
+            "user_prompt": "Hi, I\u2019d like to modify the reservation for Jane Smith. Please change the room type to suite, update the check-in date from 2024-12-03 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-08. The amount for the transaction is 320. Thank you!"
         },
         {
             "initial_database": {
@@ -45269,7 +45269,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly updating the amount for the reservation under the name guest_name.",
-            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. Please change the check-in date from 2024-12-10 to 2024-12-10, and the check-out date from 2024-12-14 to 2024-12-14. I would also like to switch to a double room, and please update the amount for the reservation as needed. Thank you."
+            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. Please change the check-in date from 2024-12-10 to 2024-12-10, and the check-out date from 2024-12-14 to 2024-12-14. I would also like to switch to a suite, and the amount for the reservation is 640. Thank you."
         },
         {
             "initial_database": {
@@ -45775,7 +45775,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly updating the amount for the reservation under the name guest_name.",
-            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. I want to change the check-in date from 2024-12-10 to 2024-12-10, the check-out date from 2024-12-12 to 2024-12-12, and switch to a double room. Please also update the amount for the reservation if necessary. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. I want to change the check-in date from 2024-12-10 to 2024-12-10, the check-out date from 2024-12-12 to 2024-12-12, and switch to a suite. The amount for the reservation is 320. Thank you!"
         },
         {
             "initial_database": {
@@ -46333,7 +46333,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly updating the amount for the reservation under the name guest_name.",
-            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. Please change the check-out date from 2024-12-07 to 2024-12-08, and switch my room to a double room. The check-in date should remain 2024-12-04. Also, please update the amount for the reservation accordingly. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation under the name Jane Smith. Please switch my room to a double room. The check-in date should remain 2024-12-04, and the check-out date should remain 2024-12-07. The amount for the reservation is 330. Thank you!"
         },
         {
             "initial_database": {
@@ -47914,7 +47914,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Sakana Inoue. I want to change the check-out date from 2024-12-12 to 2024-12-14, switch to a double room, and update the amount to 220.0. The check-in date remains the same at 2024-12-10. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Sakana Inoue. I want to change the check-out date from 2024-12-12 to 2024-12-14, switch to a double room, and update the amount to 280.0. The check-in date remains the same at 2024-12-10. Thank you!"
         },
         {
             "initial_database": {
@@ -48416,7 +48416,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Alice Carter. I want to change the check-in date from 2024-12-04 to 2024-12-07, and the check-out date from 2024-12-06 to 2024-12-09. I\u2019d also like to switch to a double room. Please update the amount for the transaction as needed. Thank you!"
+            "user_prompt": "Hello, I\u2019d like to modify my existing reservation for Alice Carter. I want to change the check-in date from 2024-12-04 to 2024-12-06, and the check-out date from 2024-12-06 to 2024-12-08. I\u2019d also like to switch to a double room. The amount for the transaction is 220. Thank you!"
         },
         {
             "initial_database": {
@@ -48973,7 +48973,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. Please change the check-in date from 2024-12-02 to UNKNOWN_PLACEHOLDER, the check-out date from 2024-12-04 to UNKNOWN_PLACEHOLDER, switch the room type to single, and update the amount to UNKNOWN_PLACEHOLDER. Thank you."
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please keep the check-in date at 2024-12-03 and the check-out date at 2024-12-06, switch the room type to suite, and update the amount to 480. Thank you."
         },
         {
             "initial_database": {
@@ -50032,7 +50032,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hi, I\u2019d like to modify my existing reservation for Alice Turner. I want to change the check-in date from 2024-12-10 to 2024-12-11, and the check-out date from 2024-12-12 to 2024-12-13. I\u2019d also like to switch to a suite room type, and please update the amount for the transaction as needed. Thank you!"
+            "user_prompt": "Hi, I\u2019d like to modify my existing reservation for Alice Turner. I want to change the check-in date from 2024-12-05 to 2024-12-10, and the check-out date from 2024-12-08 to 2024-12-12. I\u2019d also like to switch to a suite room type, and the amount for the transaction is 320. Thank you!"
         },
         {
             "initial_database": {
@@ -51103,7 +51103,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Sakana Inoue. Please change my check-in date from 2024-12-10 to 2024-12-11, and my check-out date from 2024-12-12 to 2024-12-14. I would also like to switch to a double room. Additionally, please update the amount for the transaction as needed. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Sakana Inoue. Please keep my check-in date at 2024-12-10 and change my check-out date from 2024-12-12 to 2024-12-14. I would also like to switch to a double room. The amount for the transaction is 330. Thank you!"
         },
         {
             "initial_database": {
@@ -51647,7 +51647,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please change the check-out date from 2024-12-06 to 2024-12-07, switch the room type to a suite, and update the transaction amount if necessary. The check-in date remains 2024-12-03. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please keep the check-out date at 2024-12-06, switch the room type to a suite, and update the transaction amount to 480. The check-in date remains 2024-12-03. Thank you!"
         },
         {
             "initial_database": {
@@ -52715,7 +52715,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Alice Carter. Please change the check-out date from 2024-12-12 to 2024-12-14, switch the room type to double, and update the amount to 220.0. The check-in date should remain as 2024-12-10. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Alice Carter. Please change the check-out date from 2024-12-12 to 2024-12-14, switch the room type to double, and update the amount to 280.0. The check-in date should remain as 2024-12-10. Thank you!"
         },
         {
             "initial_database": {
@@ -53226,7 +53226,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a different room_type, and possibly updating the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. I want to change the check-out date from 2024-12-12 to 2024-12-14, switch to a double room, and update the amount to 220. The check-in date remains the same at 2024-12-10. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. I want to change the check-out date from 2024-12-12 to 2024-12-14, switch to a double room, and update the amount to 280. The check-in date remains the same at 2024-12-10. Thank you!"
         },
         {
             "initial_database": {
@@ -55449,7 +55449,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and providing an amount for the transaction, in order to successfully update your booking details.",
-            "user_prompt": "Hi, I would like to modify my existing reservation for Emily Carter. Please change the check-in date from 2024-12-10 to 2024-12-11, keep the check-out date as 2024-12-12, and switch the room type to single. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hi, I would like to modify my existing reservation for Emily Carter. Please keep the check-in date as 2024-12-10 and the check-out date as 2024-12-12, and switch the room type to double. The amount for the transaction is 220.0. Thank you!"
         },
         {
             "initial_database": {
@@ -55926,7 +55926,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and providing an amount for the transaction, in order to successfully update your booking details.",
-            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please change the check-in date from 2024-12-07 to 2024-12-10, and the check-out date from 2024-12-09 to 2024-12-12. I would also like to switch to a double room. The amount for the transaction is UNKNOWN_PLACEHOLDER. Thank you!"
+            "user_prompt": "Hello, I would like to modify an existing reservation for Jane Smith. Please keep the check-in date as 2024-12-07 and the check-out date as 2024-12-09. I would also like to switch to a suite. The amount for the transaction is 320. Thank you!"
         },
         {
             "initial_database": {
@@ -57284,7 +57284,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and providing an amount for the transaction, in order to successfully update your booking details.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Alice Carter. Please update the booking by keeping the check-in date as 2024-12-10 and the check-out date as 2024-12-12. I would also like to switch to a double room, and the amount for the transaction should be 220. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. Please update the booking by keeping the check-in date as 2024-12-07 and the check-out date as 2024-12-09. I would also like to switch to a suite, and the amount for the transaction should be 320. Thank you!"
         },
         {
             "initial_database": {
@@ -58167,7 +58167,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify an existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type of your choice, and providing an amount for the transaction, in order to successfully update your booking details.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please change the check-out date from 2024-12-12 to 2024-12-14, switch to a suite room type, and update the total amount to $320.00. The check-in date should remain 2024-12-10. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. Please change the check-out date from 2024-12-12 to 2024-12-14, switch to a suite room type, and update the total amount to $460.00. The check-in date should remain 2024-12-10. Thank you!"
         },
         {
             "initial_database": {
@@ -62042,7 +62042,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation. The reservation is under the name Sakana Inoue. I want to change my check-in date from 2024-12-10 to 2024-12-13, and my check-out date from 2024-12-12 to 2024-12-14. I would also like to switch to a double room. Please let me know if the amount for the transaction needs to be adjusted. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation. The reservation is under the name Sakana Inoue. I want to keep my check-in date at 2024-12-10 and change my check-out date from 2024-12-12 to 2024-12-15. I would also like to switch to a suite. The amount for the transaction is 640.0. Thank you!"
         },
         {
             "initial_database": {
@@ -62562,7 +62562,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Emily Carter. I want to change the room to a single room. The check-in date should remain 2024-12-10, and the check-out date should remain 2024-12-12. Please also update the transaction amount if necessary. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Emily Carter. I want to change the room to a double room. The check-in date should remain 2024-12-10, and the check-out date should change from 2024-12-12 to 2024-12-13. The amount for the transaction is 220.0. Thank you!"
         },
         {
             "initial_database": {
@@ -63121,7 +63121,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. I want to change the room type to a double room. The check-in date should remain 2024-12-07 (no change), and the check-out date should also remain 2024-12-09 (no change). Please also let me know if the amount for the transaction needs to be adjusted based on these changes. Thank you!"
+            "user_prompt": "Hello, I would like to modify my existing reservation for Jane Smith. I want to change the room type to a double room. The check-in date should remain 2024-12-07 (no change), and the check-out date should also remain 2024-12-09 (no change). The amount for the transaction is 220. Thank you!"
         },
         {
             "initial_database": {
@@ -64793,7 +64793,7 @@
                 ]
             },
             "user_instruction": "You are trying to modify your existing reservation for guest_name by changing the check-in date from old_check_in_date to check_in_date, the check-out date from old_check_out_date to check_out_date, switching to a room_type room, and possibly adjusting the amount for the transaction.",
-            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. Please change my check-in date from 2024-12-10 to 2024-12-12, and my check-out date from 2024-12-13 to 2024-12-15. I would also like to switch to a suite room. Please let me know if the amount for the transaction needs to be adjusted. Thank you."
+            "user_prompt": "Hello, I would like to modify my existing reservation for John Doe. Please change my check-in date from 2024-12-10 to 2024-12-12, and my check-out date from 2024-12-13 to 2024-12-15. I would also like to switch to a suite room. The amount for the transaction is 240.0. Thank you."
         },
         {
             "initial_database": {
@@ -81878,7 +81878,7 @@
                 ]
             },
             "user_instruction": "You are trying to process a room change request for yourself (guest name), specifying the new room type you want, providing a reason for the change, and submitting the required payment amount to see if your room change will be successful.",
-            "user_prompt": "Hello, I am John Doe, currently staying in a double room. I would like to request a room change to an upgraded room type. The reason for my request is an upgrade, and I am ready to submit the required payment amount of $60.00. Could you please process my room change request?"
+            "user_prompt": "Hello, I am John Doe. I would like to request a room change to a double room. The reason for my request is an upgrade, and I am ready to submit the required payment amount of $60.00. Could you please process my room change request?"
         },
         {
             "initial_database": {
@@ -82662,7 +82662,7 @@
                 ]
             },
             "user_instruction": "You are trying to process a room change request for yourself (guest name), specifying the new room type you want, providing a reason for the change, and submitting the required payment amount to see if your room change will be successful.",
-            "user_prompt": "Hello, I would like to request a room change for myself, John Doe. I am currently in a double room and would like to upgrade. The reason for my request is an upgrade, and I am ready to submit the required payment amount of $60.00. Could you please process my room change request?"
+            "user_prompt": "Hello, I would like to request a room change for myself, John Doe. I would like to upgrade to a double room. The reason for my request is an upgrade, and I am ready to submit the required payment amount of $60.00. Could you please process my room change request?"
         }
     ],
     "show_available_rooms": [
