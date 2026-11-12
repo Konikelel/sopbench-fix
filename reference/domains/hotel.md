@@ -11,7 +11,7 @@
 | `find_booking_info` | Finds the booking information for the guest with the specified date range. Returns a dictionary of booking details for the guest if a matching reservation is found. | `None` |
 | `modify_reservation` | Modifies the guest's existing reservation to new dates and room type. Returns true or false for whether the reservation was successfully modified. | `room_type_available_for_dates AND sufficient_amount_for_reservation_modification` |
 | `place_room_service_order` | Places a new room service order for the guest. Returns true or false for whether the room service order was placed successfully. | `guest_already_checked_in AND sufficient_payment_for_room_service` |
-| `process_guest_checkin` | Processes the check-in of a guest on the day of arrival. Returns the assigneed room id upon successful check-in. | `has_confirmed_reservation` |
+| `process_guest_checkin` | Processes the check-in of a guest. Returns the assigneed room id upon successful check-in. | `has_confirmed_reservation` |
 | `process_guest_checkout` | Processes the checkout of a guest and applies loyalty rewards if eligible. Returns true or false for whether the checkout was successful. | `guest_already_checked_in` |
 | `register_loyalty_member` | Registers the specified guest into the loyalty program with a generated unique ID and initial tier. Returns true or false for whether the registration to the loyalty program was successful. | `not internal_is_loyalty_member` |
 | `request_room_change` | Processes a room change request by the guest during their stay given a valid reason and payment. Returns true or false for whether the room change was successful. | `sufficient_amount_for_room_change_fee` |
@@ -72,5 +72,5 @@
 | `valid_identification` | The "{identification}" must include a "type" that matches one of {valid_document_types} and a valid "birthday" indicating the guest is at least {min_age} years old. | None |
 | `within_max_room_changes` | The number of room changes for the guest "{guest_name}" must be **less than** {max_room_changes}. | None |
 | `within_room_service_hours` | The current interaction time must be between "{room_service_start}" and "{room_service_end}" on the interaction date. | None |
-| `within_room_service_order_daily_limit` | The guest "{guest_name}" must have placed **fewer than** {max_room_service_orders_per_day} room service orders for room "{room_id}" on the current interaction date. | None |
+| `within_room_service_order_daily_limit` | The booking of the guest "{guest_name}" for room "{room_id}" must have a "room_service" count **lower than** {max_room_service_orders_per_day} for the current interaction date. | None |
 

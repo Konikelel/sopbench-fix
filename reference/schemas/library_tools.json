@@ -28,7 +28,7 @@
   {
     "function": {
       "name": "logout_user",
-      "description": "Logs out the user if the user was previously logged in. Returns true always because of successful logout.",
+      "description": "Logs out the user if the user was previously logged in. Returns true for a successful logout, or false if logout conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",

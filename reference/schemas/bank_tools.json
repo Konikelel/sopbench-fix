@@ -51,7 +51,7 @@
   {
     "function": {
       "name": "logout_user",
-      "description": "Logs out the user by forgetting all user-said information. Returns true always because of successful logout.",
+      "description": "Logs out the user by forgetting all user-said information. Returns true for a successful logout, or false if logout conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",
@@ -464,7 +464,7 @@
           },
           "total_assets": {
             "type": "number",
-            "description": "The applicant's total assets. This determines the eligibility for the credit card"
+            "description": "The applicant's total assets."
           },
           "monthly_income": {
             "type": "number",
@@ -714,7 +714,7 @@
   {
     "function": {
       "name": "get_bank_maximum_loan_amount",
-      "description": "Shows the maximum amount of money the bank can loan to any individual at this moment. The maximum is half of the total amount of cash at the bank given in bank_total_cash. If bank_total_cash is not given, it is 0. Returns the maximum amount of money the bank can loan at this moment.",
+      "description": "Shows half of the total amount of cash at the bank given in bank_total_cash. If bank_total_cash is not given, it is 0. This amount does not limit get_loan. Returns half of bank_total_cash, or 0 if it is not given.",
       "strict": false,
       "parameters": {
         "type": "object",

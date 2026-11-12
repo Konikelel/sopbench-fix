@@ -78,7 +78,7 @@ action_descriptions = {
 action_returns = {
     # Root functions
     "login_user": "Returns true or false for successful or failed login based on provided credentials.",
-    "logout_user": "Returns true always because logout is successful.",
+    "logout_user": "Returns true for a successful logout, or false if logout conditions are not met.",
 
     # Domain functions
     "add_to_cart": "Returns true or false for successful addition of a product to the cart.",

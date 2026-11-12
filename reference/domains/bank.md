@@ -14,13 +14,13 @@
 | `exchange_foreign_currency` | Exchanges some USD for some specified foreign currency. Returns the float account of foreign currency exchanged. | `internal_check_foreign_currency_available` |
 | `get_account_balance` | Retrieves the bank account balance of the user's account. Returns the float account balance or false if retrieval conditions are not met. | `internal_check_username_exist` |
 | `get_account_owed_balance` | Retrieves the bank account owed balance of the user's account. Returns the float account owed balance or false if retrieval conditions are not met. | `internal_check_username_exist` |
-| `get_bank_maximum_loan_amount` | Shows the maximum amount of money the bank can loan to any individual at this moment. The maximum is half of the total amount of cash at the bank given in bank_total_cash. If bank_total_cash is not given, it is 0. Returns the maximum amount of money the bank can loan at this moment. | `None` |
+| `get_bank_maximum_loan_amount` | Shows half of the total amount of cash at the bank given in bank_total_cash. If bank_total_cash is not given, it is 0. This amount does not limit get_loan. Returns half of bank_total_cash, or 0 if it is not given. | `None` |
 | `get_credit_card_info` | Gets the information of a specific credit card.This includes credit limit and credit balance on the card. Returns a dictionary of information of a credit card, including credit limit and credit balance. | `internal_check_username_exist` |
 | `get_credit_cards` | Gets a list of the credit cards a user has along with the information. Returns a list of credit cards the user has. | `internal_check_username_exist` |
 | `get_loan` | The user applies for a loan. Returns true or false for the successful application of a loan amount. | `internal_check_username_exist` |
 | `get_safety_box` | Gets the contents of the safety box. Returns the contents of the safety box or false if retrieval conditions are not met. | `internal_check_username_exist` |
 | `login_user` | Logs in the user to authenticate the user to access their account. The identification used can either be a password or a driver's license. Returns true or false for login success or failure. | `None` |
-| `logout_user` | Logs out the user by forgetting all user-said information. Returns true always because of successful logout. | `None` |
+| `logout_user` | Logs out the user by forgetting all user-said information. Returns true for a successful logout, or false if logout conditions are not met. | `None` |
 | `open_account` | Creates and opens an account with a specified username and identification, which could be a password or driver's license. Returns true or false for successful account creation. | `not internal_check_username_exist` |
 | `pay_bill` | Pays a bill from an account. This amount of money will be deducted from the account. Returns true or false on if payment was successful. | `internal_check_username_exist` |
 | `pay_bill_with_credit_card` | Pays a bill from an account. This amount of money will be added to the credit card balance of the credit card used. Returns true or false on if payment was successful. | `internal_check_username_exist` |

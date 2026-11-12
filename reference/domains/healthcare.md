@@ -14,7 +14,7 @@
 | `get_policy_details` | Retrieves the user's healthcare policy details, including coverage, authorized providers, and enrollment date. Returns a dictionary of the policy details. | `logged_in_user` |
 | `get_provider_details` | Retrieves a provider's details, including service_type, name, and status. Returns a dictionary of a provider's details. | `None` |
 | `login_user` | Logs in the user to authenticate the user to access their account. The identification used can either be a password or a driver's license. Returns true or false for login success or failure. | `None` |
-| `logout_user` | Logs out the user by forgetting all user-said information. Returns true always because logout is successful. | `None` |
+| `logout_user` | Logs out the user by forgetting all user-said information. Returns true for a successful logout, or false if logout conditions are not met. | `None` |
 | `reactivate_policy` | Reactivates the user's policy with a specified type and coverage amount. Returns true or false for successful policy reactivation. | `logged_in_user AND policy_inactive` |
 | `schedule_appointment` | Schedules an appointment for a user with a provider on the specified date.  Returns true if the appointment is successfully scheduled, otherwise false. | `logged_in_user AND policy_active` |
 | `submit_claim` | Submits a new claim to the user's healthcare policy, providing an amount, description, and provider ID. Returns true or false for successful claim submission. | `logged_in_user AND policy_active` |
