@@ -4380,7 +4380,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to retrieve the details of a specific claim by using your username and either your account password or driver's license, along with the unique claim ID, to check the status, amount, description, and date of the claim.",
-            "user_prompt": "Hello! I'd like to retrieve the details of a specific claim using my credentials. My username is \"Alice Johnson,\" and I'll use my identification, which is \"KCjhrYuVkODcsSlcnxq,\" along with the claim ID \"CLM-003.\" Could you help me check the status, amount, description, and date of this claim? Thank you!",
+            "user_prompt": "Hello! I'd like to retrieve the details of a specific claim using my credentials. My username is \"Alice Johnson,\" and I'll use my identification, which is \"KCjhrYuVkODcsSlcnxq\", along with the claim ID \"CLM-003.\" Could you help me check the status, amount, description, and date of this claim? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -6666,7 +6666,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to schedule an appointment with a healthcare provider using their unique provider ID on a specific date, ensuring that your username and identification are correctly provided for successful confirmation.",
-            "user_prompt": "Hello, I'd like to schedule an appointment with a healthcare provider. The provider ID is \"mayo_clinic_rochester,\" and I'm looking to schedule it for \"2025-02-20.\" My username is \"Henry Smith,\" and my identification number is \"sdfojngsmnlvx.\" Could you please confirm my appointment? Thank you!",
+            "user_prompt": "Hello, I'd like to schedule an appointment with a healthcare provider. The provider ID is \"mayo_clinic_rochester,\" and I'm looking to schedule it for \"2025-02-20.\" My username is \"Henry Smith,\" and my identification number is \"sdfojngsmnlvx\". Could you please confirm my appointment? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [

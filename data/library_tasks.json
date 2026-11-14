@@ -172,7 +172,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are trying to add a new book titled \"[book_title]\" to the library database with [count] copies, while specifying whether it is restricted and using your username and password for authentication.",
-            "user_prompt": "Hi, I'd like to add a new book to the library database. The book is titled \"The Great Gatsby,\" and I'm looking to add 3 copies. It's not restricted. For authentication, my username is \"new_admin\" and my password is \"secureP@ssw0rd.\" Could you please help me with this process?",
+            "user_prompt": "Hi, I'd like to add a new book to the library database. The book is titled \"The Great Gatsby,\" and I'm looking to add 3 copies. It's not restricted. For authentication, my username is \"new_admin\" and my password is \"secureP@ssw0rd\". Could you please help me with this process?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -630,7 +630,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to add a new book titled \"[book_title]\" with [count] copies to the library database, using your username \"[username]\" and password, while specifying if the book is restricted or not.",
-            "user_prompt": "Hello! I'd like to add a new book to the library database. The book is titled \"rlednPBweFSqcudrEvA\" and I would like to add 3 copies. My username is \"booklover\" and my password is \"modUBPGqOaDalVsmGqa.\" The book is not restricted; therefore, \"restricted\" is \"False.\" Could you please help me with this? Thank you!",
+            "user_prompt": "Hello! I'd like to add a new book to the library database. The book is titled \"rlednPBweFSqcudrEvA\" and I would like to add 3 copies. My username is \"booklover\" and my password is \"modUBPGqOaDalVsmGqa\". The book is not restricted; therefore, \"restricted\" is \"False.\" Could you please help me with this? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -1501,7 +1501,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to borrow the book titled \"book_title\" using your username and password, and determine if the borrowing process is successful.",
-            "user_prompt": "Hello! I'd like to borrow a book titled \"Beloved.\" My username is \"mario\" and my password is \"dJPxuZHKpJRTogCsOvI.\" Could you please let me know if the borrowing process is successful? Thank you!",
+            "user_prompt": "Hello! I'd like to borrow a book titled \"Beloved.\" My username is \"mario\" and my password is \"dJPxuZHKpJRTogCsOvI\". Could you please let me know if the borrowing process is successful? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -1934,7 +1934,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to borrow the book titled \"book_title\" by logging into your account with the username \"username\" and the password \"password\", and you want to know if the borrowing process is successful.",
-            "user_prompt": "Hi! I would like to borrow a book from the library. The title of the book I want to borrow is \"Beloved.\" I'd like to log into my account to proceed with the borrowing process. My username is \"mario\" and my password is \"m@rio37T73.\" Could you please let me know if the borrowing process is successful? Thank you.",
+            "user_prompt": "Hi! I would like to borrow a book from the library. The title of the book I want to borrow is \"Beloved.\" I'd like to log into my account to proceed with the borrowing process. My username is \"mario\" and my password is \"m@rio37T73\". Could you please let me know if the borrowing process is successful? Thank you.",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -2190,7 +2190,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are trying to borrow the book titled \"book_title\" by logging into your account with the username \"username\" and your password, and you want to know if the borrowing was successful.",
-            "user_prompt": "Hi! I'd like to borrow a book. The title is \"Beloved.\" Can you help me log into my account? My username is \"pepperoni,\" and my password is \"paikzmzhaa991.\" Could you let me know if the borrowing process was successful? Thank you!",
+            "user_prompt": "Hi! I'd like to borrow a book. The title is \"Beloved.\" Can you help me log into my account? My username is \"pepperoni,\" and my password is \"paikzmzhaa991\". Could you let me know if the borrowing process was successful? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -2480,7 +2480,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to borrow the book titled \"[book_title]\" by using your username \"[username]\" and password to set its return date and determine if the borrowing action is successful.",
-            "user_prompt": "Hello! I would like to borrow a book, please. The title is \"Beloved.\" My username is \"mario\" and my password is \"m@rio37T73.\" Could you help me set the return date and verify if the action to borrow this book is successful? Thank you!",
+            "user_prompt": "Hello! I would like to borrow a book, please. The title is \"Beloved.\" My username is \"mario\" and my password is \"m@rio37T73\". Could you help me set the return date and verify if the action to borrow this book is successful? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -3460,7 +3460,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are attempting to borrow the book titled \"[book_title]\" by using your username \"[username]\" and password to set the return date, aiming for a successful transaction.",
-            "user_prompt": "Hi there! I'd like to borrow the book titled \"Beloved.\" My username is \"mario\" and my password is \"m@rio37T73.\" Could you please set a return date for me?",
+            "user_prompt": "Hi there! I'd like to borrow the book titled \"Beloved.\" My username is \"mario\" and my password is \"m@rio37T73\". Could you please set a return date for me?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -10695,7 +10695,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to borrow the book titled \"[book_title]\" by using your username \"[username]\" and password to set a return date, and you will know if the borrowing is successful by a true or false response.",
-            "user_prompt": "I would like to borrow a book titled \"Pride and Prejudice.\" My username is \"pepperoni,\" and my password is \"paikzmzhaa991.\" Could you please set a return date and let me know if the borrowing is successful with a true or false response? Thank you!",
+            "user_prompt": "I would like to borrow a book titled \"Pride and Prejudice.\" My username is \"pepperoni,\" and my password is \"paikzmzhaa991\". Could you please set a return date and let me know if the borrowing is successful with a true or false response? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -11601,7 +11601,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to borrow the book titled \"[book_title]\" by logging into your account with the username \"[username]\" and password \"[password]\".",
-            "user_prompt": "Hello! I'd like to borrow the book titled \"One Hundred Years of Solitude.\" I need to log into my account to do so. My username is \"pepperoni,\" and my password is \"paikzmzhaa991.\" Can you assist me with this?",
+            "user_prompt": "Hello! I'd like to borrow the book titled \"One Hundred Years of Solitude.\" I need to log into my account to do so. My username is \"pepperoni,\" and my password is \"paikzmzhaa991\". Can you assist me with this?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -12640,7 +12640,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to retrieve the return date for the book titled \"[book_title]\" using your username \"[username]\" and password.",
-            "user_prompt": "Hello! I would like to check the return date for a book I borrowed. The title of the book is \"Pride and Prejudice.\" My username is \"Grimoire\" and my password is \"pWImWWbThxuiauPDwQV.\" Can you help me with that?",
+            "user_prompt": "Hello! I would like to check the return date for a book I borrowed. The title of the book is \"Pride and Prejudice.\" My username is \"Grimoire\" and my password is \"pWImWWbThxuiauPDwQV\". Can you help me with that?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -13134,7 +13134,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to retrieve the return date for the book titled \"book_title\" using your account credentials, including your username and password.",
-            "user_prompt": "Hi! I'd like to retrieve the return date for a book titled \"The Great Gatsby.\" I have my account credentials ready. My username is \"mario\" and my password is \"m@rio37T73.\" Could you help me check that information?",
+            "user_prompt": "Hi! I'd like to retrieve the return date for a book titled \"The Great Gatsby.\" I have my account credentials ready. My username is \"mario\" and my password is \"m@rio37T73\". Could you help me check that information?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -14878,7 +14878,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to reserve the library room identified by the room ID on your specified date for the time slots you have chosen, using your username and password to complete the reservation.",
-            "user_prompt": "Hello! I'd like to reserve a library room, specifically Room ID \"LB001\", for October 10th, 2024. I need the reservation for the time slots 11:00 and 12:00. My username is \"mario\" and my password is \"m@rio37T73.\" Can you help me with that, please?",
+            "user_prompt": "Hello! I'd like to reserve a library room, specifically Room ID \"LB001\", for October 10th, 2024. I need the reservation for the time slots 11:00 and 12:00. My username is \"mario\" and my password is \"m@rio37T73\". Can you help me with that, please?",
             "directed_action_graph": {
                 "nodes": [
                     [

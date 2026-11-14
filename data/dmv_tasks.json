@@ -21652,7 +21652,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to transfer the title of a vehicle with plate number [plate_num] from your ownership to the target owner [target_owner] using your username [username] and identification for authentication.",
-            "user_prompt": "Hello! I would like to transfer the title of my vehicle with plate number 86XY120 from my ownership to the target owner, who is \"new_owner.\" My username for this transaction is \"HIGH666\" and I will provide my identification for authentication, which is \"aosdvvau8e2dscsx.\" Can you assist me with this title transfer process?",
+            "user_prompt": "Hello! I would like to transfer the title of my vehicle with plate number 86XY120 from my ownership to the target owner, who is \"new_owner.\" My username for this transaction is \"HIGH666\" and I will provide my identification for authentication, which is \"aosdvvau8e2dscsx\". Can you assist me with this title transfer process?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -22535,7 +22535,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are attempting to transfer the vehicle's title with plate number [plate_num] from your ownership to the target owner [target_owner] using your username [username] and identification for authentication.",
-            "user_prompt": "Hi, I am looking to transfer the vehicle's title with plate number 0YST653 from my ownership to another owner. My username is \"frustrated_coder,\" and I have the necessary identification, \"xgdyfh6346pacd,\" for authentication. The target new owner is \"HIGH666.\" Can you assist me with this process?",
+            "user_prompt": "Hi, I am looking to transfer the vehicle's title with plate number 0YST653 from my ownership to another owner. My username is \"frustrated_coder,\" and I have the necessary identification, \"xgdyfh6346pacd\", for authentication. The target new owner is \"HIGH666.\" Can you assist me with this process?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -22827,7 +22827,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are attempting to transfer the title of a vehicle with the plate number you provided from your ownership to the target owner, using your username and identification for authentication.",
-            "user_prompt": "Hello! I would like to transfer the title of my vehicle with the plate number \"86XY120\" from my ownership to the target owner, \"HIGH666.\" My username is \"23_Super\" and my identification is \"jsdbvsjvb7Q3.\" Could you please assist me with this process? Thank you!",
+            "user_prompt": "Hello! I would like to transfer the title of my vehicle with the plate number \"86XY120\" from my ownership to the target owner, \"HIGH666.\" My username is \"23_Super\" and my identification is \"jsdbvsjvb7Q3\". Could you please assist me with this process? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -26223,7 +26223,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are attempting to validate the insurance status of your specified vehicle by providing your username, account password, and the vehicle's plate number.",
-            "user_prompt": "Hi! I'm trying to validate the insurance status of my vehicle. My username is \"HIGH666,\" my account password is \"aosdvvau8e2dscsx,\" and the vehicle's plate number is \"XYZ123.\" Could you assist me with that?",
+            "user_prompt": "Hi! I'm trying to validate the insurance status of my vehicle. My username is \"HIGH666,\" my account password is \"aosdvvau8e2dscsx\", and the vehicle's plate number is \"XYZ123.\" Could you assist me with that?",
             "directed_action_graph": {
                 "nodes": [
                     [
