@@ -225,6 +225,7 @@ class Healthcare:
         return True
     
     def reactivate_policy(self, username: str, policy_type: str, coverage_amount: float, annual_income: float) -> bool:
+        if isinstance(annual_income, str): raise TypeError("annual_income must be a number")
         if not self.domain_dep.process(method_str="reactivate_policy", username=username, policy_type=policy_type, coverage_amount=coverage_amount, annual_income = annual_income): return False
         self.accounts[username]["policy"]["details"] = {
             "type": policy_type,
