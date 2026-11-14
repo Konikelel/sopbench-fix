@@ -213,6 +213,7 @@ class OnlineMarket:
         return True, self.products[product_id]
 
     def add_review(self, product_id: str, username: str, rating: int, comment: str) -> bool:
+        if isinstance(rating, str): raise TypeError("rating must be a number")
         if not self.domain_dep.process(method_str="add_review", product_id=product_id, username = username, rating = rating, comment = comment): return False
         review = {
             "username": username,

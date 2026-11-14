@@ -447,6 +447,7 @@ class Hotel:
         self.data["room_checkins"][new_room_id] = self.data["room_checkins"].pop(original_room_id)
         return True, True
     def place_room_service_order(self, guest_name:str, room_id:str, order_type:str, order_items:list, payment_method:str, amount:float=None)->bool|tuple[bool|bool]:
+        if isinstance(amount, str): raise TypeError("amount must be a number")
         if not self.domain_dep.process(method_str="place_room_service_order", guest_name=guest_name, room_id=room_id,
                                    order_type=order_type, order_items=order_items,
                                    payment_method=payment_method, amount=amount):
