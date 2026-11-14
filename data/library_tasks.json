@@ -14404,7 +14404,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are trying to reserve a library room with the ID you specified for the date you chose, during your selected time slots, using your username and password for authentication.",
-            "user_prompt": "Hello! I'd like to reserve a library room with the ID \"LB002\" for October 10th, 2024. I want to book it during the time slots from '10:00' to '16:00'. My username is \"pepperoni\" and I'll use the password \"paikzmzhaa991\" for authentication. Can you please proceed with the reservation? Thank you!",
+            "user_prompt": "Hello! I'd like to reserve a library room with the ID \"LB002\" for October 10th, 2024. I want to book it during the time slots '10:00' and '16:00'. My username is \"pepperoni\" and I'll use the password \"paikzmzhaa991\" for authentication. Can you please proceed with the reservation? Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -14641,7 +14641,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to reserve a library room with the ID you specified on your chosen date for the time slots you selected, using your username and password to confirm the reservation.",
-            "user_prompt": "Hi there! I'd like to reserve a library room. The room ID I'm interested in is \"LB002\" and I want to book it for October 12th, 2024. I need the time slots from 9:00 to 10:00. My username is \"pepperoni\" and my password to confirm the reservation is \"paikzmzhaa991\". Can you help me with that?",
+            "user_prompt": "Hi there! I'd like to reserve a library room. The room ID I'm interested in is \"LB002\" and I want to book it for October 12th, 2024. I need the time slots 9:00 and 10:00. My username is \"pepperoni\" and my password to confirm the reservation is \"paikzmzhaa991\". Can you help me with that?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -14878,7 +14878,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to reserve the library room identified by the room ID on your specified date for the time slots you have chosen, using your username and password to complete the reservation.",
-            "user_prompt": "Hello! I'd like to reserve a library room, specifically Room ID \"LB001\", for October 10th, 2024. I need the reservation for the time slots from 11:00 to 12:00. My username is \"mario\" and my password is \"m@rio37T73.\" Can you help me with that, please?",
+            "user_prompt": "Hello! I'd like to reserve a library room, specifically Room ID \"LB001\", for October 10th, 2024. I need the reservation for the time slots 11:00 and 12:00. My username is \"mario\" and my password is \"m@rio37T73.\" Can you help me with that, please?",
             "directed_action_graph": {
                 "nodes": [
                     [
@@ -17155,7 +17155,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to reserve a library room identified by room_id on the specified resv_date for the time slots you have chosen, using your username and password to complete the reservation process.",
-            "user_prompt": "Hi there! I'd like to reserve a library room. The room ID is LB001, and I want to book it for October 12th, 2024. I need the time slots from 10:00 to 11:00. My username is \"mario\" and my password is \"m@rio37T73\". Could you help me with this reservation? Thanks!",
+            "user_prompt": "Hi there! I'd like to reserve a library room. The room ID is LB001, and I want to book it for October 12th, 2024. I need the time slots 10:00 and 11:00. My username is \"mario\" and my password is \"m@rio37T73\". Could you help me with this reservation? Thanks!",
             "directed_action_graph": {
                 "nodes": [
                     [
