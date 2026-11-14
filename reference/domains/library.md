@@ -12,7 +12,7 @@
 | `credit_balance` | Adds a specified amount to the user's account balance. Returns true or false for successful addition of funds to the user's account balance. | `logged_in_user` |
 | `get_account_balance` | Retrieves the current balance of the user's account. Returns the float account balance or false if retrieval conditions are not met. | `logged_in_user` |
 | `login_user` | Logs in the user to authenticate the user to access their account. Returns true or false for login success or failure. | `None` |
-| `logout_user` | Logs out the user if the user was previously logged in. Returns true always because of successful logout. | `logged_in_user` |
+| `logout_user` | Logs out the user if the user was previously logged in. Returns true for a successful logout, or false if logout conditions are not met. | `logged_in_user` |
 | `pay_late_fee` | Deducts the total late fee from the user's account balance. Returns true or false for successful deduction of late fees from the user's account balance. | `logged_in_user` |
 | `remove_book` | Removes a book from the library database. Returns true or false for successful removal of a book from the library database. | `logged_in_user AND internal_is_admin` |
 | `reserve_room` | Reserves the specified room for the user on the specified date for a list of specified slots. Returns true or false for successful room reservation. | `logged_in_user` |

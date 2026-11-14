@@ -28,7 +28,7 @@
   {
     "function": {
       "name": "logout_user",
-      "description": "Logs out the user by clearing their session information. Returns true always because logout is successful.",
+      "description": "Logs out the user by clearing their session information. Returns true for a successful logout, or false if logout conditions are not met.",
       "strict": true,
       "parameters": {
         "type": "object",

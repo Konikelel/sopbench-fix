@@ -29,8 +29,8 @@ action_descriptions = {
     "login_user": "Authenticates student using university credentials",
     "logout_user": "Terminates student session",
     
-    "enroll_course": "Enrolls student in specified course after checking prerequisites and availability",
-    "drop_course": "Withdraws student from enrolled course before deadline",
+    "enroll_course": "Enrolls student in specified course",
+    "drop_course": "Withdraws student from enrolled course",
     "request_graduation": "Initiates graduation application process",
     "change_major": "Updates student's declared academic program",
     "declare_minor": "Adds secondary academic specialization",
@@ -39,7 +39,7 @@ action_descriptions = {
     # Internal Checks
     "internal_check_username_exists": "Verifies student record existence"\
         + " This is an internal action, only accessible by the assistant.",
-    "internal_check_course_exists": "Validates course availability"\
+    "internal_check_course_exists": "Verifies course existence"\
         + " This is an internal action, only accessible by the assistant.",
     "internal_get_academic_calendar": "Retrieves academic timeline"\
         + " This is an internal action, only accessible by the assistant.",
@@ -77,7 +77,7 @@ action_returns = {
     
     # Internal Checks
     "internal_check_username_exists": "Returns true or false based on student record existence. This is an internal action, only accessible by the assistant.",
-    "internal_check_course_exists": "Returns true or false based on course availability. This is an internal action, only accessible by the assistant.",
+    "internal_check_course_exists": "Returns true or false based on course existence. This is an internal action, only accessible by the assistant.",
     "internal_get_academic_calendar": "Returns academic calendar details. This is an internal action, only accessible by the assistant.",
     "internal_get_course_info": "Returns course metadata including schedule and credits. This is an internal action, only accessible by the assistant.",
     "internal_get_student_info": "Returns student profile including academic and contact details. This is an internal action, only accessible by the assistant.",

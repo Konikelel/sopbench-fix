@@ -49,7 +49,7 @@ ALL of these conditions must be met:
 • ANY ONE of these conditions must be met:
   • The book "book_title" has its restricted status set to **false**.
   • The user "username" must have a 'membership' field that is a date on or after the interaction_time. 
-• The user "username" must have less than 2 books in their "borrowed".
+• The user "username" must have less than 5 books in their "borrowed".
 
 * return_book:
 ALL of these conditions must be met:
@@ -97,7 +97,7 @@ ALL of these conditions must be met:
 • All requested slots "slots" for the specified reservation date "resv_date" in the room "room_id" must be available in the database.
 • ANY ONE of these conditions must be met:
   • The user "username" must have a 'membership' field that is a date on or after the interaction_time. 
-  • The user "username" must have a total number of reserved slots less than or equal to 3, calculated as the sum of their currently reserved slots in 'room_reservation' and the newly requested slots "slots".
+  • The user "username" must have a total number of reserved slots less than or equal to 4, calculated as the sum of their currently reserved slots in 'room_reservation' and the newly requested slots "slots".
 
 ### Internal Verification Functions:
 

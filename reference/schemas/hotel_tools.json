@@ -184,7 +184,7 @@
   {
     "function": {
       "name": "process_guest_checkin",
-      "description": "Processes the check-in of a guest on the day of arrival. Returns the assigneed room id upon successful check-in.",
+      "description": "Processes the check-in of a guest. Returns the assigneed room id upon successful check-in.",
       "strict": true,
       "parameters": {
         "type": "object",

@@ -64,7 +64,7 @@ action_returns = {
     # <function name>: <action return>
     # Root functions
     "login_user": "Returns true or false for login success or failure.",
-    "logout_user": "Returns true always because logout is successful.",
+    "logout_user": "Returns true for a successful logout, or false if logout conditions are not met.",
     # Account functions
     "update_policy": "Returns true or false for successful policy update.",
     
@@ -401,7 +401,7 @@ action_param_descriptions = {
     "identification":       ["The password to their account", "The driver's license of the user"],
     "drivers_license_id":   "The unique ID of the driver's license used for identification.",
     "drivers_license_state":"The state in which the driver's license is registered.",
-    "policy_type":          "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision', 'Inactive').",
+    "policy_type":          "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision').",
     "coverage_amount":      "The coverage amount of the user's healthcare policy, specified in monetary units.",
     "annual_income":        "The annual income of a user.",
     "claim_id":             "The unique identifier for a specific claim submitted under the user's policy.",

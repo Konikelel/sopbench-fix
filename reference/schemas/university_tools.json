@@ -50,7 +50,7 @@
     "function": {
       "name": "enroll_course",
       "strict": true,
-      "description": "Enrolls student in specified course after checking prerequisites and availability Returns true or false based on successful course enrollment.",
+      "description": "Enrolls student in specified course Returns true or false based on successful course enrollment.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -76,7 +76,7 @@
     "function": {
       "name": "drop_course",
       "strict": true,
-      "description": "Withdraws student from enrolled course before deadline Returns true or false based on successful course removal.",
+      "description": "Withdraws student from enrolled course Returns true or false based on successful course removal.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -217,7 +217,7 @@
     "function": {
       "name": "internal_check_course_exists",
       "strict": false,
-      "description": "Validates course availability This is an internal action, only accessible by the assistant. Returns true or false based on course availability. This is an internal action, only accessible by the assistant.",
+      "description": "Verifies course existence This is an internal action, only accessible by the assistant. Returns true or false based on course existence. This is an internal action, only accessible by the assistant.",
       "parameters": {
         "type": "object",
         "properties": {

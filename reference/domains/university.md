@@ -9,8 +9,8 @@
 | `apply_financial_aid` | Submits financial assistance application Returns true or false based on application submission status. | `logged_in_user` |
 | `change_major` | Updates student's declared academic program Returns true or false based on successful major update. | `logged_in_user` |
 | `declare_minor` | Adds secondary academic specialization Returns true or false based on successful minor declaration. | `logged_in_user` |
-| `drop_course` | Withdraws student from enrolled course before deadline Returns true or false based on successful course removal. | `course_enrolled_by_user AND logged_in_user` |
-| `enroll_course` | Enrolls student in specified course after checking prerequisites and availability Returns true or false based on successful course enrollment. | `logged_in_user` |
+| `drop_course` | Withdraws student from enrolled course Returns true or false based on successful course removal. | `course_enrolled_by_user AND logged_in_user` |
+| `enroll_course` | Enrolls student in specified course Returns true or false based on successful course enrollment. | `logged_in_user` |
 | `login_user` | Authenticates student using university credentials Returns true or false for login success or failure. | `None` |
 | `logout_user` | Terminates student session Returns true always because logout is successful. | `None` |
 | `request_graduation` | Initiates graduation application process Returns true or false based on successful graduation. | `logged_in_user` |
@@ -19,7 +19,7 @@
 
 | Function | Description | Constraint composition |
 |---|---|---|
-| `internal_check_course_exists` | Validates course availability This is an internal action, only accessible by the assistant. Returns true or false based on course availability. This is an internal action, only accessible by the assistant. | `None` |
+| `internal_check_course_exists` | Verifies course existence This is an internal action, only accessible by the assistant. Returns true or false based on course existence. This is an internal action, only accessible by the assistant. | `None` |
 | `internal_check_major_exists` | Verifies academic program existence This is an internal action, only accessible by the assistant. Returns true or false based on major program existence. This is an internal action, only accessible by the assistant. | `None` |
 | `internal_check_minor_exists` | Validates minor program availability This is an internal action, only accessible by the assistant. Returns true or false based on minor program availability. This is an internal action, only accessible by the assistant. | `None` |
 | `internal_check_username_exists` | Verifies student record existence This is an internal action, only accessible by the assistant. Returns true or false based on student record existence. This is an internal action, only accessible by the assistant. | `None` |

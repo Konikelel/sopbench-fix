@@ -72,7 +72,7 @@ action_returns = {
     # <function name>: <action return>
     # root functions
     "login_user":                   "Returns true or false for login success or failure.",
-    "logout_user":                  "Returns true always because of successful logout.",
+    "logout_user":                  "Returns true for a successful logout, or false if logout conditions are not met.",
     # account functions
     "authenticate_admin_password":  "Returns true or false for admin password verification.",
     "set_admin_password":           "Returns true or false for successful admin password reset.",

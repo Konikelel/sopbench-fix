@@ -82,7 +82,7 @@ ALL of these conditions must be met:
 ALL of these conditions must be met:
 • The guest "guest_name" must be listed in the room check-in records.
 • If the "payment_method" is not "loyalty_points", then the "amount" must be **greater than or equal to** the cost of "order_items" in the "order_type" category. Otherwise, the guest "guest_name" must have enough loyalty points to cover the total room service cost (10 points per dollar).
-• The guest "guest_name" must have placed **fewer than** 3 room service orders for room "room_id" on the current interaction date.
+• The booking of the guest "guest_name" for room "room_id" must have a "room_service" count **lower than** 3 for the current interaction date.
 • The current interaction time must be between "8:00" and "22:00" on the interaction date.
 
 * register_loyalty_member:

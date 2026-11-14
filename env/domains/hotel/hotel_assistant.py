@@ -31,7 +31,7 @@ action_descriptions = {
     "find_booking_info":                            "Finds the booking information for the guest with the specified date range.",
     "cancel_reservation":                           "Cancels a confirmed reservation for the guest for the specified date range.",
     "modify_reservation":                           "Modifies the guest's existing reservation to new dates and room type.",
-    "process_guest_checkin":                        "Processes the check-in of a guest on the day of arrival.",
+    "process_guest_checkin":                        "Processes the check-in of a guest.",
     "process_guest_checkout":                       "Processes the checkout of a guest and applies loyalty rewards if eligible.",
     "request_room_change":                          "Processes a room change request by the guest during their stay given a valid reason and payment.",
     "place_room_service_order":                     "Places a new room service order for the guest.",
@@ -256,7 +256,7 @@ positive_constraint_descriptions = {
     "sufficient_amount_for_room_change_fee":                "The checked-in guest \"{guest_name}\" must provide an amount \"{amount}\" that is **greater than or equal to** the additional fee for changing from the original room type to \"{room_type}\""
                                                             + " for the remaining nights between the current interaction date and the \"check_out_date\" in their reservation.",
     "within_max_room_changes":                              "The number of room changes for the guest \"{guest_name}\" must be **less than** {max_room_changes}.",
-    "within_room_service_order_daily_limit":                "The guest \"{guest_name}\" must have placed **fewer than** {max_room_service_orders_per_day} room service orders for room \"{room_id}\" on the current interaction date.",
+    "within_room_service_order_daily_limit":                "The booking of the guest \"{guest_name}\" for room \"{room_id}\" must have a \"room_service\" count **lower than** {max_room_service_orders_per_day} for the current interaction date.",
     "within_room_service_hours":                            "The current interaction time must be between \"{room_service_start}\" and \"{room_service_end}\" on the interaction date.",
     "payment_with_loyalty_points":                          "The \"{payment_method}\" must be set to \"loyalty_points\".",
     "sufficient_payment_for_room_service":                  "If the \"{payment_method}\" is not \"loyalty_points\", then the \"{amount}\" must be **greater than or equal to** the cost of \"{order_items}\" in the \"{order_type}\" category."\
@@ -297,7 +297,7 @@ negative_constraint_descriptions = {
     "sufficient_amount_for_room_change_fee":                "The checked-in guest \"{guest_name}\" must provide an amount \"{amount}\" that is *less than** the additional fee for changing from the original room type to \"{room_type}\""
                                                             + " for the remaining nights between the current interaction date and the \"check_out_date\" in their reservation.",
     "within_max_room_changes":                              "The number of room changes for the checked-in guest \"{guest_name}\" must be **greater than or equal to** {max_room_changes}.",
-    "within_room_service_order_daily_limit":                "The guest \"{guest_name}\" must have already placed **{max_room_service_orders_per_day} or more** room service orders for room \"{room_id}\" on the current interaction date.",
+    "within_room_service_order_daily_limit":                "The booking of the guest \"{guest_name}\" for room \"{room_id}\" must have a \"room_service\" count of **{max_room_service_orders_per_day} or more** for the current interaction date.",
     "within_room_service_hours":                            "The current interaction time must be **before** \"{room_service_start}\" or **after** \"{room_service_end}\" on the interaction date.",
     "payment_with_loyalty_points":                          "The \"{payment_method}\" **must not** be set to \"loyalty_points\".",
     "sufficient_payment_for_room_service":                  "If the \"{payment_method}\" is not \"loyalty_points\", then the \"{amount}\" must be **less than** the cost of \"{order_items}\" in the \"{order_type}\" category."\

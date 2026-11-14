@@ -54,9 +54,9 @@ action_descriptions = {
     "get_credit_card_info":         "Gets the information of a specific credit card."\
         + "This includes credit limit and credit balance on the card.",
     "cancel_credit_card":           "Cancels a credit card that a user has.",
-    "get_bank_maximum_loan_amount": "Shows the maximum amount of money the bank can loan to any individual at this moment."\
-        + " The maximum is half of the total amount of cash at the bank given in bank_total_cash."\
-        + " If bank_total_cash is not given, it is 0.",
+    "get_bank_maximum_loan_amount": "Shows half of the total amount of cash at the bank given in bank_total_cash."\
+        + " If bank_total_cash is not given, it is 0."\
+        + " This amount does not limit get_loan.",
     # internal functions
     "internal_get_database":        "Shows the full database of the entire bank, every profile and every detail."\
         + " This is an internal action, only the assistant should see the information from these function calls.",
@@ -77,7 +77,7 @@ action_returns = {
     # <function name>: <action return>
     # root functions
     "login_user":                   "Returns true or false for login success or failure.",
-    "logout_user":                  "Returns true always because of successful logout.",
+    "logout_user":                  "Returns true for a successful logout, or false if logout conditions are not met.",
     # account functions
     "open_account":                 "Returns true or false for successful account creation.",
     "authenticate_admin_password":  "Returns true or false for admin password verification.",
@@ -100,7 +100,7 @@ action_returns = {
     "set_safety_box":               "Returns true or false for successful safety box reset.",
     "get_credit_cards":             "Returns a list of credit cards the user has.",
     "get_credit_card_info":         "Returns a dictionary of information of a credit card, including credit limit and credit balance.",
-    "get_bank_maximum_loan_amount": "Returns the maximum amount of money the bank can loan at this moment.",
+    "get_bank_maximum_loan_amount": "Returns half of bank_total_cash, or 0 if it is not given.",
     
     # internal functions
     "internal_get_database":        "Returns the json of the entire database.",
@@ -457,7 +457,7 @@ action_param_descriptions = {
     "check_name":           "the owner name of the account the check is written from",
     "check_routing_number": "the routing number of the account the check is made out from",
     "bill_description":     "The description of the what bill is being paid.",
-    "total_assets":         "The applicant's total assets. This determines the eligibility for the credit card",
+    "total_assets":         "The applicant's total assets.",
     "monthly_income":       "The applicant's monthly income. This determines the spending limit for this credit card.",
     "foreign_currency_type":"The foreign currency type the customer wants to change to.",
     "loan_amount":          "Amount of money the user wants to loan.",

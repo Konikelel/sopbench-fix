@@ -13,7 +13,7 @@
 | `get_dl_status` | Retrieves the status of the user's driver's license. Returns the expiration date of the user's driver's license or false if retrieval conditions are not met. | `internal_has_dl` |
 | `get_reg_status` | Gets the registration status of a specific vehicle. Returns the registration renewal date for the specified vehicle or false if retrieval conditions are not met. | `internal_has_vehicle` |
 | `login_user` | Logs in the user to authenticate the user to access their account. Returns true or false for login success or failure. | `None` |
-| `logout_user` | Logs out the user if the user was previously logged in. Returns true always because of successful logout. | `logged_in_user` |
+| `logout_user` | Logs out the user if the user was previously logged in. Returns true for a successful logout, or false if logout conditions are not met. | `logged_in_user` |
 | `register_vehicle` | Registers the vehicle with the specfied plate number to the user. Returns true or false for successful vehicle registration. | `logged_in_user AND not internal_vehicle_registered` |
 | `renew_dl` | Renews the user's driver's license. Returns the new expiration date of the driver's license or false if the renewal condtions are not met. | `internal_has_dl` |
 | `renew_vehicle` | Renews the registration of the specified vehicle. Returns the vehicles's new renewal date or false if renewal conditions are not met. | `internal_has_vehicle` |

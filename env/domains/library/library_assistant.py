@@ -71,7 +71,7 @@ action_returns = {
     # <function name>: <action return>
     # root functions
     "login_user":                   "Returns true or false for login success or failure.",
-    "logout_user":                  "Returns true always because of successful logout.",
+    "logout_user":                  "Returns true for a successful logout, or false if logout conditions are not met.",
     # domain functions
     "show_available_book":          "Returns a list of books available for borrowing.",
     "borrow_book":                  "Returns true or false for successful book borrowing.",

@@ -52,7 +52,7 @@
     "function": {
       "name": "logout_user",
       "strict": true,
-      "description": "Logs out the user by forgetting all user-said information. Returns true always because logout is successful.",
+      "description": "Logs out the user by forgetting all user-said information. Returns true for a successful logout, or false if logout conditions are not met.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -83,7 +83,7 @@
           },
           "policy_type": {
             "type": "string",
-            "description": "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision', 'Inactive')."
+            "description": "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision')."
           },
           "coverage_amount": {
             "type": "number",
@@ -291,7 +291,7 @@
           },
           "policy_type": {
             "type": "string",
-            "description": "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision', 'Inactive')."
+            "description": "The type of healthcare policy (e.g., 'Health', 'Dental', 'Pharmacy', 'Vision')."
           },
           "coverage_amount": {
             "type": "number",
