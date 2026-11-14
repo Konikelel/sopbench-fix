@@ -96,7 +96,7 @@ ALL of these conditions must be met:
 • ANY ONE of these conditions must be met:
   • ALL of these conditions must be met:
     • The interaction time falls within the allowable exchange period for the order with ID "order_id". The exchange period ends 365 days after the order placed date, that moment included, and has no lower bound, so an interaction time before the order placed date also falls within it. The order placed date is taken at 00:00:00 and compared with the interaction time as date-time values.
-    • The order with order ID "order_id" **MUST HAVE** a number_of_exchanges **LESS THAN** the maximum exchange times of 2 to perform this action.
+    • The order with order ID "order_id" **MUST HAVE** a number_of_exchanges **LESS THAN** the maximum exchange times of 3 to perform this action.
   • The user "username" **MUST HAVE** a credit status of 'excellent' to perform this action.
 
 * use_coupon:
