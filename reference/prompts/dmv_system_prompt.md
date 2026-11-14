@@ -105,11 +105,11 @@ ALL of these conditions must be met:
 • The specified "schedule_time" exists in the "test_type" of test_slots.
 • ANY ONE of these conditions must be met:
   • ALL of these conditions must be met:
-  • The input test type "test_type" must be 'drive'.
-  • The user with "username" must have passed the knowledge test and must have a status of "not scheduled" in "drive" of their tests.
+    • The input test type "test_type" must be 'drive'.
+    • The user with "username" must have passed the knowledge test and must have a status of "not scheduled" in "drive" of their tests.
   • ALL of these conditions must be met:
-  • The input test type "test_type" **must not** be 'drive'.
-  • The user with "username" **must not have passed** the knowledge test **or** must have a status **different from** "not scheduled" in "drive" of their tests.
+    • The input test type "test_type" **must not** be 'drive'.
+    • The user with "username" **must not have passed** the knowledge test **or** must have a status **different from** "not scheduled" in "drive" of their tests.
 • The user with "username" must be at least the minimum age of 16. The age should be determined as per interaction_time.
 • The user with "username" has an "attempts" of less than 3 their "test_type" of tests.
 

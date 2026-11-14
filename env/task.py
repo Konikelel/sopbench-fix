@@ -61,12 +61,7 @@ def dfsget_depverb_structured(domain_str:str, dep:tuple, dep_params:dict, indent
         # Add bullet or number
         if dep[0] == "chain": first_line = f"{indent}{i}. {part_lines[0]}"
         else: first_line = f"{indent}• {part_lines[0]}"
-        # For multiline content
-        if len(part_lines) > 1:
-            rest_lines = []
-            for line in part_lines[1:]: rest_lines.append(f"{indent}  {line.strip()}")
-            parts.append('\n'.join([first_line] + rest_lines))
-        else: parts.append(first_line)
+        parts.append('\n'.join([first_line] + part_lines[1:]))
     return '\n'.join(parts)
 
 # receives the dfs results, formats it into a string
