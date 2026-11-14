@@ -104,7 +104,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -468,7 +468,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -832,7 +832,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -1196,7 +1196,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -1561,7 +1561,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -1926,7 +1926,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -2291,7 +2291,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -2657,7 +2657,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -3030,7 +3030,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -3403,7 +3403,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -3776,7 +3776,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -4149,7 +4149,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -4538,7 +4538,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -4947,7 +4947,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -5396,7 +5396,7 @@
                         "prerequisites": [
                             "ART100"
                         ],
-                        "max_overlap": 2,
+                        "max_overlap": 1,
                         "incompatible_majors": []
                     }
                 },
@@ -5821,7 +5821,7 @@
                         "prerequisites": [
                             "ART100"
                         ],
-                        "max_overlap": 2,
+                        "max_overlap": 1,
                         "incompatible_majors": []
                     }
                 },
@@ -6193,7 +6193,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -6221,7 +6221,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 3,
+                        "max_overlap": 2,
                         "incompatible_majors": []
                     }
                 },
@@ -6642,7 +6642,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -7027,7 +7027,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -7446,7 +7446,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -7833,7 +7833,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -8131,7 +8131,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -8447,7 +8447,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -8763,7 +8763,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -9082,7 +9082,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -9496,7 +9496,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -9911,7 +9911,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -10326,7 +10326,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -10741,7 +10741,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -11156,7 +11156,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -11590,7 +11590,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -12006,7 +12006,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -12421,7 +12421,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -12851,7 +12851,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -13444,7 +13444,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -13851,7 +13851,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -14271,7 +14271,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -14847,7 +14847,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -15420,7 +15420,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -15996,7 +15996,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -16567,7 +16567,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
@@ -17140,7 +17140,7 @@
                         "prerequisites": [
                             "MATH100"
                         ],
-                        "max_overlap": 1,
+                        "max_overlap": 2,
                         "incompatible_majors": [
                             "Music"
                         ]
