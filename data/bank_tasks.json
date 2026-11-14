@@ -6779,7 +6779,7 @@
             ],
             "action_should_succeed": true,
             "user_instruction": "You are trying to retrieve the owed balance of your bank account by using your username and either your account password or your driver's license for identification.",
-            "user_prompt": "Hi! I'd like to retrieve the owed balance of my bank account. My username is john_doe, and I can use my account password for identification, which is \"padoesshnwojord.\" Can you help me with that, please?",
+            "user_prompt": "Hi! I'd like to retrieve the owed balance of my bank account. My username is john_doe, and I can use my account password for identification, which is \"padoesshnwojord\". Can you help me with that, please?",
             "directed_action_graph": {
                 "nodes": [
                     [

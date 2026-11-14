@@ -4075,7 +4075,7 @@
             ],
             "action_should_succeed": false,
             "user_instruction": "You are trying to submit a review for a specific product identified by its product_id, including a rating and an optional comment, by using your username and password to update the product's average rating and determine if the review was successfully added.",
-            "user_prompt": "Hello! I'd like to submit a review for a specific product. The product ID is \"Smartphone.\" My username is \"alice,\" and my password is \"sadfnjskdanfksadjnfl.\" I would like to give a rating of \"4\" and include a comment: \"Great value for the price!\" Could you please help me with this and let me know if the review was successfully added? Also, I'd like to update the product's average rating. Thank you!",
+            "user_prompt": "Hello! I'd like to submit a review for a specific product. The product ID is \"Smartphone.\" My username is \"alice,\" and my password is \"sadfnjskdanfksadjnfl\". I would like to give a rating of \"4\" and include a comment: \"Great value for the price!\" Could you please help me with this and let me know if the review was successfully added? Also, I'd like to update the product's average rating. Thank you!",
             "directed_action_graph": {
                 "nodes": [
                     [
